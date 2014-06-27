@@ -1,0 +1,14 @@
+<html ng-app="myApp">
+<head>
+	<title>Angular Audio Player Project</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+	<div ng-controller="MyController">{{person.name}}</div>
+	<div ng-controller="PlayerController">
+		<button ng-click="play()" class="button" ng-show="!playing">Play</button>
+		<button ng-click="stop()" class="button alert" ng-show="playing">Pause</button>	
+	</div>
+</body>
+</html>
