@@ -1,14 +1,22 @@
 <html ng-app="myApp">
 <head>
 	<title>Angular Audio Player Project</title>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-	<div ng-controller="MyController">{{person.name}}</div>
+	<div ng-controller="MyController">
+		<input type="text" ng-model="person.name" placeholder="Enter Your Name">
+		<h1>Hello {{clock}}</h1>
+	</div>
 	<div ng-controller="PlayerController">
-		<button ng-click="play()" class="button" ng-show="!playing">Play</button>
-		<button ng-click="stop()" class="button alert" ng-show="playing">Pause</button>	
+		<ul id="programs_list">
+			<li ng-repeat="program in programs" ng-click="play(program)">
+				<span class="large-12">{{program.title.$text}}</span>
+				<button ng-click="play(program)" class="button" ng-show="!playing">Play</button>
+				<button ng-click="stop(program)" class="button alert" ng-show="playing">Pause</button>
+			</li>
+		</ul>
 	</div>
 </body>
 </html>
