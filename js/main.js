@@ -8,13 +8,6 @@ app.run(['$rootScope', function ($rootScope) {
 
 app.controller('MyController', function($scope){
 	$scope.person = { name: "Pedro Cunha" };
-	var updateClock = function() {
-		$scope.clock = new Date();
-	};
-	var timer = setInterval(function(){
-		$scope.$apply(updateClock);
-	}, 1000);
-	updateClock();
 });	
 
 app.controller('PlayerController', function ($scope, $http) {
@@ -37,8 +30,8 @@ app.controller('PlayerController', function ($scope, $http) {
 	$scope.play = function(program) {
 	  if ($scope.playing) $scope.audio.pause();
 	  var url = program.audio[0].format.mp4.$text;
-	  audio.src = url;
-	  audio.play();
+	  $scope.audio.src = url;
+	  $scope.audio.play();
 	  // Store the state of the player as playing
 	  $scope.playing = true;
 	}
