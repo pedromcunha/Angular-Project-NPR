@@ -5,16 +5,17 @@
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-	<div ng-controller="MyController">
-		<input type="text" ng-model="person.name" placeholder="Enter Your Name">
-	</div>
-	<div ng-controller="PlayerController">
-		<ul id="programs_list">
-			<li ng-repeat="program in programs">
-				<span class="large-12">{{program.title.$text}}</span>
-				<button ng-click="play(program)" class="button" ng-show="!playing">Play</button>
-				<button ng-click="stop(program)" class="button alert" ng-show="playing">Pause</button>
+	<div ng-controller="SearchController">
+		<ul id="programs_list">				
+			<input class="searchText" ng-model="searchText" name="searchText" type="text" ng-enter="submitSearch()" placeholder="Enter Trailer Name">
+ 			<button ng-click="submitSearch()" class="button" ng-show="!playing">Search</button>
+     		<li ng-repeat="program in programs">
+ 				<iframe class="youtube-player" type="text/html" width="640" height="385" src={{program}} allowfullscreen frameborder="0">
+				</iframe>
 			</li>
+		</ul>
+		<ul class="genre-list">
+			<li ng-repeat="genre in genres | orderBy: 'name'" ng-click="submitSearch(genre.name)" id={{genre.id}}>{{genre.name}}</li>
 		</ul>
 	</div>
 </body>

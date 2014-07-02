@@ -1,46 +1,64 @@
 var app = angular.module('myApp', []); //creates a new module called myApp
-var apiKey = 'MDE1MDg5NDU4MDE0MDQwNzEzMTg5NDlkZQ001';
-var nprUrl = nprUrl = 'http://api.npr.org/query?id=61&fields=relatedLink,title,byline,text,audio,image,pullQuote,all&output=JSON';
-
+var apiKey = 'AIzaSyDYhqH1guvlxxocuttrwxE2kkvYefu0cqo';
+var searchInput;
 app.run(['$rootScope', function ($rootScope) {
-	$rootScope.name = "Pedro Cunha";
+	$rootScope.genres = [
+	{name: "horror", id: 10}, 
+	{name: "sci-fi", id: 13}, 
+	{name: "drama", id: 6}, 
+	{name: "comedy", id: 4}, 
+	{name: "thriller"}, 
+	{name: "documentary"}, 
+	{name: "animation", id: 2}, 
+	{name: "action", id: 1}, 
+	{name: "romance", id: 12},
+	{name: "crime", id: 5},
+	{name: "family", id: 8},
+	{name: "sports", id: 15},
+	{name: "adventure", id: 1},
+	{name: "fantasy"},
+	{name: "history"},
+	{name: "mystery", id: 11},
+	{name: "musical"},
+	{name: "western"}
+	];
 }]);
 
-app.controller('MyController', function($scope){
-	$scope.person = { name: "Pedro Cunha" };
-});	
+app.controller('SearchController', function ($scope, $http) {//controller for the query
+app.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+                event.preventDefault();
+            }
+        });
+    };
+});
 
-app.controller('PlayerController', function ($scope, $http) {
-	$scope.playing = false;
-	$scope.audio = document.createElement('audio'); //Creates an HTML element
-	$scope.audio.src = 'assets/npr.mp3';
-	$scope.audio.addEventListener('ended', function() {
-		$scope.$apply(function(){
-			$scope.stop()
-		});
-	});
+	$scope.submitSearch = function(genre) {//api call for the query
+	  var queryText = $scope.searchText;
+	  if (genre == undefined) {
+	  	var genre = $scope.searchText;
+	  	var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+queryText.split(' ').join('+')+'+trailer&v=2&max-results=5&hd=true&alt=json&category=Trailer&callback=JSON_CALLBACK';
+	  }
+	  else {
+	 	var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+genre.split(' ').join('+')+'+trailer&v=2&max-results=5&hd=true&alt=json&category=Trailer&callback=JSON_CALLBACK';
+	  }
 	$http({
 		method: 'JSONP',
-		url: nprUrl + '&apiKey=' + apiKey + '&callback=JSON_CALLBACK'
+		url: searchUrl
 	}).success(function(data, status){
-		$scope.programs = data.list.story;
+		var videosSrc = [];
+		for (var i = 0; i < data.feed.entry.length; i++) {
+			videosSrc.push(data.feed.entry[i].content.src);
+			}
+	$scope.programs = videosSrc;//cleans up the array
 	}).error(function(data, status){
 		console.log('err');
 	});
-	$scope.play = function(program) {
-	  if ($scope.playing) $scope.audio.pause();
-	  var url = program.audio[0].format.mp4.$text;
-	  $scope.audio.src = url;
-	  $scope.audio.play();
-	  // Store the state of the player as playing
-	  $scope.playing = true;
-	}
-	$scope.stop = function() {
-		$scope.audio.pause();
-		$scope.playing = false;
 	}
 });
-app.controller('RelatedController', ['$scope', function ($scope) {
-
-}]);
 				
