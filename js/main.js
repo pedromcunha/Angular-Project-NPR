@@ -1,7 +1,7 @@
 var app = angular.module('myApp', []); //creates a new module called myApp
 var apiKey = 'AIzaSyDYhqH1guvlxxocuttrwxE2kkvYefu0cqo';
 var searchInput;
-app.run(['$rootScope', function ($rootScope) {
+app.run(['$rootScope', function ($rootScope) {//genre hash/object
 	$rootScope.genres = [
 	{name: "horror", id: 10}, 
 	{name: "sci-fi", id: 13}, 
