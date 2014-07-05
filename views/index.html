@@ -1,14 +1,16 @@
 <html ng-app="myApp">
 <head>
 	<title>MovTeeFive</title>
+<link rel="stylesheet" type="text/css" href="../styles/css/main.css">
 <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="../scripts/app.js"></script>
 <script type="text/javascript" src="../scripts/directives/appDirectives.js"></script>
-<script type="text/javascript" src="../scripts/services/models/appModels.js"></script>
 <script type="text/javascript" src="../scripts/controllers/appControllers.js"></script>
+<script type="text/javascript" src="../scripts/filters/appFilters.js"></script>
 </head>
 <body>
 	<div ng-controller="SearchController">
+		<h1 class="first-logo">Mov</h1><h1>TeeFive</h1>
 		<ul id="programs_list">		
 		<form ng-submit="submitSearch()">		
 			<input class="searchText" ng-model="searchText" name="searchText" type="text" placeholder="Enter Trailer Name">
@@ -19,8 +21,8 @@
 				</iframe>
 			</li>
 		</ul>
-		<ul class="genre-list">
-			<li ng-repeat="genre in genres | orderBy: 'name'" ng-click="submitSearch(genre.name, genre.id)" id={{genre.id}}>{{genre.name}}</li>
+		<ul ng-controller="genreController" class="genre-list">
+			<li class="cur-pointer" ng-repeat="genre in genres | orderBy: 'name'" ng-click="submitSearch(genre.name, genre.id); select(genre)" ng-class="genreClass(genre)" id={{genre.id}}>{{genre.name | capitalize}}</li>
 		</ul>
 	</div>
 </body>
