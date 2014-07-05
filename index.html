@@ -1,18 +1,18 @@
 <html ng-app="myApp">
 <head>
 	<title>Angular Audio Player Project</title>
-	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 	<div ng-controller="SearchController">
 		<ul id="programs_list">		
 		<form ng-submit="submitSearch()">		
-			<input class="searchText" ng-model="searchText" name="searchText" type="text" ng-enter="submitSearch()" placeholder="Enter Trailer Name">
+			<input class="searchText" ng-model="searchText" name="searchText" type="text" placeholder="Enter Trailer Name">
  			<button ng-click="submitSearch()" class="button" ng-show="!playing">Search</button>
  		</form>
      		<li ng-repeat="program in programs">
- 				<iframe class="youtube-player" type="text/html" width="640" height="385" src={{program}} allowfullscreen frameborder="0">
+ 				<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src={{program}} allowfullscreen frameborder="0">
 				</iframe>
 			</li>
 		</ul>

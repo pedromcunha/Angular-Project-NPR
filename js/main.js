@@ -24,19 +24,19 @@ app.run(['$rootScope', function ($rootScope) {//genre hash/object
 	];
 }]);
 
-app.controller('SearchController', function ($scope, $http) {//controller for the query
-app.directive('ngEnter', function () {
-    return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if(event.which === 13) {
-                scope.$apply(function (){
-                    scope.$eval(attrs.ngEnter);
-                });
-                event.preventDefault();
-            }
-        });
-    };
-});
+app.controller('SearchController', function ($scope, $http, $sce) {//controller for the query
+// app.directive('ngEnter', function () {//enter directive
+//     return function (scope, element, attrs) {
+//         element.bind("keydown keypress", function (event) {
+//             if(event.which === 13) {
+//                 scope.$apply(function (){
+//                     scope.$eval(attrs.ngEnter);
+//                 });
+//                 event.preventDefault();
+//             }
+//         });
+//     };
+// });
 	$scope.submitSearch = function(genre, id) {//api call for the query/genre
 	  var queryText = $scope.searchText;
 	  if (genre == undefined) {
@@ -51,10 +51,11 @@ app.directive('ngEnter', function () {
 		url: searchUrl
 	}).success(function(data, status){
 		var videosSrc = [];
-		for (var i = 0; i < data.feed.entry.length; i++) {
-			videosSrc.push(data.feed.entry[i].content.src);
-			}
-	$scope.programs = videosSrc;//cleans up the array
+		for (var i = 0; i < data.feed.entry.length; i++) {//cleans up the array
+
+			videosSrc.push($sce.trustAsResourceUrl(data.feed.entry[i].content.src));
+		}
+	$scope.programs = videosSrc;
 	}).error(function(data, status){
 		console.log('err');
 	});
