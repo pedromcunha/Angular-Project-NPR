@@ -1,0 +1,24 @@
+{
+  "name": "MovTeeFive",
+  "version": "0.0.0",
+  "description": "Get trailers easily with this web app.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pedromcunha/MovTeeFive"
+  },
+  "keywords": [
+    "Movie",
+    "Trailers",
+    "Youtube"
+  ],
+  "author": "Pedro M Cunha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedromcunha/MovTeeFive/issues"
+  },
+  "homepage": "https://github.com/pedromcunha/MovTeeFive"
+}
