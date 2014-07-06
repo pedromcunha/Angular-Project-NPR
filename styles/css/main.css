@@ -73,6 +73,7 @@ html {
 /* line 18, ../scss/main.scss */
 html body {
   width: 1000px;
+  margin: 0 auto;
 }
 
 @font-face {
@@ -80,7 +81,12 @@ html body {
   src: url(../assets/fonts/constantine/Constantine.ttf);
 }
 
-/* line 27, ../scss/main.scss */
+@font-face {
+  font-family: 'FiraSansBook';
+  src: url(../assets/fonts/FiraSans/FiraSans-Book.otf);
+}
+
+/* line 32, ../scss/main.scss */
 .button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -99,40 +105,49 @@ html body {
   border: 1px solid #fff1f0;
   color: #940700;
   font-size: 16px;
+  font-family: 'Constantine';
 }
 
-/* line 38, ../scss/main.scss */
+/* line 44, ../scss/main.scss */
 .cur-pointer {
   cursor: pointer;
 }
 
-/* line 41, ../scss/main.scss */
+/* line 47, ../scss/main.scss */
 input:focus, button:focus {
   outline: none;
 }
 
-/* line 47, ../scss/main.scss */
+/* line 54, ../scss/main.scss */
 .ng-scope h1 {
   font-size: 50px;
   font-family: 'Constantine';
   float: left;
   z-index: 1000;
 }
-/* line 53, ../scss/main.scss */
+/* line 60, ../scss/main.scss */
+.ng-scope .no-vids-error {
+  margin: 150px 0px 0px 118px;
+  font-size: 25px;
+  font-family: 'Constantine';
+  width: 86%;
+  text-align: center;
+}
+/* line 67, ../scss/main.scss */
 .ng-scope .first-logo {
   color: #940700;
 }
-/* line 56, ../scss/main.scss */
+/* line 70, ../scss/main.scss */
 .ng-scope #programs_list {
   height: 50px;
   padding-right: 158px;
   text-align: right;
 }
-/* line 60, ../scss/main.scss */
+/* line 74, ../scss/main.scss */
 .ng-scope #programs_list form {
   line-height: 50px;
 }
-/* line 62, ../scss/main.scss */
+/* line 76, ../scss/main.scss */
 .ng-scope #programs_list form .searchText {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -150,9 +165,10 @@ input:focus, button:focus {
   padding-left: 20px;
   font-size: 16px;
   color: #940700;
+  font-family: 'FiraSansBook';
   border: none;
 }
-/* line 75, ../scss/main.scss */
+/* line 90, ../scss/main.scss */
 .ng-scope .genre-list {
   width: 118px;
   height: 100%;
@@ -169,7 +185,7 @@ input:focus, button:focus {
   box-shadow: 1px 2px 3px black;
   z-index: 1;
 }
-/* line 84, ../scss/main.scss */
+/* line 99, ../scss/main.scss */
 .ng-scope .genre-list li {
   width: 118px;
   height: 33px;
@@ -177,8 +193,9 @@ input:focus, button:focus {
   float: right;
   text-align: center;
   line-height: 32px;
+  font-family: 'FiraSansBook';
 }
-/* line 92, ../scss/main.scss */
+/* line 108, ../scss/main.scss */
 .ng-scope .genre-list li.active {
   color: #ff0d00;
 }

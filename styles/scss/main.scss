@@ -17,12 +17,17 @@ html {
 
 	body {
 		width: 1000px;
+		margin: 0 auto;
 	}
 }
 //Global Styles
 @font-face {
 	font-family: 'Constantine';
 	src: url(../assets/fonts/constantine/Constantine.ttf);
+}
+@font-face {
+	font-family: 'FiraSansBook';
+	src: url(../assets/fonts/FiraSans/FiraSans-Book.otf);
 }
 .button {
 		@include appearance(none);
@@ -34,6 +39,7 @@ html {
 		border: 1px solid $white;
 		color: $darkRed;
 		font-size: 16px;
+		font-family: 'Constantine';
 		}
 .cur-pointer {
 	cursor: pointer;
@@ -44,11 +50,19 @@ input:focus, button:focus {
 
 //Begin Page Specific Styles
 .ng-scope {
+
 	h1 {
 		font-size: 50px;
 		font-family: 'Constantine';
 		float: left;
 		z-index: 1000;
+	}
+	.no-vids-error {
+		margin: 150px 0px 0px 118px;
+		font-size: 25px;
+		font-family: 'Constantine';
+		width: 86%;
+		text-align: center;
 	}
 	.first-logo {
 		color: $darkRed;
@@ -68,6 +82,7 @@ input:focus, button:focus {
 				padding-left: 20px;
 				font-size: 16px;
 				color: $darkRed;
+				font-family: 'FiraSansBook';
 				border: none;
 			}
 		}
@@ -88,6 +103,7 @@ input:focus, button:focus {
 			float: right;
 			text-align: center;
 			line-height: 32px;
+			font-family: 'FiraSansBook';
 		}
 		li.active {
 			color: $red;

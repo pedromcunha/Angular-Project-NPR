@@ -4,21 +4,29 @@ angular.module('appControllerModule', [])
 		  var queryText = $scope.searchText;
 		  if (genre == undefined) {
 		  	var genre = $scope.searchText;
-		  	var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+queryText.split(' ').join('+')+'+trailer/MOVIE-TITLE&v=2&max-results=5&hd=true&alt=json&category=Trailer&callback=JSON_CALLBACK';
+		  	var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+queryText.split(' ').join('+')+'+trailer&v=2&max-results=5&alt=json&category=Trailer&callback=JSON_CALLBACK';
 		  }
 		  else {
-		  		var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+genre.split(' ').join('+')+'+trailer+/MOVIE-GENRE&v=2&orderby=viewCount&max-results=5&hd=true&alt=json&category='+genre.split(' ').join('+')+'&callback=JSON_CALLBACK';
+		  		var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+genre.split(' ').join('+')+'+trailer&v=2&orderby=viewCount&max-results=5&hd=true&alt=json&category='+genre.split(' ').join('+')+'&callback=JSON_CALLBACK';
 		  }
 		$http({
 			method: 'JSONP',
 			url: searchUrl
 		}).success(function(data, status){
-			var videosSrc = [];
-			for (var i = 0; i < data.feed.entry.length; i++) {//cleans up the array
-
-				videosSrc.push($sce.trustAsResourceUrl(data.feed.entry[i].content.src));
+			if(data.feed.entry != undefined) {
+				var videoFeed = data.feed.entry.length;
+				var videosSrc = []; 
+				for (var i = 0; i < videoFeed; i++) {//cleans up the array
+					videosSrc.push($sce.trustAsResourceUrl(data.feed.entry[i].content.src));
+				}
+				$scope.programs = videosSrc;
+				$scope.noVids = false;
 			}
-		$scope.programs = videosSrc;
+			else {
+				console.log('not a feed');
+				$scope.noVids = true;
+				$scope.programs = '';
+			}
 		}).error(function(data, status){
 			console.log('err');
 		});
