@@ -1,0 +1,30 @@
+<html ng-app="myApp">
+<head>
+	<title>MovTeeFive</title>
+<link rel="stylesheet" type="text/css" href="../styles/css/main.css">
+<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="../scripts/app.js"></script>
+<script type="text/javascript" src="../scripts/directives/appDirectives.js"></script>
+<script type="text/javascript" src="../scripts/controllers/appControllers.js"></script>
+<script type="text/javascript" src="../scripts/filters/appFilters.js"></script>
+</head>
+<body>
+	<div ng-controller="SearchController">
+		<h1 class="first-logo">Mov</h1><h1>TeeFive</h1>
+		<ul id="programs_list">		
+		<form>		
+			<input class="searchText" ng-enter="submitSearch()" ng-model="searchText" name="searchText" type="text" placeholder="Enter Trailer Name">
+ 			<button ng-click="submitSearch()" class="button" ng-show="!playing">Search</button>
+ 		</form>
+ 		<h2 class="no-vids-error" ng-show="noVids">No videos found</h2>
+     		<li ng-repeat="program in programs">
+ 				<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src={{program}} frameborder="0" allowfullscreen>
+				</iframe>
+			</li>
+		</ul>
+		<ul ng-controller="genreController" class="genre-list">
+			<li class="cur-pointer" ng-repeat="genre in genres | orderBy: 'name'" ng-click="submitSearch(genre.name, genre.id); select(genre)" ng-class="genreClass(genre)" id={{genre.id}}>{{genre.name | capitalize}}</li>
+		</ul>
+	</div>
+</body>
+</html>
