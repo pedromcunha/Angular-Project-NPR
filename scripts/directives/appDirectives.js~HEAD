@@ -1,5 +1,5 @@
-angular.module('appDirectiveModule', [])
-    .directive('ngEnter', function () {//directive for enter key
+var directiveModule = angular.module('appDirectiveModule', []);
+    directiveModule.directive('ngEnter', function () {//directive for enter key
         return function (scope, element, attrs) {
             element.bind("keydown keypress", function (event) {
                 if(event.which === 13) {
