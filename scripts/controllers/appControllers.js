@@ -1,38 +1,37 @@
-angular.module('appControllerModule', [])
-	.controller('SearchController', function ($scope, $http, $sce) {//controller for the search query
+var controllerModule = angular.module('appControllerModule', []);
+	controllerModule.controller('SearchController', function ($scope, $http, $sce) {//controller for the search query
 		$scope.submitSearch = function(genre, id) {//api call for the query/genre
 		  var queryText = $scope.searchText;
-		  if (genre == undefined) {
-		  	var genre = $scope.searchText;
-		  	var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+queryText.split(' ').join('+')+'+trailer&v=2&max-results=5&alt=json&category=Trailer&callback=JSON_CALLBACK';
-		  }
-		  else {
-		  		var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+genre.split(' ').join('+')+'+trailer&v=2&orderby=viewCount&max-results=5&hd=true&alt=json&category='+genre.split(' ').join('+')+'&callback=JSON_CALLBACK';
-		  }
+			  if (genre == undefined) {
+			  	var genre = $scope.searchText;
+			  	var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+queryText.split(' ').join('+')+'+trailer&v=2&max-results=5&alt=json&category=Trailer&callback=JSON_CALLBACK';
+			  }
+			  else var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+genre.split(' ').join('+')+'+trailer&v=2&orderby=viewCount&max-results=5&hd=true&alt=json&category='+genre.split(' ').join('+')+'&callback=JSON_CALLBACK';
 		$http({
 			method: 'JSONP',
 			url: searchUrl
 		}).success(function(data, status){
-			if(data.feed.entry != undefined) {
-				var videoFeed = data.feed.entry.length;
-				var videosSrc = []; 
-				for (var i = 0; i < videoFeed; i++) {//cleans up the array
-					videosSrc.push($sce.trustAsResourceUrl(data.feed.entry[i].content.src));
+			$scope.ShowAutoSuggestions = false;
+				if(data.feed.entry != undefined) {//checks to see if there is a feed
+					var videoFeed = data.feed.entry.length;
+					var VideosSrc = []; 
+						for (var i = 0; i < videoFeed; i++) {//cleans up the array
+							VideosSrc.push($sce.trustAsResourceUrl(data.feed.entry[i].link[0].href.replace("watch?v=", "embed/").replace('&feature=youtube_gdata', '')));
+						}
+					$scope.programs = VideosSrc;
+					$scope.noVids = false;
+					$scope.searchText = '';
 				}
-				$scope.programs = videosSrc;
-				$scope.noVids = false;
-			}
-			else {
-				console.log('not a feed');
-				$scope.noVids = true;
-				$scope.programs = '';
-			}
+				else {//if no feed show error msg
+					$scope.NoVids = true;
+					$scope.programs = '';
+				}
 		}).error(function(data, status){
 			console.log('err');
 		});
 		}
-	})
-	.controller('genreController', function($scope){
+	});
+	controllerModule.controller('genreController', function($scope){//holds the genres and youtube api related ids
 		$scope.genres = [
 			{name: "horror", id: 10}, 
 			{name: "sci-fi", id: 13}, 
@@ -59,4 +58,27 @@ angular.module('appControllerModule', [])
 	    $scope.genreClass = function(genre) {
 	        return genre === $scope.selected ? 'active' : undefined;
 	    };
+	});
+	controllerModule.controller('SearchAutocompController', function($scope, $http, $sce){
+		$scope.AutocompleteSearch = function (input) {
+			if (input.length > 5) {
+				var url = "http://suggestqueries.google.com/complete/search?q="+input.split(' ').join('+')+"&client=youtube&ds=yt&callback=JSON_CALLBACK";
+				var autoSuggest = [];
+				$http({
+						method: 'JSONP',
+						url: url
+						}).success(function(data, status){
+							$scope.ShowAutoSuggestions = true;
+							for (var i = 0; i < data[1].length; i++) {
+								if (data[1][i] != undefined)
+									autoSuggest.push(data[1][i][0]);	
+							$scope.AutoSuggestions = autoSuggest.slice(5, autoSuggest.length);
+								if (input.length <= 6) 
+									$scope.ShowAutoSuggestions = false;
+							};
+						}).error(function(data, status){
+							console.log('err');
+				});
+			}
+		}
 	});
