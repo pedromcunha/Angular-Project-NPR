@@ -4,9 +4,9 @@ var controllerModule = angular.module('appControllerModule', []);
 		  var queryText = $scope.searchText;
 			  if (genre == undefined) {
 			  	var genre = $scope.searchText;
-			  	var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+queryText.split(' ').join('+')+'+official+trailer&v=2&max-results=3&alt=json&category=Trailer&callback=JSON_CALLBACK';
+			  	var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+queryText.split(' ').join('+')+'+official+trailer&v=2&max-results=3&alt=json&category=movies&callback=JSON_CALLBACK';
 			  }
-			  else var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+genre.split(' ').join('+')+'+official+trailer&v=2&orderby=relevance&max-results=20&hd=true&alt=json&category='+genre.split(' ').join('+')+'&callback=JSON_CALLBACK';
+			  else var searchUrl = 'https://gdata.youtube.com/feeds/api/videos?q='+genre.split(' ').join('+')+'+official+trailer+-game&v=2&orderby=relevance&max-results=20&hd=true&alt=json&category=movies&callback=JSON_CALLBACK';
 		$http({
 			method: 'JSONP',
 			url: searchUrl
