@@ -66,8 +66,9 @@ input:focus, button:focus {
 	}
 	.first-logo {
 		color: $darkRed;
+		position: relative;
 	}
-	#programs_list {
+	#header {
 		height: 50px;
 		padding-right: 158px;
 		text-align: right;
@@ -92,7 +93,7 @@ input:focus, button:focus {
 			width: 300px;
 			text-align: left;
 			float: right;
-			margin: -12px 111px 10px 0;
+			margin: -12px 111px -170px 0;
 			background-color: $white;
 			color: $darkRed;
 			@include border-bottom-left-radius(5px); 
@@ -117,12 +118,31 @@ input:focus, button:focus {
 				border-bottom: none !important;
 			}
 		}
-	}//programs_list
+	}//header
+	.programs-list {
+		width: 800px;
+		max-height: 788px;
+		float: right;
+		margin-top: 36px;
+		overflow: scroll;
+		.genre-videos {
+			height: 200px;
+			float: left;
+			margin: 0 20px 10px 0;
+			iframe {
+				width: 200px;
+				height: 200px;
+			}
+		}
+	}
 	.genre-list {
 		width: 197px;
-		height: 868px;
-		margin-top: -71px;
+		height: 800px;
 		background-color: $lightRed;
+		float: left;
+		clear: left;
+		padding-top: 94px;
+		margin-top: -70px;
 		@include border-bottom-left-radius(5px); 
 		@include border-bottom-right-radius(5px);
 		@include box-shadow(1px 2px 3px #000000);
