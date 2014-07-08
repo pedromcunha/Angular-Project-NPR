@@ -12,16 +12,18 @@
 	<div ng-controller="SearchAutocompController">
 		<div ng-controller="SearchController">
 			<h1 class="first-logo">Trailer</h1><h1>Parke</h1>
-			<ul id="programs_list">		
-			<form>		
-				<input class="searchText" ng-keyup="AutocompleteSearch(searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
-	 			<button ng-click="submitSearch()" class="button">Search</button>
-	 		</form>
-	 		<div id="auto-suggest-wrapper">
-	 			<span class="auto-suggest cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">{{AutoSuggest}}<span>
+			<div id="header">		
+				<form>		
+					<input class="searchText" ng-keyup="AutocompleteSearch(searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
+		 			<button ng-click="submitSearch()" class="button">Search</button>
+		 		</form>
+		 		<div id="auto-suggest-wrapper">
+		 			<span class="auto-suggest cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">{{AutoSuggest}}<span>
+				</div>
 			</div>
-	 		<h2 class="no-vids-error" ng-show="programs == ''">No videos found</h2>
-	     		<li ng-repeat="program in programs">
+			<ul class="programs-list">
+	 			<h2 class="no-vids-error" ng-show="programs == ''">No videos found</h2>
+	     		<li ng-repeat="program in programs" ng-class="{'genre-videos' : programs.length > 5}">
 	 				<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src={{program}} frameborder="0" allowfullscreen>
 					</iframe>
 				</li>
