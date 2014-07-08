@@ -1,5 +1,5 @@
 var controllerModule = angular.module('appControllerModule', []);
-	controllerModule.controller('SearchController', function ($scope, $http, $sce) {//controller for the search query
+	controllerModule.controller('searchController', function ($scope, $http, $sce) {//controller for the search query
 		$scope.submitSearch = function(genre, calledFrom) {//api call for the query/genre
 		  var queryText = $scope.searchText;
 			  if (genre == undefined) {
@@ -27,7 +27,7 @@ var controllerModule = angular.module('appControllerModule', []);
 			console.log('err');
 		});
 		}
-	});//SearchController
+	});//searchController
 	controllerModule.controller('genreController', function($scope){//holds the genres and youtube api related ids
 		$scope.genres = [
 			{name: "horror", id: 10}, 
@@ -56,8 +56,8 @@ var controllerModule = angular.module('appControllerModule', []);
 	        return genre === $scope.selected ? 'active' : undefined;
 	    };
 	});//genreController
-	controllerModule.controller('SearchAutocompController', function($scope, $http, $sce){
-		$scope.AutocompleteSearch = function (input) {
+	controllerModule.controller('searchAutocompController', function($scope, $http, $sce){
+		$scope.autocompleteSearch = function (input) {
 			if (input.length > 5) {
 				var url = "http://suggestqueries.google.com/complete/search?q="+input.split(' ').join('+')+"&client=youtube&ds=yt&callback=JSON_CALLBACK";
 				var autoSuggest = [];

@@ -9,12 +9,12 @@
 <script type="text/javascript" src="scripts/filters/appFilters.js"></script>
 </head>
 <body>
-	<div ng-controller="SearchAutocompController">
-		<div ng-controller="SearchController">
+	<div ng-controller="searchAutocompController">
+		<div ng-controller="searchController">
 			<h1 class="first-logo">Trailer</h1><h1>Parke</h1>
 			<div id="header">		
 				<form>		
-					<input class="searchText" ng-keyup="AutocompleteSearch(searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
+					<input class="searchText" ng-keyup="autocompleteSearch(searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
 		 			<button ng-click="submitSearch()" class="button">Search</button>
 		 		</form>
 		 		<div id="auto-suggest-wrapper">
