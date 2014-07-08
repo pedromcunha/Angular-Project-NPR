@@ -11,7 +11,6 @@ var controllerModule = angular.module('appControllerModule', []);
 			method: 'JSONP',
 			url: searchUrl
 		}).success(function(data, status){
-			$scope.ShowAutoSuggestions = false;
 				if(data.feed.entry != undefined) {//checks to see if there is a feed
 					var videoFeed = data.feed.entry.length;
 					var VideosSrc = []; 
@@ -19,18 +18,16 @@ var controllerModule = angular.module('appControllerModule', []);
 							VideosSrc.push($sce.trustAsResourceUrl(data.feed.entry[i].link[0].href.replace("watch?v=", "embed/").replace('&feature=youtube_gdata', '')));
 						}
 					$scope.programs = VideosSrc;
-					$scope.noVids = false;
 					$scope.searchText = '';
 				}
 				else {//if no feed show error msg
-					$scope.NoVids = true;
 					$scope.programs = '';
 				}
 		}).error(function(data, status){
 			console.log('err');
 		});
 		}
-	});
+	});//SearchController
 	controllerModule.controller('genreController', function($scope){//holds the genres and youtube api related ids
 		$scope.genres = [
 			{name: "horror", id: 10}, 
@@ -58,7 +55,7 @@ var controllerModule = angular.module('appControllerModule', []);
 	    $scope.genreClass = function(genre) {
 	        return genre === $scope.selected ? 'active' : undefined;
 	    };
-	});
+	});//genreController
 	controllerModule.controller('SearchAutocompController', function($scope, $http, $sce){
 		$scope.AutocompleteSearch = function (input) {
 			if (input.length > 5) {
@@ -72,13 +69,11 @@ var controllerModule = angular.module('appControllerModule', []);
 							for (var i = 0; i < data[1].length; i++) {
 								if (data[1][i] != undefined)
 									autoSuggest.push(data[1][i][0]);	
-							$scope.AutoSuggestions = autoSuggest.slice(5, autoSuggest.length);
-								if (input.length <= 6) 
-									$scope.ShowAutoSuggestions = false;
+								$scope.AutoSuggestions = autoSuggest.slice(5, autoSuggest.length);
 							};
 						}).error(function(data, status){
 							console.log('err');
 				});
 			}
 		}
-	});
+	});//SearchAutocompController

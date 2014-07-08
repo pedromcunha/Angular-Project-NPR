@@ -18,9 +18,9 @@
 	 			<button ng-click="submitSearch()" class="button">Search</button>
 	 		</form>
 	 		<div id="auto-suggest-wrapper">
-	 			<span class="auto-suggest cur-pointer" ng-show="ShowAutoSuggestions" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">{{AutoSuggest}}<span>
+	 			<span class="auto-suggest cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">{{AutoSuggest}}<span>
 			</div>
-	 		<h2 class="no-vids-error" ng-show="NoVids">No videos found</h2>
+	 		<h2 class="no-vids-error" ng-show="programs == ''">No videos found</h2>
 	     		<li ng-repeat="program in programs">
 	 				<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src={{program}} frameborder="0" allowfullscreen>
 					</iframe>
