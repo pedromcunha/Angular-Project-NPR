@@ -56,24 +56,30 @@ var controllerModule = angular.module('appControllerModule', []);
 	        return genre === $scope.selected ? 'active' : undefined;
 	    };
 	});//genreController
-	controllerModule.controller('searchAutocompController', function($scope, $http, $sce){
+	controllerModule.controller('searchAutocompController', function($scope, $http, $sce, $rootScope){
 		$scope.autocompleteSearch = function (input) {
-			if (input.length > 5) {
-				var url = "http://suggestqueries.google.com/complete/search?q="+input.split(' ').join('+')+"&client=youtube&ds=yt&callback=JSON_CALLBACK";
+				var url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + $rootScope.rottenTomatoesAPI + "&q="+input.split(' ').join('+')+"&page_limit=5&callback=JSON_CALLBACK";
 				var autoSuggest = [];
-				$http({
-						method: 'JSONP',
-						url: url
-						}).success(function(data, status){
-							$scope.ShowAutoSuggestions = true;
-							for (var i = 0; i < data[1].length; i++) {
-								if (data[1][i] != undefined)
-									autoSuggest.push(data[1][i][0]);	
-								$scope.AutoSuggestions = autoSuggest.slice(5, autoSuggest.length);
-							};
-						}).error(function(data, status){
-							console.log('err');
-				});
+			if (input.length > 5) {
+			$http({
+					method: 'JSONP',
+					url: url
+					}).success(function(data, status){
+						$scope.ShowAutoSuggestions = true;
+						if(data['movies'].length > 0) {
+							for (var i = 0; i < data['movies'].length; i++) {
+								if (data['movies'][i]['title'] != undefined && data['movies'][i]['title'].length < 33)
+									autoSuggest.push(data['movies'][i]['title']);
+								else if (data['movies'][i]['title'].length < 33)
+									autoSuggest.push(data['movies'][i]['title'].slice(0, 33));
+							}
+							$scope.AutoSuggestions = autoSuggest;
+						}
+					}).error(function(data, status){
+						console.log('err');
+			});
 			}
+			else 
+				$scope.AutoSuggestions = '';
 		}
 	});//SearchAutocompController
