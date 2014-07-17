@@ -60,6 +60,8 @@ var controllerModule = angular.module('appControllerModule', []);
 		$scope.autocompleteSearch = function (input) {
 				var url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + $rootScope.rottenTomatoesAPI + "&q="+input.split(' ').join('+')+"&page_limit=5&callback=JSON_CALLBACK";
 				var autoSuggest = [];
+				var ratings = [];
+				var suggestion = '';
 			if (input.length > 5) {
 			$http({
 					method: 'JSONP',
@@ -68,12 +70,16 @@ var controllerModule = angular.module('appControllerModule', []);
 						$scope.ShowAutoSuggestions = true;
 						if(data['movies'].length > 0) {
 							for (var i = 0; i < data['movies'].length; i++) {
-								if (data['movies'][i]['title'] != undefined && data['movies'][i]['title'].length < 33)
-									autoSuggest.push(data['movies'][i]['title']);
-								else if (data['movies'][i]['title'].length < 33)
-									autoSuggest.push(data['movies'][i]['title'].slice(0, 33));
+								var rating = data['movies'][i]['ratings']['critics_score'];
+								var title = data['movies'][i]['title'];
+									if (title != undefined && title.length < 33)
+										suggestion = title + ' ';
+									else if (title.length < 33)
+										suggestion = title.slice(0, 33) + '...' + ' ';
+								autoSuggest.push({title: suggestion, rating: rating});
 							}
 							$scope.AutoSuggestions = autoSuggest;
+							console.log($scope.AutoSuggestions);
 						}
 					}).error(function(data, status){
 						console.log('err');
@@ -81,5 +87,6 @@ var controllerModule = angular.module('appControllerModule', []);
 			}
 			else 
 				$scope.AutoSuggestions = '';
+				$scope.Ratings = '';
 		}
 	});//SearchAutocompController

@@ -15,10 +15,10 @@
 			<div id="header">		
 				<form>		
 					<input class="searchText" ng-keyup="autocompleteSearch(searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
-		 			<button ng-click="submitSearch()" class="button">Search</button>
+		 			<button ng-click="submitSearch()" class="button cur-pointer">Search</button>
 		 		</form>
 		 		<div id="auto-suggest-wrapper">
-		 			<span class="auto-suggest cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">{{AutoSuggest}}<span>
+		 			<span class="auto-suggest cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">{{AutoSuggest.title}}<div class="icon" ng-class="{'tomato' : AutoSuggest.rating > 60, 'rotten' : AutoSuggest.rating < 60}"></div></span>
 				</div>
 			</div>
 			<ul class="programs-list">
