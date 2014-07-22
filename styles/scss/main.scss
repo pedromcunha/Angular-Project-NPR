@@ -14,9 +14,9 @@ html {
 	margin: 20px;
 	background-color: $darkRed;
 	color: $lightRed;
-
 	body {
-		width: 100%;	
+		width: 100%;
+		background-color: $darkRed;
 	}
 	.page-wrapper {
 		width: 1100px;
@@ -31,6 +31,10 @@ html {
 @font-face {
 	font-family: 'FiraSansBook';
 	src: url(../assets/fonts/FiraSans/FiraSans-Book.otf);
+}
+@font-face {
+	font-family: 'RobotoSlab';
+	src: url(../assets/fonts/RobotoSlab/RobotoSlab-Regular.ttf);
 }
 .button {
 		@include appearance(none);
@@ -56,7 +60,27 @@ html {
 input:focus, button:focus {
 	outline: none;
 }
-
+.scrollable { overflow-y: auto; }
+.scrollable::-moz-appearance:scrollbar {
+    width: 8px;
+    height: 16px; 
+}
+.scrollable::-webkit-scrollbar {
+    width: 8px;
+    height: 16px; 
+}
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07); 
+}
+.scrollable::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none; 
+}
+.scrollable::-webkit-scrollbar-corner {
+    background-color: transparent; 
+}
 //Begin Page Specific Styles
 .ng-scope {
 
@@ -141,13 +165,15 @@ input:focus, button:focus {
 				border-bottom: none !important;
 			}
 		}
-	}//header
+	}//header 
 	.programs-list {
-		width: 800px;
+		width: 675px;
 		max-height: 788px;
 		float: right;
-		margin-top: 36px;
-		overflow: scroll;
+		margin: 36px 165px 0px 0px;
+		overflow: auto;
+		overflow-x: hidden !important; 
+		background-color: $darkRed;
 		.genre-videos {
 			height: 200px;
 			float: left;
@@ -196,6 +222,7 @@ footer {
 	position: relative;
 	bottom: -20px;
 	line-height: 28px;
+	font-family: 'RobotoSlab';
 	a {
 		text-decoration: none;
 		color: $white;

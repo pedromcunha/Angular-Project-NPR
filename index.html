@@ -25,7 +25,7 @@
 		 			<span class="auto-suggest cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">{{AutoSuggest.title}}<div class="icon" ng-class="{'tomato' : AutoSuggest.rating > 60, 'rotten' : AutoSuggest.rating < 60}"></div></span>
 				</div>
 			</div>
-			<ul class="programs-list">
+			<ul class="programs-list scrollable">
 	 			<h2 class="no-vids-error" ng-show="programs == ''">No videos found</h2>
 	     		<li ng-repeat="program in programs" ng-class="{'genre-videos' : programs.length > 5}">
 	 				<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src={{program}} frameborder="0" allowfullscreen>

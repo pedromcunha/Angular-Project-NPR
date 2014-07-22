@@ -4,7 +4,7 @@
   "main": "./angular.js",
   "dependencies": {
     "angular": "1.2.19"
-    },
+  },
   "homepage": "http://pedromcunha.github.io/Trailer-Parke/",
   "_release": "1.2.19",
   "_resolution": {

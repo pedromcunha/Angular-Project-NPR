@@ -72,14 +72,15 @@ var controllerModule = angular.module('appControllerModule', []);
 							for (var i = 0; i < data['movies'].length; i++) {
 								var rating = data['movies'][i]['ratings']['critics_score'];
 								var title = data['movies'][i]['title'];
-									if (title != undefined && title.length < 33)
-										suggestion = title + ' ';
-									else if (title.length < 33)
-										suggestion = title.slice(0, 33) + '...' + ' ';
-								autoSuggest.push({title: suggestion, rating: rating});
+									if (title != '' && title.length < 33)
+										suggestion = title;
+									else if (title.length > 36)
+										suggestion = title.slice(0, 36) + '...';
+									if (rating != -1 && title.length > 0) {
+										autoSuggest.push({title: suggestion, rating: rating});
+									}
 							}
 							$scope.AutoSuggestions = autoSuggest;
-							console.log($scope.AutoSuggestions);
 						}
 					}).error(function(data, status){
 						console.log('err');
