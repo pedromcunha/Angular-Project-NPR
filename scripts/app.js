@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['appFiltersModule', 'appControllerModule', 'appDirectiveModule']); //creates a new module called myApp
+var app = angular.module('myApp', ['appFiltersModule', 'appControllerModule', 'appDirectiveModule', 'appFactoriesModule']); //creates a new module called myApp
 var searchInput; //records a user input
 
 app.run(['$rootScope', function ($rootScope){
