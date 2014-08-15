@@ -63,9 +63,10 @@ var app = angular.module('appControllerModule', []);
 			if (input.length > 5) {
 				rottenTomatoesService.getRatings(url).success(function(data, status){
 						$scope.ShowAutoSuggestions = true;
+						var rating, title;
 						if(data['movies'].length > 0) {
 							for (var i = 0; i < data['movies'].length; i++) {
-								var rating = data['movies'][i]['ratings']['critics_score'],
+									rating = data['movies'][i]['ratings']['critics_score'];
 									title = data['movies'][i]['title'];
 									if (title != '' && title.length < 33)
 										suggestion = title;
