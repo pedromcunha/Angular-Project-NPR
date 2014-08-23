@@ -54,9 +54,9 @@ var app = angular.module('appControllerModule', []);
 	        return genre === $scope.selected ? 'active' : undefined;
 	    };
 	}]);//genreController
-	app.controller('searchAutocompController',['$scope', '$sce', '$rootScope', 'rottenTomatoesService', function($scope, $sce, $rootScope, rottenTomatoesService){
+	app.controller('searchAutocompController',['$scope', '$sce', 'apiKeys', 'rottenTomatoesService', function($scope, $sce, apiKeys, rottenTomatoesService){
 		$scope.autocompleteSearch = function (input) {
-				var url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + $rootScope.rottenTomatoesAPI + "&q="+input.split(' ').join('+')+"&page_limit=5&callback=JSON_CALLBACK",
+				var url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" + apiKeys.rottenTomatoesAPI + "&q="+input.split(' ').join('+')+"&page_limit=5&callback=JSON_CALLBACK",
 				 	autoSuggest = [],
 				 	ratings = [],
 					suggestion = '';
