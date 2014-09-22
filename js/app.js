@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['appFiltersModule', 'appControllerModule', 'appDirectiveModule', 'appFactoriesModule']); //creates a new module called myApp
+var app = angular.module('trailerParke', ['appFiltersModule', 'appControllerModule', 'appDirectiveModule', 'appFactoriesModule']); //main module
 var searchInput; //records a user input
 
 app.constant('apiKeys', {
