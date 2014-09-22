@@ -1,6 +1,6 @@
 //The Server
 var express = require('express'),
-    // exphbs  = require('express3-handlebars'),
+    path = require('path'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
     TwitterStrategy = require('passport-twitter'),
@@ -43,13 +43,14 @@ app.use(function(req, res, next){
   next();
 });
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 //===============ROUTES===============
-
-//routes go in here, if needed. Shouldn't be required
-
+// app.get('/', function(req, res) {
+//   res.sendfile(__dirname + '/public/index.html');
+// });
 //===============PORT=================
-var port = process.env.PORT || 5000; //select your port or let it pull from your .env file
+var port = process.env.PORT || 1337; //select your port or let it pull from your .env file
 app.listen(port);
 console.log("listening on " + port + "!");
 
