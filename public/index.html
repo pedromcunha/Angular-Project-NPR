@@ -3,6 +3,7 @@
 	<title>Trailer Parke</title>
 <link rel="stylesheet" type="text/css" href="/styles/css/main.css">
 <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 <meta property="og:image" content="http://spinsomewebs.com/wp-content/uploads/2014/07/trailer-parke.png"/>
 <meta name="description" content="An app that can help you choose the next movie to watch!">
@@ -10,30 +11,9 @@
 <meta name="author" content="Pedro Miguel Cunha">
 </head>
 <body>
-	<div class="page-wrapper" ng-controller="searchAutocompController">
-		<div ng-controller="searchController">
-			<h1 class="first-logo">Trailer</h1><h1>Parke</h1>
-			<div id="header">		
-				<form>		
-					<input class="searchText" ng-keyup="autocompleteSearch(searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
-		 			<button ng-click="submitSearch()" class="button cur-pointer">Search</button>
-		 		</form>
-		 		<div id="auto-suggest-wrapper">
-		 			<span class="auto-suggest cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">{{AutoSuggest.title}}<div class="icon" ng-class="{'tomato' : AutoSuggest.rating > 60, 'rotten' : AutoSuggest.rating < 60}"></div></span>
-				</div>
-			</div>
-			<ul class="programs-list scrollable">
-	 			<h2 class="no-vids-error" ng-show="programs == ''">No videos found</h2>
-	     		<li ng-repeat="program in programs" ng-class="{'genre-videos' : programs.length > 5}">
-	 				<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src={{program}} frameborder="0" allowfullscreen>
-					</iframe>
-				</li>
-			</ul>
-			<ul ng-controller="genreController" class="genre-list">
-				<li class="cur-pointer" ng-repeat="genre in genres | orderBy: 'name'" ng-click="submitSearch(genre.name, genre.id); select(genre)" ng-class="genreClass(genre)" id={{genre.id}}>{{genre.name | capitalize}}</li>
-			</ul>
-		</div>
-	</div>
+	<section class="page-wrapper" ng-view></section>
+
+	
 	<footer>
 		<h4>Developed By Pedro M. Cunha @ <a href="www.spinsomewebs.com">SpinSomeWebs</a></h4>
 	</footer>
