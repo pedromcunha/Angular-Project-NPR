@@ -2,8 +2,8 @@ var app = angular.module('trailerParke', ['appFiltersModule',
 										  'appControllerModule', 
 										  'appDirectiveModule',
 										  'appFactoriesModule',
-										  'ngRoute'
-										  ]); //main module
+										  'ngRoute',
+										  'ui.bootstrap']); //main module
 var searchInput; //records a user input
 
 
