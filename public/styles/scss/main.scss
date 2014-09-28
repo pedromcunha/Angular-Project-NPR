@@ -2,7 +2,7 @@
 @import "compass";
 @import "compass/reset";
 //Variables
-$white  : #FFF1F0;
+$white  : #FFF;
 $lightRed  : #FFC5C2;
 $red : #FF0D00;
 $darkRed   : #940700;
@@ -10,17 +10,11 @@ $black : #000000;
 
 //Resets
 html {
-	width: 100%;
-	margin: 20px;
 	background-color: $darkRed;
 	color: $lightRed;
 	body {
 		width: 100%;
 		background-color: $darkRed;
-	}
-	.page-wrapper {
-		width: 1100px;
-		margin: 0 auto;
 	}
 }
 //Global Styles
@@ -36,24 +30,7 @@ html {
 	font-family: 'RobotoSlab';
 	src: url(../assets/fonts/RobotoSlab/RobotoSlab-Regular.ttf);
 }
-.button {
-		@include appearance(none);
-		@include border-radius(5px);
-		@include box-shadow(1px 1px 1px #000000);
-		@include transition(background-color 2s);
-		height: 34px;
-		padding: 0px 20px;
-		background-color: $white;
-		border: 1px solid $white;
-		color: $darkRed;
-		font-size: 16px;
-		font-family: 'Constantine';
-		}
-.button:hover, .genre-list li:hover {
-	color: $white;
-	background-color: $darkRed;
-	box-shadow: none;
-}
+
 .cur-pointer {
 	cursor: pointer;
 }
@@ -81,59 +58,69 @@ input:focus, button:focus {
 .scrollable::-webkit-scrollbar-corner {
     background-color: transparent; 
 }
-//Begin Page Specific Styles
-.ng-scope {
 
-	h1 {
-		font-size: 50px;
+//bootstrap overrides
+	h1, h2, h3, h4, h5, h6 {
 		font-family: 'Constantine';
-		float: left;
-		z-index: 1000;
 	}
+.btn {
+	font-family: 'RobotoSlab';
+}	
+.btn-primary {
+	background-color: $white;
+	border: none;
+	color: $darkRed;
+	font-family: 'Constantine';
+	@include transition(background-color 1s);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+	background: $darkRed;
+}
+
+//Begin Page Specific Styles
 	.no-vids-error {
 		margin: 150px 0px 0px 118px;
 		font-size: 25px;
 		font-family: 'Constantine';
 		width: 86%;
 		text-align: center;
-	}
-	.first-logo {
-		color: $darkRed;
-		position: relative;
+		color: $white;
 	}
 	#header {
-		height: 50px;
-		padding-right: 158px;
+		height: 60px;
 		text-align: right;
-		form {
-			line-height: 50px;
-			.searchText {
-				@include appearance(none);
-				@include border-radius(5px);
-				@include box-shadow(1px 1px 1px #000000);
-				width: 300px;
-				height: 34px;
-				padding-left: 20px;
-				font-size: 16px;
-				color: $darkRed;
-				font-family: 'FiraSansBook';
-				border: none;
-				z-index: 1000;
-				position: relative;
+		padding-top: 20px;
+
+		.logo {
+			z-index: 100000;
+		}
+
+		h1 {
+			font-size: 40px;
+			margin-left: 20px;
+			margin-top: 0px;
+			color: $darkRed;
+			span {
+				margin-left: 15px;
+				color: $white;
 			}
 		}
+
+
 		#auto-suggest-wrapper {
-			width: 300px;
 			text-align: left;
 			float: right;
-			margin: -12px 111px -170px 0;
 			background-color: $white;
 			color: $darkRed;
 			@include border-bottom-left-radius(5px); 
 			@include border-bottom-right-radius(5px);
 			@include box-shadow(1px 2px 3px #000000);
 			z-index: 10000;
-			position: relative;
+			margin-top: -10px;
+			width: 100%;
 			.tomato, .rotten {
 				background-image: url('../assets/images/tp-spritesheet.png');
 				width: 22px;
@@ -152,8 +139,8 @@ input:focus, button:focus {
 				width: 100%;
 				float: right;
 				display: inline;
-				padding: 10px 0px;
-				margin-right: -25px;
+				border-left: none;
+				padding-left: 30px;
 			}
 			.auto-suggest:hover {
 				color: $red;
@@ -167,13 +154,11 @@ input:focus, button:focus {
 		}
 	}//header 
 	.programs-list {
-		width: 675px;
 		max-height: 788px;
-		float: right;
-		margin: 36px 165px 0px 0px;
 		overflow: auto;
 		overflow-x: hidden !important; 
 		background-color: $darkRed;
+		margin-top:50px;
 		.genre-videos {
 			height: 200px;
 			float: left;
@@ -185,9 +170,9 @@ input:focus, button:focus {
 		}
 	}
 	.genre-list {
-		width: 197px;
+		width: 200px;
 		height: 800px;
-		background-color: $lightRed;
+		background-color: $white;
 		float: left;
 		clear: left;
 		padding-top: 94px;
@@ -208,10 +193,14 @@ input:focus, button:focus {
 			@include transition(background-color 1s);
 		}
 		li.active {
-			color: $red;
+			color: $white;
+			background-color: $darkRed;
+		}
+		li:hover {
+			background-color: $darkRed;
+			color:$white;
 		}
 	}//genre-list
-}//ng-scope
 footer {
 	text-align: center;
 	background-color: #333;
@@ -220,7 +209,7 @@ footer {
 	width: 102%;
 	float: right;
 	position: relative;
-	bottom: -20px;
+	bottom: -60px;
 	line-height: 28px;
 	font-family: 'RobotoSlab';
 	a {

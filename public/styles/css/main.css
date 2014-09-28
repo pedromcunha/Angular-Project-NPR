@@ -1,1 +1,337 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}html{width:100%;margin:20px;background-color:#940700;color:#ffc5c2}html body{width:100%;background-color:#940700}html .page-wrapper{width:1100px;margin:0 auto}@font-face{font-family:'Constantine';src:url(../assets/fonts/constantine/Constantine.ttf)}@font-face{font-family:'FiraSansBook';src:url(../assets/fonts/FiraSans/FiraSans-Book.otf)}@font-face{font-family:'RobotoSlab';src:url(../assets/fonts/RobotoSlab/RobotoSlab-Regular.ttf)}.button{-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius:5px;-webkit-box-shadow:1px 1px 1px #000;-moz-box-shadow:1px 1px 1px #000;box-shadow:1px 1px 1px #000;-webkit-transition:background-color 2s;-moz-transition:background-color 2s;-o-transition:background-color 2s;transition:background-color 2s;height:34px;padding:0px 20px;background-color:#fff1f0;border:1px solid #fff1f0;color:#940700;font-size:16px;font-family:'Constantine'}.button:hover,.genre-list li:hover{color:#fff1f0;background-color:#940700;box-shadow:none}.cur-pointer{cursor:pointer}input:focus,button:focus{outline:none}.scrollable{overflow-y:auto}.scrollable::-moz-appearance:scrollbar{width:8px;height:16px}.scrollable::-webkit-scrollbar{width:8px;height:16px}.scrollable::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,0.2);-webkit-box-shadow:inset 1px 1px 0 rgba(0,0,0,0.1),inset 0 -1px 0 rgba(0,0,0,0.07)}.scrollable::-webkit-scrollbar-button{width:0;height:0;display:none}.scrollable::-webkit-scrollbar-corner{background-color:transparent}.ng-scope h1{font-size:50px;font-family:'Constantine';float:left;z-index:1000}.ng-scope .no-vids-error{margin:150px 0px 0px 118px;font-size:25px;font-family:'Constantine';width:86%;text-align:center}.ng-scope .first-logo{color:#940700;position:relative}.ng-scope #header{height:50px;padding-right:158px;text-align:right}.ng-scope #header form{line-height:50px}.ng-scope #header form .searchText{-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-border-radius:5px;-moz-border-radius:5px;-ms-border-radius:5px;-o-border-radius:5px;border-radius:5px;-webkit-box-shadow:1px 1px 1px #000;-moz-box-shadow:1px 1px 1px #000;box-shadow:1px 1px 1px #000;width:300px;height:34px;padding-left:20px;font-size:16px;color:#940700;font-family:'FiraSansBook';border:none;z-index:1000;position:relative}.ng-scope #header #auto-suggest-wrapper{width:300px;text-align:left;float:right;margin:-12px 111px -170px 0;background-color:#fff1f0;color:#940700;-moz-border-radius-bottomleft:5px;-webkit-border-bottom-left-radius:5px;border-bottom-left-radius:5px;-moz-border-radius-bottomright:5px;-webkit-border-bottom-right-radius:5px;border-bottom-right-radius:5px;-webkit-box-shadow:1px 2px 3px #000;-moz-box-shadow:1px 2px 3px #000;box-shadow:1px 2px 3px #000;z-index:10000;position:relative}.ng-scope #header #auto-suggest-wrapper .tomato,.ng-scope #header #auto-suggest-wrapper .rotten{background-image:url("../assets/images/tp-spritesheet.png");width:22px;height:20px;background-size:82px;float:left;margin-bottom:-20px;position:relative;top:-2px;right:24px}.ng-scope #header #auto-suggest-wrapper .rotten{background-position:-21px 0px}.ng-scope #header #auto-suggest-wrapper .auto-suggest{width:100%;float:right;display:inline;padding:10px 0px;margin-right:-25px}.ng-scope #header #auto-suggest-wrapper .auto-suggest:hover{color:#ff0d00}.ng-scope #header #auto-suggest-wrapper span:first-child{border-top:none !important}.ng-scope #header #auto-suggest-wrapper span:last-child{border-bottom:none !important}.ng-scope .programs-list{width:675px;max-height:788px;float:right;margin:36px 165px 0px 0px;overflow:auto;overflow-x:hidden !important;background-color:#940700}.ng-scope .programs-list .genre-videos{height:200px;float:left;margin:0 20px 10px 0}.ng-scope .programs-list .genre-videos iframe{width:200px;height:200px}.ng-scope .genre-list{width:197px;height:800px;background-color:#ffc5c2;float:left;clear:left;padding-top:94px;margin-top:-70px;-moz-border-radius-bottomleft:5px;-webkit-border-bottom-left-radius:5px;border-bottom-left-radius:5px;-moz-border-radius-bottomright:5px;-webkit-border-bottom-right-radius:5px;border-bottom-right-radius:5px;-webkit-box-shadow:1px 2px 3px #000;-moz-box-shadow:1px 2px 3px #000;box-shadow:1px 2px 3px #000;z-index:1;color:#940700}.ng-scope .genre-list li{font-size:19px;width:100%;height:44px;float:right;text-align:center;line-height:44px;font-family:'FiraSansBook';-webkit-transition:background-color 1s;-moz-transition:background-color 1s;-o-transition:background-color 1s;transition:background-color 1s}.ng-scope .genre-list li.active{color:#ff0d00}footer{text-align:center;background-color:#333;color:#3CF;height:28px;width:102%;float:right;position:relative;bottom:-20px;line-height:28px;font-family:'RobotoSlab'}footer a{text-decoration:none;color:#fff1f0}
+/* line 17, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 12, ../scss/main.scss */
+html {
+  background-color: #940700;
+  color: #ffc5c2;
+}
+/* line 15, ../scss/main.scss */
+html body {
+  width: 100%;
+  background-color: #940700;
+}
+
+@font-face {
+  font-family: 'Constantine';
+  src: url(../assets/fonts/constantine/Constantine.ttf);
+}
+
+@font-face {
+  font-family: 'FiraSansBook';
+  src: url(../assets/fonts/FiraSans/FiraSans-Book.otf);
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url(../assets/fonts/RobotoSlab/RobotoSlab-Regular.ttf);
+}
+
+/* line 34, ../scss/main.scss */
+.cur-pointer {
+  cursor: pointer;
+}
+
+/* line 37, ../scss/main.scss */
+input:focus, button:focus {
+  outline: none;
+}
+
+/* line 40, ../scss/main.scss */
+.scrollable {
+  overflow-y: auto;
+}
+
+/* line 41, ../scss/main.scss */
+.scrollable::-moz-appearance:scrollbar {
+  width: 8px;
+  height: 16px;
+}
+
+/* line 45, ../scss/main.scss */
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+  height: 16px;
+}
+
+/* line 49, ../scss/main.scss */
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+}
+
+/* line 53, ../scss/main.scss */
+.scrollable::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* line 58, ../scss/main.scss */
+.scrollable::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/* line 63, ../scss/main.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Constantine';
+}
+
+/* line 66, ../scss/main.scss */
+.btn {
+  font-family: 'RobotoSlab';
+}
+
+/* line 69, ../scss/main.scss */
+.btn-primary {
+  background-color: white;
+  border: none;
+  color: #940700;
+  font-family: 'Constantine';
+  -webkit-transition: background-color 1s;
+  -moz-transition: background-color 1s;
+  -o-transition: background-color 1s;
+  transition: background-color 1s;
+}
+
+/* line 79, ../scss/main.scss */
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: #940700;
+}
+
+/* line 84, ../scss/main.scss */
+.no-vids-error {
+  margin: 150px 0px 0px 118px;
+  font-size: 25px;
+  font-family: 'Constantine';
+  width: 86%;
+  text-align: center;
+  color: white;
+}
+
+/* line 92, ../scss/main.scss */
+#header {
+  height: 60px;
+  text-align: right;
+  padding-top: 20px;
+}
+/* line 97, ../scss/main.scss */
+#header .logo {
+  z-index: 100000;
+}
+/* line 101, ../scss/main.scss */
+#header h1 {
+  font-size: 40px;
+  margin-left: 20px;
+  margin-top: 0px;
+  color: #940700;
+}
+/* line 106, ../scss/main.scss */
+#header h1 span {
+  margin-left: 15px;
+  color: white;
+}
+/* line 113, ../scss/main.scss */
+#header #auto-suggest-wrapper {
+  text-align: left;
+  float: right;
+  background-color: white;
+  color: #940700;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-box-shadow: 1px 2px 3px black;
+  -moz-box-shadow: 1px 2px 3px black;
+  box-shadow: 1px 2px 3px black;
+  z-index: 10000;
+  margin-top: -10px;
+  width: 100%;
+}
+/* line 124, ../scss/main.scss */
+#header #auto-suggest-wrapper .tomato, #header #auto-suggest-wrapper .rotten {
+  background-image: url("../assets/images/tp-spritesheet.png");
+  width: 22px;
+  height: 20px;
+  background-size: 82px;
+  float: left;
+  margin-bottom: -20px;
+  position: relative;
+  top: -2px;
+  right: 24px;
+}
+/* line 135, ../scss/main.scss */
+#header #auto-suggest-wrapper .rotten {
+  background-position: -21px 0px;
+}
+/* line 138, ../scss/main.scss */
+#header #auto-suggest-wrapper .auto-suggest {
+  width: 100%;
+  float: right;
+  display: inline;
+  border-left: none;
+  padding-left: 30px;
+}
+/* line 145, ../scss/main.scss */
+#header #auto-suggest-wrapper .auto-suggest:hover {
+  color: #ff0d00;
+}
+/* line 148, ../scss/main.scss */
+#header #auto-suggest-wrapper span:first-child {
+  border-top: none !important;
+}
+/* line 151, ../scss/main.scss */
+#header #auto-suggest-wrapper span:last-child {
+  border-bottom: none !important;
+}
+
+/* line 156, ../scss/main.scss */
+.programs-list {
+  max-height: 788px;
+  overflow: auto;
+  overflow-x: hidden !important;
+  background-color: #940700;
+  margin-top: 50px;
+}
+/* line 162, ../scss/main.scss */
+.programs-list .genre-videos {
+  height: 200px;
+  float: left;
+  margin: 0 20px 10px 0;
+}
+/* line 166, ../scss/main.scss */
+.programs-list .genre-videos iframe {
+  width: 200px;
+  height: 200px;
+}
+
+/* line 172, ../scss/main.scss */
+.genre-list {
+  width: 200px;
+  height: 800px;
+  background-color: white;
+  float: left;
+  clear: left;
+  padding-top: 94px;
+  margin-top: -70px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-box-shadow: 1px 2px 3px black;
+  -moz-box-shadow: 1px 2px 3px black;
+  box-shadow: 1px 2px 3px black;
+  z-index: 1;
+  color: #940700;
+}
+/* line 185, ../scss/main.scss */
+.genre-list li {
+  font-size: 19px;
+  width: 100%;
+  height: 44px;
+  float: right;
+  text-align: center;
+  line-height: 44px;
+  font-family: 'FiraSansBook';
+  -webkit-transition: background-color 1s;
+  -moz-transition: background-color 1s;
+  -o-transition: background-color 1s;
+  transition: background-color 1s;
+}
+/* line 195, ../scss/main.scss */
+.genre-list li.active {
+  color: white;
+  background-color: #940700;
+}
+/* line 199, ../scss/main.scss */
+.genre-list li:hover {
+  background-color: #940700;
+  color: white;
+}
+
+/* line 204, ../scss/main.scss */
+footer {
+  text-align: center;
+  background-color: #333;
+  color: #3CF;
+  height: 28px;
+  width: 102%;
+  float: right;
+  position: relative;
+  bottom: -60px;
+  line-height: 28px;
+  font-family: 'RobotoSlab';
+}
+/* line 215, ../scss/main.scss */
+footer a {
+  text-decoration: none;
+  color: white;
+}
