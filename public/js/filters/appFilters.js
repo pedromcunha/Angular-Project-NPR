@@ -10,6 +10,13 @@
 				}
 	  			else
 	  				return input[0].toUpperCase() + input.slice(1);
-	  	}  
+	  	}
+	  	app.filter('trusted', function ($sce) {
+		    return function(url) {
+		    	if(url != undefined) {
+			        return $sce.getTrustedResourceUrl(url);
+		    	}
+		    };
+		});  
 	});
 })();

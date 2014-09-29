@@ -22,4 +22,11 @@
 		};
 		return rottenTomatoesAPI;
 	}]);
+
+	app.factory('sharedVideos', function() {
+		var sharedVideos = {};
+
+		return sharedVideos;
+	});
+
 })();

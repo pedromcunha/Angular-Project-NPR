@@ -12,11 +12,11 @@ app.config(['$routeProvider', function($routeProvider) {
         	.when('/', 
 	        	{
 	        		templateUrl: '../templates/trailer-listings.html',
-            		controller: 'searchAutocompController'	
+            		controller: 'videoListingController'	
 	        	})
-            .when('/login', 
+            .when('/register', 
             	{
-            		templateUrl: '../templates/login.html'
+            		templateUrl: '../templates/register.html'
             	});
 	}]);
 

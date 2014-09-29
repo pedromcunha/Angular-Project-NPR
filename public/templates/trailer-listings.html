@@ -1,39 +1,16 @@
-<div ng-controller="searchController" class="content">
-	<div class="row">
-		<div id="header" class="col-xs-12">
-			<div class="row">
-				<div class="col-xs-5 logo">		
-					<h1 class="pull-left">Trailer <span>Parke</span></h1>
-				</div>
-				<div class="col-xs-1 pull-right">
-					<button ng-click="submitSearch()" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-				</div>
-				<div class="col-xs-4 pull-right">
-					<div class="form-group">
-						<input class="form-control" ng-keyup="autocompleteSearch(searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
-					</div>
-					<ul id="auto-suggest-wrapper" class="list-group">
-			 			<li class="auto-suggest list-group-item cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">
-			 				{{AutoSuggest.title}}<span class="icon" ng-class="{'tomato' : AutoSuggest.rating > 60, 'rotten' : AutoSuggest.rating < 60}"></span>
-			 			</li>
-					</ul>
-				</div>
-	 		</div>
-		</div>
-	</div>
+<div class="content">
 	<div class="row">
 		<div class="col-xs-8 pull-right">
 			<ul class="programs-list scrollable">
 					<h2 class="no-vids-error" ng-show="programs == ''">No videos found</h2>
-		 		<li ng-repeat="program in programs" ng-class="{'genre-videos' : programs.length > 5}">
-						<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src={{program}} frameborder="0" allowfullscreen>
+		 		<li ng-repeat="video in programs.videos" ng-class="{'genre-videos' : programs.length > 5}">
+						<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src={{video}} frameborder="0" allowfullscreen>
 					</iframe>
 				</li>
-			</ul>
-		</div>
-		<div class="col-xs-4">
-			<ul ng-controller="genreController" class="genre-list">
-				<li class="cur-pointer" ng-repeat="genre in genres | orderBy: 'name'" ng-click="submitSearch(genre.name, genre.id); select(genre)" ng-class="genreClass(genre)" id={{genre.id}}>{{genre.name | capitalize}}</li>
+<!-- 				<div ng-repeat="video in programs.videos">
+					{{video}}
+					<iframe ng-src="{{video}}"></iframe>
+				</div> -->
 			</ul>
 		</div>
 	</div>
