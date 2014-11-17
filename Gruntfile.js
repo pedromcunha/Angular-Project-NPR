@@ -9,5 +9,5 @@ module.exports = function (grunt) {
 	});
 
 	// Composite tasks
-	grunt.registerTask('dist', ['concat', 'uglify']);
+	grunt.registerTask('dist', ['concat', 'uglify', 'cssmin', 'compass']);
 };

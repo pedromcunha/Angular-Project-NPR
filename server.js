@@ -7,8 +7,8 @@ var express = require('express'),
     GoolgeStrategy = require('passport-google'),
     FacebookStrategy = require('passport-facebook');
 
-var config = require('./config.js'), //config file contains all tokens and other private info
-    funct = require('./functions.js'); //funct file contains our helper functions for our Passport and database work
+// var config = require('./config.js'), //config file contains all tokens and other private info
+    // funct = require('./functions.js'); //funct file contains our helper functions for our Passport and database work
 
 var app = express();
 

@@ -1,6 +1,16 @@
 module.exports = {
-    src: [
-        'public/js/**/*.js'
-    ],
-    dest: 'public/js/main.js'
+    options: {
+        separator: ';',
+    },
+    dist: {
+        src: [
+            ['public/js/app.js',
+                'public/js/controllers/*.js',
+                'public/js/directives/*.js',
+                'public/js/factories/*.js',
+                'public/js/filters/*.js'
+            ],
+        ],
+        dest: 'public/js/main.js'
+    },
 };
