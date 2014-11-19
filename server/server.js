@@ -20,8 +20,9 @@ mongoose.connect('mongodb://localhost/trailerParke', function(err) {
 });
 
 //===============PASSPORT===============
+// var local = require('./passports/local.js');
 
-//Passports go in here
+// passport.use(new BasicStrategy(local.strategy));
 
 //===============LIBS===============
 var helpers = require('./lib/helpers.js');

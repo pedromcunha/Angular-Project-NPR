@@ -10,9 +10,10 @@ var ObjectId = mongoose.Types.ObjectId;
 //create a user
 exports.create = function(req, res) {
     var user = new User.model({
-        username: req.body.username
+        username: req.body.username,
+        password: req.body.password
     });
-    user.save(function(err, createdUser) {
+    user.save(function(err, createdUser, numAffected) {
         if (err) {
             res.send(err);
         } else {
