@@ -45,6 +45,7 @@
     "karma-chrome-launcher": "~0.1.4",
     "karma-jasmine": "~0.1.5",
     "load-grunt-config": "^0.16.0",
+    "mongoose": "^3.8.19",
     "orchestrate": "^0.1.2",
     "passport": "^0.2.0",
     "passport-facebook": "^1.0.3",
