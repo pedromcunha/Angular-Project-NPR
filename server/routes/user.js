@@ -4,9 +4,9 @@ var user = require('../controllers/user.js');
 
 
 module.exports = function(app) {
-    app.post('/api/register', user.create);
+    app.post('/register', user.create);
 
-    app.get('/api', function(req, res) {
-        res.send('Trailer Parke api is running');
+    app.get('/', function(req, res) {
+        res.send('Api is up and running in user.js');
     });
 };

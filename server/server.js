@@ -40,13 +40,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //===============ROUTES===============
-var userRouters = require('./routes/user.js');
+var userRoutes = require('./routes/user.js');
 
-
-app.get('/api', function(req, res) {
-    res.send('Trailer Parke api is running');
-});
-
+app.use('/api', userRoutes);
 
 //===============PORT=================
 var port = process.env.PORT || 1337; //select your port or let it pull from your .env file
