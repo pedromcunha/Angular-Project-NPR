@@ -10,6 +10,6 @@ var UserSchema = new Schema({
     username: String
 });
 
-module.exports = function(UserSchema) {
-	return mongoose.model('User', UserSchema);
+module.exports = {
+	model: mongoose.model('User', UserSchema)
 };

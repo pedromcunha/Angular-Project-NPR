@@ -30,10 +30,10 @@ var helpers = require('./lib/helpers.js');
 //Express config
 
 // app.use(morgan("combined"));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 // app.use(methodOverride);
 
 //Passport Init
@@ -41,9 +41,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //===============ROUTES===============
-var userRoutes = require('./routes/user.js');
-
-app.use('/api', userRoutes);
+var userRoutes = require('./routes/user.js')(app);
 
 //===============PORT=================
 var port = process.env.PORT || 1337; //select your port or let it pull from your .env file
