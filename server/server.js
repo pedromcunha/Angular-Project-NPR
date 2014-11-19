@@ -2,6 +2,9 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     path = require('path'),
+    bodyParser = require('body-parser'),
+    morgan = require('morgan'),
+    methodOverride = require('method-override'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
     TwitterStrategy = require('passport-twitter'),
@@ -11,7 +14,9 @@ var express = require('express'),
 var app = express();
 
 mongoose.connect('mongodb://localhost/trailerParke', function(err) {
-    if(err) {console.log('error connecting to database.')}
+    if (err) {
+        console.log('error connecting to database.')
+    }
 });
 
 //===============PASSPORT===============
@@ -24,16 +29,12 @@ var helpers = require('./lib/helpers.js');
 //===============EXPRESS================
 //Express config
 
-app.use(express.logger());
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-
-//Session information and CSRF token
-app.use(express.cookieParser());
-app.use(express.session({
-    secret: '59B93087-78BC-4EB9-993A-A61FC844F6C9'
-}));
-// app.use(express.csrf());
+// app.use(morgan("combined"));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
+// app.use(methodOverride);
 
 //Passport Init
 app.use(passport.initialize());
