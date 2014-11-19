@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-    username: String
+    username: {type: String, required:true, unique:true}
 });
 
 module.exports = {
