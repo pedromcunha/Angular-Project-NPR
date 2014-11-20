@@ -43,8 +43,10 @@ app.use(passport.session());
 
 //===============ROUTES===============
 var userRoutes = require('./routes/user.js');
+var authRoutes = require('./routes/uauth.js');
 
 app.use('/api', userRoutes);
+app.use('/auth', authRoutes);
 
 //===============PORT=================
 var port = process.env.PORT || 1337; //select your port or let it pull from your .env file

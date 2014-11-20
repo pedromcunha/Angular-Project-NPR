@@ -3,16 +3,21 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose');
-var User = require('../models/user.js');
-var helpers = require('../lib/helpers.js');
-var ObjectId = mongoose.Types.ObjectId;
+var mongoose = require('mongoose'),
+    User = require('../models/user.js'),
+    bcrypt = require('bcryptjs'),
+    helpers = require('../lib/helpers.js');
+
+
 //create a user
 exports.create = function(req, res) {
+    var hash = helpers.createHash(req.body.password);
+
     var user = new User.model({
         username: req.body.username,
-        password: req.body.password
+        password: hash
     });
+    
     user.save(function(err, createdUser, numAffected) {
         if (err) {
             res.send(err);
