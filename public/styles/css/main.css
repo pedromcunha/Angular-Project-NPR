@@ -141,19 +141,25 @@ input:focus, button:focus {
 /* line 67, ../scss/main.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Constantine';
+  color: white;
 }
 
-/* line 70, ../scss/main.scss */
+/* line 71, ../scss/main.scss */
+h1 {
+  font-size: 40px;
+}
+
+/* line 74, ../scss/main.scss */
 .text-primary {
   color: #940700;
 }
 
-/* line 73, ../scss/main.scss */
+/* line 77, ../scss/main.scss */
 .btn {
   font-family: 'RobotoSlab';
 }
 
-/* line 76, ../scss/main.scss */
+/* line 80, ../scss/main.scss */
 .btn-primary {
   background-color: white;
   border: none;
@@ -165,14 +171,29 @@ h1, h2, h3, h4, h5, h6 {
   transition: background-color 1s;
 }
 
-/* line 86, ../scss/main.scss */
+/* line 90, ../scss/main.scss */
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
   background: #940700;
 }
 
-/* line 91, ../scss/main.scss */
+/* line 94, ../scss/main.scss */
+.modal {
+  color: #940700;
+}
+/* line 97, ../scss/main.scss */
+.modal .modal-title {
+  color: #940700;
+  font-size: 24px;
+}
+/* line 102, ../scss/main.scss */
+.modal label {
+  vertical-align: middle;
+  line-height: 34px;
+}
+
+/* line 110, ../scss/main.scss */
 .no-vids-error {
   margin: 150px 0px 0px 118px;
   font-size: 25px;
@@ -182,35 +203,34 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* line 99, ../scss/main.scss */
+/* line 118, ../scss/main.scss */
 #header {
   height: 60px;
   text-align: right;
   padding-top: 20px;
 }
-/* line 104, ../scss/main.scss */
+/* line 123, ../scss/main.scss */
 #header .logo {
-  z-index: 100000;
+  z-index: 1000;
 }
-/* line 108, ../scss/main.scss */
+/* line 127, ../scss/main.scss */
 #header h1 {
-  font-size: 40px;
   margin-left: 20px;
   margin-top: 0px;
   color: #940700;
   background-color: white;
 }
-/* line 114, ../scss/main.scss */
+/* line 132, ../scss/main.scss */
 #header h1 span {
   margin-left: 12px;
   color: white;
   background-color: #940700;
 }
-/* line 121, ../scss/main.scss */
+/* line 139, ../scss/main.scss */
 #header .autocompletes {
-  z-index: 1000000;
+  z-index: 1000;
 }
-/* line 124, ../scss/main.scss */
+/* line 142, ../scss/main.scss */
 #header #auto-suggest-wrapper {
   text-align: left;
   float: right;
@@ -229,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: -10px;
   width: 100%;
 }
-/* line 135, ../scss/main.scss */
+/* line 153, ../scss/main.scss */
 #header #auto-suggest-wrapper .tomato, #header #auto-suggest-wrapper .rotten {
   background-image: url("../assets/images/tp-spritesheet.png");
   width: 22px;
@@ -241,11 +261,11 @@ h1, h2, h3, h4, h5, h6 {
   top: -2px;
   right: 24px;
 }
-/* line 146, ../scss/main.scss */
+/* line 164, ../scss/main.scss */
 #header #auto-suggest-wrapper .rotten {
   background-position: -21px 0px;
 }
-/* line 149, ../scss/main.scss */
+/* line 167, ../scss/main.scss */
 #header #auto-suggest-wrapper .auto-suggest {
   width: 100%;
   float: right;
@@ -253,20 +273,20 @@ h1, h2, h3, h4, h5, h6 {
   border-left: none;
   padding-left: 30px;
 }
-/* line 156, ../scss/main.scss */
+/* line 174, ../scss/main.scss */
 #header #auto-suggest-wrapper .auto-suggest:hover {
   color: #ff0d00;
 }
-/* line 159, ../scss/main.scss */
+/* line 177, ../scss/main.scss */
 #header #auto-suggest-wrapper span:first-child {
   border-top: none !important;
 }
-/* line 162, ../scss/main.scss */
+/* line 180, ../scss/main.scss */
 #header #auto-suggest-wrapper span:last-child {
   border-bottom: none !important;
 }
 
-/* line 167, ../scss/main.scss */
+/* line 185, ../scss/main.scss */
 .programs-list {
   max-height: 788px;
   overflow: auto;
@@ -274,19 +294,19 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #940700;
   margin-top: 50px;
 }
-/* line 173, ../scss/main.scss */
+/* line 191, ../scss/main.scss */
 .programs-list .genre-videos {
   height: 200px;
   float: left;
   margin: 0 20px 10px 0;
 }
-/* line 177, ../scss/main.scss */
+/* line 195, ../scss/main.scss */
 .programs-list .genre-videos iframe {
   width: 200px;
   height: 200px;
 }
 
-/* line 183, ../scss/main.scss */
+/* line 201, ../scss/main.scss */
 .genre-list {
   width: 200px;
   height: 830px;
@@ -305,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
   color: #940700;
 }
-/* line 194, ../scss/main.scss */
+/* line 212, ../scss/main.scss */
 .genre-list li {
   font-size: 19px;
   width: 100%;
@@ -319,18 +339,27 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 204, ../scss/main.scss */
+/* line 222, ../scss/main.scss */
 .genre-list li.active {
   color: white;
   background-color: #940700;
 }
-/* line 208, ../scss/main.scss */
+/* line 226, ../scss/main.scss */
 .genre-list li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 213, ../scss/main.scss */
+/* line 232, ../scss/main.scss */
+.has-error input {
+  -webkit-animation: glow 800ms ease-out infinite alternate;
+  -moz-animation: glow 800ms ease-out infinite alternate;
+  -o-animation: glow 800ms ease-out infinite alternate;
+  -ms-animation: glow 800ms ease-out infinite alternate;
+  animation: glow 800ms ease-out infinite alternate;
+}
+
+/* line 240, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
@@ -343,8 +372,71 @@ footer {
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 224, ../scss/main.scss */
+/* line 251, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
+}
+
+/*==================== Transitions & Keyframes ==============================
+=========== Should probably move this out and import it sometime ==========*/
+@-webkit-keyframes glow {
+  /* line 260, ../scss/main.scss */
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+
+  /* line 264, ../scss/main.scss */
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+}
+
+@-moz-keyframes glow {
+  /* line 270, ../scss/main.scss */
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+
+  /* line 274, ../scss/main.scss */
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+}
+
+@-o-keyframes glow {
+  /* line 280, ../scss/main.scss */
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+
+  /* line 285, ../scss/main.scss */
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+}
+
+@-ms-keyframes glow {
+  /* line 291, ../scss/main.scss */
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+
+  /* line 296, ../scss/main.scss */
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+}
+
+@keyframes glow {
+  /* line 302, ../scss/main.scss */
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+
+  /* line 78, main.scss */
+  /* line 307, ../scss/main.scss */
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  }
 }

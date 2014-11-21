@@ -7,10 +7,36 @@ angular.module("../public/templates/login-modal.html", []).run(["$templateCache"
 
 angular.module("../public/templates/register.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../public/templates/register.html",
-    "<div class=\"content\">\n" +
-    "	<div class=\"col-md-12\">\n" +
-    "		<h1>Register Page</h1>\n" +
-    "	</div>\n" +
+    "<div class=\"modal-header\">\n" +
+    "    <h3 class=\"modal-title text-center\">Register for an account</h3>\n" +
+    "</div>\n" +
+    "<div class=\"modal-body\">\n" +
+    "    <form name=\"userRegistration\">\n" +
+    "    	<div class=\"form-group\">\n" +
+    "    		<div class=\"row\">\n" +
+    "	    		<div class=\"col-md-3 col-md-offset-2\">\n" +
+    "			    	<label for=\"username\">Username</label>\n" +
+    "			    </div>\n" +
+    "		    	<div class=\"col-md-6\">\n" +
+    "			    	<input ng-model=\"vm.username\" type=\"text\" placeholder=\"Enter a username\" name=\"username\" class=\"form-control\">\n" +
+    "	    		</div>\n" +
+    "	    	</div>\n" +
+    "	    </div>\n" +
+    "	    <div class=\"form-group\">\n" +
+    "	    	<div class=\"row\">\n" +
+    "	    		<div class=\"col-md-3 col-md-offset-2\">\n" +
+    "			    	<label for=\"username\">Password</label>\n" +
+    "			    </div>\n" +
+    "		    	<div class=\"col-md-6\">\n" +
+    "			    	<input ng-model=\"vm.password\" type=\"text\" placeholder=\"Enter a username\" name=\"username\" class=\"form-control\">\n" +
+    "	    		</div>\n" +
+    "	    	</div>\n" +
+    "    	</div>\n" +
+    "    </form>\n" +
+    "</div>\n" +
+    "<div class=\"modal-footer\">\n" +
+    "    <button class=\"btn btn-default\" ng-click=\"modal.registerUser()\">OK</button>\n" +
+    "    <button class=\"btn btn-warning\" ng-click=\"modal.closeModal()\">Cancel</button>\n" +
     "</div>");
 }]);
 

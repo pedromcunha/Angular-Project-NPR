@@ -17,19 +17,19 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row" ng-controller="headerController">
+		<div class="row" ng-controller="headerController as vm">
 			<div id="header" class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-5 logo">		
 						<h1 class="pull-left">Trailer <span>Parke</span></h1>
 						<ul class="genre-list">
-							<li class="cur-pointer" ng-repeat="genre in genres | orderBy: 'name'" ng-click="submitSearch(genre.name, genre.id); select(genre)" ng-class="genreClass(genre)" id={{genre.id}}>{{genre.name | capitalize}}</li>
+							<li class="cur-pointer" ng-repeat="genre in vm.genres | orderBy: 'name'" ng-click="submitSearch(genre.name, genre.id); selectGenre(genre)" ng-class="genreClass(genre)" id="{{genre.id}}">{{genre.name | capitalize}}</li>
 						</ul>
 					</div>
 					<div class="col-xs-4 autocompletes">
 						<div class="form-group">
 							<div class="input-group">
-								<input class="form-control" ng-keyup="autocompleteSearch(searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
+								<input class="form-control" ng-keyup="autocompleteSearch(vm.searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
 								<div class="input-group-addon cur-pointer" ng-click="submitSearch()">
 									<i class="fa fa-search text-primary"></i>
 								</div>
@@ -41,6 +41,7 @@
 				 			</li>
 						</ul>
 					</div>
+					<button ng-click="vm.openRegistration()" class="btn btn-primary pull-right">Sign up</button>
 		 		</div>
 			</div>
 		</div>

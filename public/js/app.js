@@ -19,11 +19,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 url: '/',
                 templateUrl: '../public/templates/trailer-listings.html',
                 controller: 'videoListingController'
-            })
-            .state('/register', {
-                url: '/register',
-                templateUrl: '../public/templates/register.html'
             });
+            // .state('/register', {
+            //     url: '/register',
+            //     templateUrl: '../public/templates/register.html'
+            // });
     }
 ]);
 
