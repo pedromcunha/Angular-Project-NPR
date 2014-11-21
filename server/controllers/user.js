@@ -20,10 +20,12 @@ exports.create = function(req, res) {
     
     user.save(function(err, createdUser, numAffected) {
         if (err) {
-            res.send(err);
+            res.send({
+                message: 'Oops. There seems to be something wrong!'
+            });
         } else {
             res.send({
-                message: 'User Created',
+                message: 'Your account has been created!',
                 user: createdUser
             });
         }
