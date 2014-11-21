@@ -134,7 +134,10 @@
 
     function RegistrationModalController ($scope, $modalInstance) {
     	var vm = this;
-    	vm.closeModal = closeModal;
+	    	vm.closeModal = closeModal,
+	    	vm.registerUser = registerUser,
+	    	vm.form = {};
+
 
     	function closeModal () {
 	    	$modalInstance.close();
@@ -142,6 +145,7 @@
 
 	    function registerUser () {
 	    	//do relevant registration stuff in here.
+	    	vm.form.submitted = true;
 	    };
     };
 

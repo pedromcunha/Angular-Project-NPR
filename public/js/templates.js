@@ -12,23 +12,23 @@ angular.module("../public/templates/register.html", []).run(["$templateCache", f
     "</div>\n" +
     "<div class=\"modal-body\">\n" +
     "    <form name=\"userRegistration\">\n" +
-    "    	<div class=\"form-group\">\n" +
+    "    	<div class=\"form-group\" ng-class=\"{'has-error': modal.form.submitted === true && userRegistration.username.$invalid === true}\">\n" +
     "    		<div class=\"row\">\n" +
     "	    		<div class=\"col-md-3 col-md-offset-2\">\n" +
     "			    	<label for=\"username\">Username</label>\n" +
     "			    </div>\n" +
     "		    	<div class=\"col-md-6\">\n" +
-    "			    	<input ng-model=\"vm.username\" type=\"text\" placeholder=\"Enter a username\" name=\"username\" class=\"form-control\">\n" +
+    "			    	<input ng-model=\"vm.username\" type=\"text\" placeholder=\"Enter a username\" name=\"username\" class=\"form-control\" required>\n" +
     "	    		</div>\n" +
     "	    	</div>\n" +
     "	    </div>\n" +
-    "	    <div class=\"form-group\">\n" +
+    "	    <div class=\"form-group\" ng-class=\"{'has-error': modal.form.submitted === true && userRegistration.password.$invalid === true}\">\n" +
     "	    	<div class=\"row\">\n" +
     "	    		<div class=\"col-md-3 col-md-offset-2\">\n" +
     "			    	<label for=\"username\">Password</label>\n" +
     "			    </div>\n" +
     "		    	<div class=\"col-md-6\">\n" +
-    "			    	<input ng-model=\"vm.password\" type=\"text\" placeholder=\"Enter a username\" name=\"username\" class=\"form-control\">\n" +
+    "			    	<input ng-model=\"vm.password\" type=\"text\" placeholder=\"Enter a username\" name=\"password\" class=\"form-control\" required>\n" +
     "	    		</div>\n" +
     "	    	</div>\n" +
     "    	</div>\n" +
