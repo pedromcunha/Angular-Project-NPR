@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('appControllerModule', []);
+    var app = angular.module('appControllerModule', ['userFactoryModule']);
 
     function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos) {
         //set up the view model (vm)
@@ -132,26 +132,49 @@
         return genre === vm.selected ? 'active' : undefined;
     };
 
-    function RegistrationModalController ($scope, $modalInstance) {
+    function RegistrationModalController ($scope, $modalInstance, userFactory, $loca) {
     	var vm = this;
-	    	vm.closeModal = closeModal,
-	    	vm.registerUser = registerUser,
-	    	vm.form = {};
 
+    	//attach things to the view
+    	vm.closeModal = closeModal,
+    	vm.registerUser = registerUser,
+    	vm.formSubmitted = false;
 
     	function closeModal () {
 	    	$modalInstance.close();
-	    };
+	    }
 
 	    function registerUser () {
-	    	//do relevant registration stuff in here.
-	    	vm.form.submitted = true;
-	    };
+	    	vm.formSubmitted = true;
+	    	if(vm.userRegistrationForm.$valid) {
+	    		//send the request
+	    		userFactory.registerUser(vm.username, vm.password).then(function(response) {
+	    			if(response.data.user === null) {
+	    				vm.responseMessage = vm.formatMessage(response.data.message, false);
+	    			}
+	    			else {
+	    				vm.responseMessage = vm.formatMessage(response.data.message, true);
+						setTimeout(closeModal, 5000);
+					}
+				}, function(error) {
+						vm.responseMessage = formatMessage(response.data.message, false);
+				});
+	    	}
+	    }
+    };
+
+    RegistrationModalController.prototype.formatMessage = function(message, isRegistered) {
+        function Message (resMessage, resIsRegistered) {
+        	this.message =  resMessage;
+			this.registered = resIsRegistered;
+        };
+
+        return new Message(message, isRegistered);
     };
 
     //controller injection
     headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos'];
-    RegistrationModalController.$inject = ['$scope', '$modalInstance'];
+    RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
 
     //controller declaration
     app.controller('headerController', headerController);

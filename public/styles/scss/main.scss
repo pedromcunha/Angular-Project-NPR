@@ -103,6 +103,13 @@ h1 {
 		vertical-align: middle;
 		line-height: 34px;
 	}
+	.fa-close {
+		float: right;
+		position: relative;
+		top: -40px;
+		right: -5px;
+		color: $darkRed;
+	}
 }
 
 
@@ -303,7 +310,6 @@ h1 {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 78, main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }

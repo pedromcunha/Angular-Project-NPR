@@ -3,6 +3,7 @@ var app = angular.module('trailerParke', ['templates-main',
     'appControllerModule',
     'appDirectiveModule',
     'appFactoriesModule',
+    'userFactoryModule',
     'ui.router',
     // 'ngAnimate',
     'ui.bootstrap'
@@ -30,8 +31,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
 app.constant('apiKeys', {
     youtubeAPI: 'AIzaSyDYhqH1guvlxxocuttrwxE2kkvYefu0cqo',
     rottenTomatoesAPI: '4cwjthjq2hyxz7amh6jj5p4p'
+});
+
+app.constant('trailerParkeApi', {
+    userRegistration: 'http://localhost:1337/api/register'
 });;(function() {
-    var app = angular.module('appControllerModule', []);
+    var app = angular.module('appControllerModule', ['userFactoryModule']);
 
     function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos) {
         //set up the view model (vm)
@@ -164,26 +169,49 @@ app.constant('apiKeys', {
         return genre === vm.selected ? 'active' : undefined;
     };
 
-    function RegistrationModalController ($scope, $modalInstance) {
+    function RegistrationModalController ($scope, $modalInstance, userFactory, $loca) {
     	var vm = this;
-	    	vm.closeModal = closeModal,
-	    	vm.registerUser = registerUser,
-	    	vm.form = {};
 
+    	//attach things to the view
+    	vm.closeModal = closeModal,
+    	vm.registerUser = registerUser,
+    	vm.formSubmitted = false;
 
     	function closeModal () {
 	    	$modalInstance.close();
-	    };
+	    }
 
 	    function registerUser () {
-	    	//do relevant registration stuff in here.
-	    	vm.form.submitted = true;
-	    };
+	    	vm.formSubmitted = true;
+	    	if(vm.userRegistrationForm.$valid) {
+	    		//send the request
+	    		userFactory.registerUser(vm.username, vm.password).then(function(response) {
+	    			if(response.data.user === null) {
+	    				vm.responseMessage = vm.formatMessage(response.data.message, false);
+	    			}
+	    			else {
+	    				vm.responseMessage = vm.formatMessage(response.data.message, true);
+						setTimeout(closeModal, 5000);
+					}
+				}, function(error) {
+						vm.responseMessage = formatMessage(response.data.message, false);
+				});
+	    	}
+	    }
+    };
+
+    RegistrationModalController.prototype.formatMessage = function(message, isRegistered) {
+        function Message (resMessage, resIsRegistered) {
+        	this.message =  resMessage;
+			this.registered = resIsRegistered;
+        };
+
+        return new Message(message, isRegistered);
     };
 
     //controller injection
     headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos'];
-    RegistrationModalController.$inject = ['$scope', '$modalInstance'];
+    RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
 
     //controller declaration
     app.controller('headerController', headerController);
@@ -245,6 +273,26 @@ app.constant('apiKeys', {
 
 })();
 ;(function() {
+    var app = angular.module('userFactoryModule', []);
+
+    function userFactory ($http, trailerParkeApi) {
+    	var userApi = {
+    		registerUser: function(username, password) {
+    			return $http.post(trailerParkeApi.userRegistration, {
+					username: username,
+					password: password
+				});
+    		}
+    	};
+
+    	return userApi;
+    }
+
+    userFactory.$inject = ['$http', 'trailerParkeApi'];
+
+    app.factory('userFactory', userFactory);
+
+})();;(function() {
 	var app = angular.module('appFiltersModule', []);
 		app.filter('capitalize', function() {
 	  		return function(input) {

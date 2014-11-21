@@ -3,6 +3,7 @@ var app = angular.module('trailerParke', ['templates-main',
     'appControllerModule',
     'appDirectiveModule',
     'appFactoriesModule',
+    'userFactoryModule',
     'ui.router',
     // 'ngAnimate',
     'ui.bootstrap'
@@ -30,4 +31,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
 app.constant('apiKeys', {
     youtubeAPI: 'AIzaSyDYhqH1guvlxxocuttrwxE2kkvYefu0cqo',
     rottenTomatoesAPI: '4cwjthjq2hyxz7amh6jj5p4p'
+});
+
+app.constant('trailerParkeApi', {
+    userRegistration: 'http://localhost:1337/api/register'
 });

@@ -192,8 +192,16 @@ h1 {
   vertical-align: middle;
   line-height: 34px;
 }
+/* line 106, ../scss/main.scss */
+.modal .fa-close {
+  float: right;
+  position: relative;
+  top: -40px;
+  right: -5px;
+  color: #940700;
+}
 
-/* line 110, ../scss/main.scss */
+/* line 117, ../scss/main.scss */
 .no-vids-error {
   margin: 150px 0px 0px 118px;
   font-size: 25px;
@@ -203,34 +211,34 @@ h1 {
   color: white;
 }
 
-/* line 118, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 #header {
   height: 60px;
   text-align: right;
   padding-top: 20px;
 }
-/* line 123, ../scss/main.scss */
+/* line 130, ../scss/main.scss */
 #header .logo {
   z-index: 1000;
 }
-/* line 127, ../scss/main.scss */
+/* line 134, ../scss/main.scss */
 #header h1 {
   margin-left: 20px;
   margin-top: 0px;
   color: #940700;
   background-color: white;
 }
-/* line 132, ../scss/main.scss */
+/* line 139, ../scss/main.scss */
 #header h1 span {
   margin-left: 12px;
   color: white;
   background-color: #940700;
 }
-/* line 139, ../scss/main.scss */
+/* line 146, ../scss/main.scss */
 #header .autocompletes {
   z-index: 1000;
 }
-/* line 142, ../scss/main.scss */
+/* line 149, ../scss/main.scss */
 #header #auto-suggest-wrapper {
   text-align: left;
   float: right;
@@ -249,7 +257,7 @@ h1 {
   margin-top: -10px;
   width: 100%;
 }
-/* line 153, ../scss/main.scss */
+/* line 160, ../scss/main.scss */
 #header #auto-suggest-wrapper .tomato, #header #auto-suggest-wrapper .rotten {
   background-image: url("../assets/images/tp-spritesheet.png");
   width: 22px;
@@ -261,11 +269,11 @@ h1 {
   top: -2px;
   right: 24px;
 }
-/* line 164, ../scss/main.scss */
+/* line 171, ../scss/main.scss */
 #header #auto-suggest-wrapper .rotten {
   background-position: -21px 0px;
 }
-/* line 167, ../scss/main.scss */
+/* line 174, ../scss/main.scss */
 #header #auto-suggest-wrapper .auto-suggest {
   width: 100%;
   float: right;
@@ -273,20 +281,20 @@ h1 {
   border-left: none;
   padding-left: 30px;
 }
-/* line 174, ../scss/main.scss */
+/* line 181, ../scss/main.scss */
 #header #auto-suggest-wrapper .auto-suggest:hover {
   color: #ff0d00;
 }
-/* line 177, ../scss/main.scss */
+/* line 184, ../scss/main.scss */
 #header #auto-suggest-wrapper span:first-child {
   border-top: none !important;
 }
-/* line 180, ../scss/main.scss */
+/* line 187, ../scss/main.scss */
 #header #auto-suggest-wrapper span:last-child {
   border-bottom: none !important;
 }
 
-/* line 185, ../scss/main.scss */
+/* line 192, ../scss/main.scss */
 .programs-list {
   max-height: 788px;
   overflow: auto;
@@ -294,19 +302,19 @@ h1 {
   background-color: #940700;
   margin-top: 50px;
 }
-/* line 191, ../scss/main.scss */
+/* line 198, ../scss/main.scss */
 .programs-list .genre-videos {
   height: 200px;
   float: left;
   margin: 0 20px 10px 0;
 }
-/* line 195, ../scss/main.scss */
+/* line 202, ../scss/main.scss */
 .programs-list .genre-videos iframe {
   width: 200px;
   height: 200px;
 }
 
-/* line 201, ../scss/main.scss */
+/* line 208, ../scss/main.scss */
 .genre-list {
   width: 200px;
   height: 830px;
@@ -325,7 +333,7 @@ h1 {
   z-index: 1;
   color: #940700;
 }
-/* line 212, ../scss/main.scss */
+/* line 219, ../scss/main.scss */
 .genre-list li {
   font-size: 19px;
   width: 100%;
@@ -339,18 +347,18 @@ h1 {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 222, ../scss/main.scss */
+/* line 229, ../scss/main.scss */
 .genre-list li.active {
   color: white;
   background-color: #940700;
 }
-/* line 226, ../scss/main.scss */
+/* line 233, ../scss/main.scss */
 .genre-list li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 232, ../scss/main.scss */
+/* line 239, ../scss/main.scss */
 .has-error input {
   -webkit-animation: glow 800ms ease-out infinite alternate;
   -moz-animation: glow 800ms ease-out infinite alternate;
@@ -359,7 +367,7 @@ h1 {
   animation: glow 800ms ease-out infinite alternate;
 }
 
-/* line 240, ../scss/main.scss */
+/* line 247, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
@@ -372,7 +380,7 @@ footer {
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 251, ../scss/main.scss */
+/* line 258, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
@@ -381,61 +389,60 @@ footer a {
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 260, ../scss/main.scss */
+  /* line 267, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 264, ../scss/main.scss */
+  /* line 271, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 270, ../scss/main.scss */
+  /* line 277, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 274, ../scss/main.scss */
+  /* line 281, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 280, ../scss/main.scss */
+  /* line 287, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 285, ../scss/main.scss */
+  /* line 292, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 291, ../scss/main.scss */
+  /* line 298, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 296, ../scss/main.scss */
+  /* line 303, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 302, ../scss/main.scss */
+  /* line 309, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 78, main.scss */
-  /* line 307, ../scss/main.scss */
+  /* line 313, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }

@@ -21,7 +21,8 @@ exports.create = function(req, res) {
     user.save(function(err, createdUser, numAffected) {
         if (err) {
             res.send({
-                message: 'Oops. There seems to be something wrong!'
+                message: err.errors.username.message,
+                user: null
             });
         } else {
             res.send({
