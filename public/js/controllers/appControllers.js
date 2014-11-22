@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('appControllerModule', ['userFactoryModule']);
+    var app = angular.module('HeaderControllerModule', ['userFactoryModule']);
 
     function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos) {
         //set up the view model (vm)
@@ -132,7 +132,7 @@
         return genre === vm.selected ? 'active' : undefined;
     };
 
-    function RegistrationModalController ($scope, $modalInstance, userFactory, $loca) {
+    function RegistrationModalController ($scope, $modalInstance, userFactory) {
     	var vm = this;
 
     	//attach things to the view
@@ -159,7 +159,7 @@
 				}, function(error) {
 						vm.responseMessage = formatMessage(response.data.message, false);
 				});
-	    	}
+	    	}  		
 	    }
     };
 

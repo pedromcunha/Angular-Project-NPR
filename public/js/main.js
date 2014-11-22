@@ -1,13 +1,15 @@
-var app = angular.module('trailerParke', ['templates-main',
+var appDependencies = 
+    ['templates-main',
     'appFiltersModule',
-    'appControllerModule',
+    'HeaderControllerModule',
     'appDirectiveModule',
     'appFactoriesModule',
     'userFactoryModule',
     'ui.router',
     // 'ngAnimate',
-    'ui.bootstrap'
-]); //main module
+    'ui.bootstrap'];
+
+var app = angular.module('trailerParke', appDependencies); //main module
 var searchInput; //records a user input
 
 
@@ -21,10 +23,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: '../public/templates/trailer-listings.html',
                 controller: 'videoListingController'
             });
-            // .state('/register', {
-            //     url: '/register',
-            //     templateUrl: '../public/templates/register.html'
-            // });
     }
 ]);
 
@@ -33,10 +31,14 @@ app.constant('apiKeys', {
     rottenTomatoesAPI: '4cwjthjq2hyxz7amh6jj5p4p'
 });
 
+/* TODO 
+Replace this with the real server
+Also replace the tests with the correct deployed api url */
+
 app.constant('trailerParkeApi', {
     userRegistration: 'http://localhost:1337/api/register'
 });;(function() {
-    var app = angular.module('appControllerModule', ['userFactoryModule']);
+    var app = angular.module('HeaderControllerModule', ['userFactoryModule']);
 
     function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos) {
         //set up the view model (vm)
@@ -169,7 +171,7 @@ app.constant('trailerParkeApi', {
         return genre === vm.selected ? 'active' : undefined;
     };
 
-    function RegistrationModalController ($scope, $modalInstance, userFactory, $loca) {
+    function RegistrationModalController ($scope, $modalInstance, userFactory) {
     	var vm = this;
 
     	//attach things to the view
@@ -196,7 +198,7 @@ app.constant('trailerParkeApi', {
 				}, function(error) {
 						vm.responseMessage = formatMessage(response.data.message, false);
 				});
-	    	}
+	    	}  		
 	    }
     };
 
