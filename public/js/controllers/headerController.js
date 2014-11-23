@@ -140,69 +140,11 @@
         return genre === vm.selected ? 'active' : undefined;
     };
 
-    function RegistrationModalController ($scope, $modalInstance, userFactory) {
-    	var vm = this;
-
-    	//attach things to the view
-    	vm.closeModal = closeModal,
-    	vm.registerUser = registerUser,
-    	vm.formSubmitted = false;
-
-    	function closeModal () {
-	    	$modalInstance.close();
-	    }
-
-	    function registerUser () {
-	    	vm.formSubmitted = true;
-	    	if(vm.userRegistrationForm.$valid) {
-	    		//send the request
-	    		userFactory.registerUser(vm.username, vm.password).then(function(response) {
-	    			if(response.data.user === null) {
-	    				vm.responseMessage = vm.formatMessage(response.data.message, false);
-	    			}
-	    			else {
-	    				vm.responseMessage = vm.formatMessage(response.data.message, true);
-						setTimeout(closeModal, 5000);
-					}
-				}, function(error) {
-						vm.responseMessage = formatMessage(response.data.message, false);
-				});
-	    	}  		
-	    }
-    }
-
-    RegistrationModalController.prototype.formatMessage = function(message, isRegistered) {
-        function Message (resMessage, resIsRegistered) {
-        	this.message =  resMessage;
-			this.registered = resIsRegistered;
-        };
-
-        return new Message(message, isRegistered);
-    };
-
-    function LoginModalController ($scope, $modalInstance, userFactory) {
-        var vm = this;
-
-        //attach things to the view
-        vm.closeModal = closeModal;
-
-        function closeModal () {
-            $modalInstance.close();
-        }
-    }
-
     //controller injection
     headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos'];
-    RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
-    LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
 
     //controller declaration
     app.controller('headerController', headerController);
-
-    app.controller('RegistrationModalController', RegistrationModalController);
-
-    app.controller('LoginModalController', LoginModalController);
-
 
     //needs to be moved into another file! Keep 1 component per file (e.g. ctrler, service etc)
     app.controller('videoListingController', ['$scope', 'sharedVideos',

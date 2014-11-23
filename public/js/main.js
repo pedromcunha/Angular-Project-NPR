@@ -179,6 +179,42 @@ app.constant('trailerParkeApi', {
         return genre === vm.selected ? 'active' : undefined;
     };
 
+    //controller injection
+    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos'];
+
+    //controller declaration
+    app.controller('headerController', headerController);
+
+    //needs to be moved into another file! Keep 1 component per file (e.g. ctrler, service etc)
+    app.controller('videoListingController', ['$scope', 'sharedVideos',
+        function($scope, sharedVideos) {
+            $scope.programs = sharedVideos;
+        }
+    ]);
+
+})();;(function() {
+
+var app = angular.module('HeaderControllerModule');
+
+function LoginModalController ($scope, $modalInstance, userFactory) {
+    var vm = this;
+
+    //attach things to the view
+    vm.closeModal = closeModal;
+
+    function closeModal () {
+        $modalInstance.close();
+    }
+}
+
+//injection phase
+LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
+
+app.controller('LoginModalController', LoginModalController);
+
+})();;(function(){    
+	var app = angular.module('HeaderControllerModule');
+
     function RegistrationModalController ($scope, $modalInstance, userFactory) {
     	var vm = this;
 
@@ -210,6 +246,7 @@ app.constant('trailerParkeApi', {
 	    }
     }
 
+    //prototype methods
     RegistrationModalController.prototype.formatMessage = function(message, isRegistered) {
         function Message (resMessage, resIsRegistered) {
         	this.message =  resMessage;
@@ -219,36 +256,11 @@ app.constant('trailerParkeApi', {
         return new Message(message, isRegistered);
     };
 
-    function LoginModalController ($scope, $modalInstance, userFactory) {
-        var vm = this;
-
-        //attach things to the view
-        vm.closeModal = closeModal;
-
-        function closeModal () {
-            $modalInstance.close();
-        }
-    }
-
-    //controller injection
-    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos'];
+    //injection phase
     RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
-    LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
-
-    //controller declaration
-    app.controller('headerController', headerController);
 
     app.controller('RegistrationModalController', RegistrationModalController);
 
-    app.controller('LoginModalController', LoginModalController);
-
-
-    //needs to be moved into another file! Keep 1 component per file (e.g. ctrler, service etc)
-    app.controller('videoListingController', ['$scope', 'sharedVideos',
-        function($scope, sharedVideos) {
-            $scope.programs = sharedVideos;
-        }
-    ]);
 
 })();;(function() {
     var app = angular.module('appDirectiveModule', []);
