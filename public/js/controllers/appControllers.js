@@ -59,12 +59,20 @@
 
         vm.openRegistration = function() {
 		    var modalInstance = $modal.open({
-	            templateUrl: '../public/templates/register.html',
+	            templateUrl: '../public/templates/register-modal.html',
 	            controller: 'RegistrationModalController',
 	            controllerAs: 'modal'
 	        });
 		};
-    };
+
+        vm.openLogin = function() {
+            var modalInstance = $modal.open({
+                templateUrl: '../public/templates/login-modal.html',
+                controller: 'LoginModalController',
+                controllerAs: 'modal'
+            });
+        };
+    }
 
     //methods of the header controller can be accessed in the VM
     headerController.prototype.autocompleteSearch = function(input) {
@@ -161,7 +169,7 @@
 				});
 	    	}  		
 	    }
-    };
+    }
 
     RegistrationModalController.prototype.formatMessage = function(message, isRegistered) {
         function Message (resMessage, resIsRegistered) {
@@ -172,14 +180,28 @@
         return new Message(message, isRegistered);
     };
 
+    function LoginModalController ($scope, $modalInstance, userFactory) {
+        var vm = this;
+
+        //attach things to the view
+        vm.closeModal = closeModal;
+
+        function closeModal () {
+            $modalInstance.close();
+        }
+    }
+
     //controller injection
     headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos'];
     RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
+    LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
 
     //controller declaration
     app.controller('headerController', headerController);
 
     app.controller('RegistrationModalController', RegistrationModalController);
+
+    app.controller('LoginModalController', LoginModalController);
 
 
     //needs to be moved into another file! Keep 1 component per file (e.g. ctrler, service etc)

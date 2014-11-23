@@ -1,12 +1,42 @@
-angular.module('templates-main', ['../public/templates/login-modal.html', '../public/templates/register.html', '../public/templates/trailer-listings.html']);
+angular.module('templates-main', ['../public/templates/login-modal.html', '../public/templates/register-modal.html', '../public/templates/trailer-listings.html']);
 
 angular.module("../public/templates/login-modal.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../public/templates/login-modal.html",
-    "");
+    "<div class=\"modal-header\">\n" +
+    "    <h3 class=\"modal-title text-center\">Login</h3> <a href ng-click=\"modal.closeModal()\"><i class=\"fa fa-close\"></i></a>\n" +
+    "</div>\n" +
+    "<div class=\"modal-body\">\n" +
+    "    <form name=\"modal.userRegistrationForm\" novalidate>\n" +
+    "    	<div class=\"form-group\" ng-class=\"{'has-error': modal.formSubmitted === true && modal.userRegistrationForm.username.$invalid === true}\">\n" +
+    "    		<div class=\"row\">\n" +
+    "	    		<div class=\"col-md-3 col-md-offset-2\">\n" +
+    "			    	<label for=\"username\">Username</label>\n" +
+    "			    </div>\n" +
+    "		    	<div class=\"col-md-6\">\n" +
+    "			    	<input ng-model=\"modal.username\" type=\"text\" placeholder=\"Enter a username\" name=\"username\" class=\"form-control\" required>\n" +
+    "	    		</div>\n" +
+    "	    	</div>\n" +
+    "	    </div>\n" +
+    "	    <div class=\"form-group\" ng-class=\"{'has-error': modal.formSubmitted === true && modal.userRegistrationForm.password.$invalid === true}\">\n" +
+    "	    	<div class=\"row\">\n" +
+    "	    		<div class=\"col-md-3 col-md-offset-2\">\n" +
+    "			    	<label for=\"username\">Password</label>\n" +
+    "			    </div>\n" +
+    "		    	<div class=\"col-md-6\">\n" +
+    "			    	<input ng-model=\"modal.password\" type=\"password\" placeholder=\"Enter a username\" name=\"password\" class=\"form-control\" required>\n" +
+    "	    		</div>\n" +
+    "	    	</div>\n" +
+    "    	</div>\n" +
+    "    </form>\n" +
+    "</div>\n" +
+    "<div class=\"modal-footer\">\n" +
+    "    <button class=\"btn btn-default\" ng-click=\"modal.login()\">Login</button>\n" +
+    "    <button class=\"btn btn-warning\" ng-click=\"modal.closeModal()\">Cancel</button>\n" +
+    "</div>");
 }]);
 
-angular.module("../public/templates/register.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("../public/templates/register.html",
+angular.module("../public/templates/register-modal.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../public/templates/register-modal.html",
     "<div class=\"modal-header\">\n" +
     "    <h3 class=\"modal-title text-center\">Register for an account</h3> <a href ng-click=\"modal.closeModal()\"><i class=\"fa fa-close\"></i></a>\n" +
     "</div>\n" +
