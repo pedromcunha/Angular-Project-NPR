@@ -4,6 +4,7 @@ describe('Registration Form Modal', function() {
   var ptor;
   var usernameField;
   var passwordField;
+  var registerbutton;
 
 
   beforeEach(function(){
@@ -18,6 +19,7 @@ describe('Registration Form Modal', function() {
 
       usernameField = element(by.model('modal.username'));
       passwordField = element(by.model('modal.password'));
+      registerbutton = element(by.css('[ng-click="modal.registerUser()"]'));
 
   });
 
@@ -40,5 +42,11 @@ describe('Registration Form Modal', function() {
 
     expect(usernameField.getAttribute('class')).toMatch('ng-valid-required');
     expect(passwordField.getAttribute('class')).toMatch('ng-valid-required');
+
+    registerbutton.click();
+    
+    var alertMessage = element(by.className('alert'));
+
+    expect(alertMessage.isDisplayed()).toBeTruthy();
   });
 });
