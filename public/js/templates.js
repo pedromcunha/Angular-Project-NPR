@@ -39,7 +39,7 @@ angular.module("../public/templates/register.html", []).run(["$templateCache", f
     "    </form>\n" +
     "</div>\n" +
     "<div class=\"modal-footer\">\n" +
-    "    <button class=\"btn btn-default\" ng-disabled=\"modal.successMessage !== undefined\" ng-click=\"modal.registerUser()\">OK</button>\n" +
+    "    <button class=\"btn btn-default\" ng-disabled=\"modal.successMessage !== undefined\" ng-click=\"modal.registerUser()\">Submit</button>\n" +
     "    <button class=\"btn btn-warning\" ng-click=\"modal.closeModal()\">Cancel</button>\n" +
     "</div>");
 }]);
