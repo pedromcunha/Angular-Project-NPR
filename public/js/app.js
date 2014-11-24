@@ -6,6 +6,7 @@ var appDependencies =
     'appFactoriesModule',
     'userFactoryModule',
     'ui.router',
+    'ngCookies',
     // 'ngAnimate',
     'ui.bootstrap'];
 

@@ -2,6 +2,10 @@
     <h3 class="modal-title text-center">Login</h3> <a href ng-click="modal.closeModal()"><i class="fa fa-close"></i></a>
 </div>
 <div class="modal-body">
+	<div class="alert col-md-9 col-md-offset-2"  ng-if="modal.responseMessage" ng-class="{'alert-danger': modal.responseMessage.loggedIn === false, 'alert-success': modal.responseMessage.loggedIn === true}" role="alert">
+		<i class="fa" ng-class="{'fa-exclamation-triangle': modal.responseMessage.loggedIn === false, 'fa-check': modal.responseMessage.loggedIn === true}"></i>
+		{{modal.responseMessage.message}}
+	</div>
     <form name="modal.userLogin" novalidate>
     	<div class="form-group" ng-class="{'has-error': modal.formSubmitted === true && modal.userLogin.username.$invalid === true}">
     		<div class="row">
@@ -9,7 +13,7 @@
 			    	<label for="username">Username</label>
 			    </div>
 		    	<div class="col-md-6">
-			    	<input ng-model="modal.username" type="text" placeholder="Enter a username" name="username" class="form-control" required>
+			    	<input ng-model="modal.username" type="text" placeholder="Enter a username" name="username" class="form-control" ng-enter="modal.login()" required>
 	    		</div>
 	    	</div>
 	    </div>
@@ -19,7 +23,7 @@
 			    	<label for="username">Password</label>
 			    </div>
 		    	<div class="col-md-6">
-			    	<input ng-model="modal.password" type="password" placeholder="Enter a username" name="password" class="form-control" required>
+			    	<input ng-model="modal.password" type="password" placeholder="Enter a username" name="password" class="form-control" ng-enter="modal.login()" required>
 	    		</div>
 	    	</div>
     	</div>

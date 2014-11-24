@@ -26,6 +26,7 @@
                         username: username,
                         password: password
                     }
+                });
             }
     	};
 

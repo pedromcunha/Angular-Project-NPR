@@ -6,6 +6,10 @@ angular.module("../public/templates/login-modal.html", []).run(["$templateCache"
     "    <h3 class=\"modal-title text-center\">Login</h3> <a href ng-click=\"modal.closeModal()\"><i class=\"fa fa-close\"></i></a>\n" +
     "</div>\n" +
     "<div class=\"modal-body\">\n" +
+    "	<div class=\"alert col-md-9 col-md-offset-2\"  ng-if=\"modal.responseMessage\" ng-class=\"{'alert-danger': modal.responseMessage.loggedIn === false, 'alert-success': modal.responseMessage.loggedIn === true}\" role=\"alert\">\n" +
+    "		<i class=\"fa\" ng-class=\"{'fa-exclamation-triangle': modal.responseMessage.loggedIn === false, 'fa-check': modal.responseMessage.loggedIn === true}\"></i>\n" +
+    "		{{modal.responseMessage.message}}\n" +
+    "	</div>\n" +
     "    <form name=\"modal.userLogin\" novalidate>\n" +
     "    	<div class=\"form-group\" ng-class=\"{'has-error': modal.formSubmitted === true && modal.userLogin.username.$invalid === true}\">\n" +
     "    		<div class=\"row\">\n" +
@@ -13,7 +17,7 @@ angular.module("../public/templates/login-modal.html", []).run(["$templateCache"
     "			    	<label for=\"username\">Username</label>\n" +
     "			    </div>\n" +
     "		    	<div class=\"col-md-6\">\n" +
-    "			    	<input ng-model=\"modal.username\" type=\"text\" placeholder=\"Enter a username\" name=\"username\" class=\"form-control\" required>\n" +
+    "			    	<input ng-model=\"modal.username\" type=\"text\" placeholder=\"Enter a username\" name=\"username\" class=\"form-control\" ng-enter=\"modal.login()\" required>\n" +
     "	    		</div>\n" +
     "	    	</div>\n" +
     "	    </div>\n" +
@@ -23,7 +27,7 @@ angular.module("../public/templates/login-modal.html", []).run(["$templateCache"
     "			    	<label for=\"username\">Password</label>\n" +
     "			    </div>\n" +
     "		    	<div class=\"col-md-6\">\n" +
-    "			    	<input ng-model=\"modal.password\" type=\"password\" placeholder=\"Enter a username\" name=\"password\" class=\"form-control\" required>\n" +
+    "			    	<input ng-model=\"modal.password\" type=\"password\" placeholder=\"Enter a username\" name=\"password\" class=\"form-control\" ng-enter=\"modal.login()\" required>\n" +
     "	    		</div>\n" +
     "	    	</div>\n" +
     "    	</div>\n" +

@@ -16,11 +16,18 @@ exports.login = function(req, res) {
         username: username
     }, function(err, user) {
         if (err) {
-            res.status(404) //Not found
+            res.status(404)
             .send({
-                message: 'Username not found!'
+                message: 'Username not found! Why not create one?'
             });
-        } else {
+        } 
+        else if (!user) {
+            res.status(404)
+            .send({
+                message: 'Username not found! Why not create one?'
+            });
+        }
+        else {
             //check to see if hashed password matched the stored hash
             if (bcrypt.compareSync(password, user.password)) {
                 res.send({
