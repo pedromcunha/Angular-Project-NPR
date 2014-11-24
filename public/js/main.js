@@ -36,8 +36,10 @@ Replace this with the real server
 Also replace the tests with the correct deployed api url */
 
 app.constant('trailerParkeApi', {
-    userRegistration: 'http://localhost:1337/api/register'
-});;(function() {
+    userRegistration: 'http://localhost:1337/api/register',
+    userLogin: 'http://localhost:1337/auth/login'
+});
+;(function() {
     var app = angular.module('HeaderControllerModule', ['userFactoryModule']);
 
     function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos) {
@@ -201,6 +203,19 @@ function LoginModalController ($scope, $modalInstance, userFactory) {
 
     //attach things to the view
     vm.closeModal = closeModal;
+    vm.login = login;
+
+    function login () {
+    	vm.formSubmitted = true;
+    	if(vm.userLogin.$valid) {
+    		userFactory.login(vm.username, vm.password)
+    			.then(function(response) {
+    				console.log(response);
+    			}, function(error) {
+					console.log('error');
+				});
+    	}
+    }
 
     function closeModal () {
         $modalInstance.close();
@@ -318,7 +333,25 @@ app.controller('LoginModalController', LoginModalController);
 					username: username,
 					password: password
 				});
-    		}
+    		},
+            login: function (username, password) {
+                return $http({
+                    method: 'POST',
+                    url: trailerParkeApi.userLogin,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    transformRequest: function(obj) {
+                        var str = [];
+                        for (var p in obj)
+                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                        return str.join("&");
+                    },
+                    data: {
+                        username: username,
+                        password: password
+                    }
+            }
     	};
 
     	return userApi;

@@ -36,5 +36,6 @@ Replace this with the real server
 Also replace the tests with the correct deployed api url */
 
 app.constant('trailerParkeApi', {
-    userRegistration: 'http://localhost:1337/api/register'
+    userRegistration: 'http://localhost:1337/api/register',
+    userLogin: 'http://localhost:1337/auth/login'
 });

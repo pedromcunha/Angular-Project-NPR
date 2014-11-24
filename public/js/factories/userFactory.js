@@ -8,7 +8,25 @@
 					username: username,
 					password: password
 				});
-    		}
+    		},
+            login: function (username, password) {
+                return $http({
+                    method: 'POST',
+                    url: trailerParkeApi.userLogin,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    transformRequest: function(obj) {
+                        var str = [];
+                        for (var p in obj)
+                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                        return str.join("&");
+                    },
+                    data: {
+                        username: username,
+                        password: password
+                    }
+            }
     	};
 
     	return userApi;

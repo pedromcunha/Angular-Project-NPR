@@ -12,7 +12,6 @@ exports.login = function(req, res) {
     var password = req.body.password,
         username = req.body.username,
         isMatching;
-
     User.model.findOne({
         username: username
     }, function(err, user) {

@@ -6,8 +6,8 @@ angular.module("../public/templates/login-modal.html", []).run(["$templateCache"
     "    <h3 class=\"modal-title text-center\">Login</h3> <a href ng-click=\"modal.closeModal()\"><i class=\"fa fa-close\"></i></a>\n" +
     "</div>\n" +
     "<div class=\"modal-body\">\n" +
-    "    <form name=\"modal.userRegistrationForm\" novalidate>\n" +
-    "    	<div class=\"form-group\" ng-class=\"{'has-error': modal.formSubmitted === true && modal.userRegistrationForm.username.$invalid === true}\">\n" +
+    "    <form name=\"modal.userLogin\" novalidate>\n" +
+    "    	<div class=\"form-group\" ng-class=\"{'has-error': modal.formSubmitted === true && modal.userLogin.username.$invalid === true}\">\n" +
     "    		<div class=\"row\">\n" +
     "	    		<div class=\"col-md-3 col-md-offset-2\">\n" +
     "			    	<label for=\"username\">Username</label>\n" +
@@ -17,7 +17,7 @@ angular.module("../public/templates/login-modal.html", []).run(["$templateCache"
     "	    		</div>\n" +
     "	    	</div>\n" +
     "	    </div>\n" +
-    "	    <div class=\"form-group\" ng-class=\"{'has-error': modal.formSubmitted === true && modal.userRegistrationForm.password.$invalid === true}\">\n" +
+    "	    <div class=\"form-group\" ng-class=\"{'has-error': modal.formSubmitted === true && modal.userLogin.password.$invalid === true}\">\n" +
     "	    	<div class=\"row\">\n" +
     "	    		<div class=\"col-md-3 col-md-offset-2\">\n" +
     "			    	<label for=\"username\">Password</label>\n" +
