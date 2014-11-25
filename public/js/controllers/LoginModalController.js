@@ -2,7 +2,7 @@
 
 var app = angular.module('HeaderControllerModule');
 
-function LoginModalController ($scope, $modalInstance, userFactory, $cookies) {
+function LoginModalController ($scope, $modalInstance, userFactory, $cookies, $timeout) {
     var vm = this;
 
     //attach things to the view
@@ -21,6 +21,7 @@ function LoginModalController ($scope, $modalInstance, userFactory, $cookies) {
 	    				else {
 	    					vm.responseMessage = vm.formatMessage(response.data.message, true);
                             $cookies.user = response.data.user._id;
+                            $timeout(closeModal, 1000);
 	    				}
 	    			}
     			}, function(error) {
@@ -45,7 +46,7 @@ LoginModalController.prototype.formatMessage = function(message, loggedIn) {
 
 
 //injection phase
-LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$cookies'];
+LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$cookies', '$timeout'];
 
 app.controller('LoginModalController', LoginModalController);
 

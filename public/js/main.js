@@ -43,7 +43,7 @@ app.constant('trailerParkeApi', {
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
 
-    function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookies) {
+    function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies) {
         //set up the view model (vm)
         var vm = this;
 
@@ -99,8 +99,8 @@ app.constant('trailerParkeApi', {
 	        }
         ];
 
-        $scope.$watch(function() { return $cookies.user;}, function(newValue) {
-           vm.userState = $cookies.user;
+        $scope.$watch(function() { return $cookies.user; }, function(newValue) {
+           vm.userState = newValue;
         });
 
         vm.openRegistration = function() {
@@ -118,6 +118,10 @@ app.constant('trailerParkeApi', {
                 controllerAs: 'modal'
             });
         };
+
+        vm.logOut = function() {
+            $cookieStore.remove('user');
+        }
     }
 
     //methods of the header controller can be accessed in the VM
@@ -187,7 +191,7 @@ app.constant('trailerParkeApi', {
     };
 
     //controller injection
-    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookies'];
+    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies'];
 
     //controller declaration
     app.controller('headerController', headerController);
@@ -203,7 +207,7 @@ app.constant('trailerParkeApi', {
 
 var app = angular.module('HeaderControllerModule');
 
-function LoginModalController ($scope, $modalInstance, userFactory, $cookies) {
+function LoginModalController ($scope, $modalInstance, userFactory, $cookies, $timeout) {
     var vm = this;
 
     //attach things to the view
@@ -222,6 +226,7 @@ function LoginModalController ($scope, $modalInstance, userFactory, $cookies) {
 	    				else {
 	    					vm.responseMessage = vm.formatMessage(response.data.message, true);
                             $cookies.user = response.data.user._id;
+                            $timeout(closeModal, 1000);
 	    				}
 	    			}
     			}, function(error) {
@@ -246,14 +251,14 @@ LoginModalController.prototype.formatMessage = function(message, loggedIn) {
 
 
 //injection phase
-LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$cookies'];
+LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$cookies', '$timeout'];
 
 app.controller('LoginModalController', LoginModalController);
 
 })();;(function(){    
 	var app = angular.module('HeaderControllerModule');
 
-    function RegistrationModalController ($scope, $modalInstance, userFactory) {
+    function RegistrationModalController ($scope, $modalInstance, userFactory, $timeout) {
     	var vm = this;
 
     	//attach things to the view
@@ -275,7 +280,7 @@ app.controller('LoginModalController', LoginModalController);
 	    			}
 	    			else {
 	    				vm.responseMessage = vm.formatMessage(response.data.message, true);
-						setTimeout(closeModal, 5000);
+						$timeout(closeModal, 5000);
 					}
 				}, function(error) {
 						vm.responseMessage = formatMessage(response.data.message, false);
@@ -295,10 +300,9 @@ app.controller('LoginModalController', LoginModalController);
     };
 
     //injection phase
-    RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
+    RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$timeout'];
 
     app.controller('RegistrationModalController', RegistrationModalController);
-
 
 })();;(function() {
     var app = angular.module('appDirectiveModule', []);

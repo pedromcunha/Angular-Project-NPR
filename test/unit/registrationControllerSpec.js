@@ -38,10 +38,6 @@ describe('Controller: RegistrationModalController', function() {
 	    scope.$digest();
 	    //because of the controllerAs syntax we have to set our new scope to reflect what our controller method expects
 	    modalController.userRegistrationForm = scope.userRegistrationForm;
-
-	    // modalController.userRegistrationForm.username.$setViewValue(null);
-	    // modalController.userRegistrationForm.username.$setViewValue(null);
-	    // modalController.formSubmitted = false;
 	}));
 
 	describe('Validate and send the registraton form if valid', function(){

@@ -1,7 +1,7 @@
 (function() {
     var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
 
-    function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookies) {
+    function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies) {
         //set up the view model (vm)
         var vm = this;
 
@@ -57,8 +57,8 @@
 	        }
         ];
 
-        $scope.$watch(function() { return $cookies.user;}, function(newValue) {
-           vm.userState = $cookies.user;
+        $scope.$watch(function() { return $cookies.user; }, function(newValue) {
+           vm.userState = newValue;
         });
 
         vm.openRegistration = function() {
@@ -76,6 +76,10 @@
                 controllerAs: 'modal'
             });
         };
+
+        vm.logOut = function() {
+            $cookieStore.remove('user');
+        }
     }
 
     //methods of the header controller can be accessed in the VM
@@ -145,7 +149,7 @@
     };
 
     //controller injection
-    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookies'];
+    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies'];
 
     //controller declaration
     app.controller('headerController', headerController);

@@ -1,7 +1,7 @@
 (function(){    
 	var app = angular.module('HeaderControllerModule');
 
-    function RegistrationModalController ($scope, $modalInstance, userFactory) {
+    function RegistrationModalController ($scope, $modalInstance, userFactory, $timeout) {
     	var vm = this;
 
     	//attach things to the view
@@ -23,7 +23,7 @@
 	    			}
 	    			else {
 	    				vm.responseMessage = vm.formatMessage(response.data.message, true);
-						setTimeout(closeModal, 5000);
+						$timeout(closeModal, 5000);
 					}
 				}, function(error) {
 						vm.responseMessage = formatMessage(response.data.message, false);
@@ -43,9 +43,8 @@
     };
 
     //injection phase
-    RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
+    RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$timeout'];
 
     app.controller('RegistrationModalController', RegistrationModalController);
-
 
 })();
