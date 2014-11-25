@@ -41,9 +41,9 @@ app.constant('trailerParkeApi', {
     userLogin: 'http://localhost:1337/auth/login'
 });
 ;(function() {
-    var app = angular.module('HeaderControllerModule', ['userFactoryModule']);
+    var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
 
-    function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos) {
+    function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookies) {
         //set up the view model (vm)
         var vm = this;
 
@@ -98,6 +98,10 @@ app.constant('trailerParkeApi', {
 	            name: "western"
 	        }
         ];
+
+        $scope.$watch(function() { return $cookies.user;}, function(newValue) {
+           vm.userState = $cookies.user;
+        });
 
         vm.openRegistration = function() {
 		    var modalInstance = $modal.open({
@@ -183,7 +187,7 @@ app.constant('trailerParkeApi', {
     };
 
     //controller injection
-    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos'];
+    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookies'];
 
     //controller declaration
     app.controller('headerController', headerController);
@@ -199,7 +203,7 @@ app.constant('trailerParkeApi', {
 
 var app = angular.module('HeaderControllerModule');
 
-function LoginModalController ($scope, $modalInstance, userFactory) {
+function LoginModalController ($scope, $modalInstance, userFactory, $cookies) {
     var vm = this;
 
     //attach things to the view
@@ -217,6 +221,7 @@ function LoginModalController ($scope, $modalInstance, userFactory) {
 	    				}
 	    				else {
 	    					vm.responseMessage = vm.formatMessage(response.data.message, true);
+                            $cookies.user = response.data.user._id;
 	    				}
 	    			}
     			}, function(error) {
@@ -241,7 +246,7 @@ LoginModalController.prototype.formatMessage = function(message, loggedIn) {
 
 
 //injection phase
-LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory'];
+LoginModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$cookies'];
 
 app.controller('LoginModalController', LoginModalController);
 

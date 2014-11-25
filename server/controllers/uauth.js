@@ -18,25 +18,29 @@ exports.login = function(req, res) {
         if (err) {
             res.status(404)
             .send({
-                message: 'Username not found! Why not create one?'
+                message: 'Username not found! Why not create one?',
+                user: null
             });
         } 
         else if (!user) {
             res.status(404)
             .send({
-                message: 'Username not found! Why not create one?'
+                message: 'Username not found! Why not create one?',
+                user: null
             });
         }
         else {
             //check to see if hashed password matched the stored hash
             if (bcrypt.compareSync(password, user.password)) {
                 res.send({
-                    message: 'Successfully logged in!'
+                    message: 'Successfully logged in!',
+                    user: user
                 });
             } else {
                 res.status(401) //unauthorized
                 .send({
-                    message: 'Username and password do not match.'
+                    message: 'Username and password do not match.',
+                    user: null
                 });
             }
         }

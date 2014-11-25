@@ -42,12 +42,18 @@
 				 			</li>
 						</ul>
 					</div>
-					<div class="col-xs-1 pull-right">
+					<div class="col-xs-1 pull-right" ng-if="!vm.userState">
 						<button ng-click="vm.openLogin()" class="btn btn-primary">Login</button>
 					</div>
-					<div class="col-xs-1 pull-right">
+					<div class="col-xs-1 pull-right" ng-if="!vm.userState">
 						<button ng-click="vm.openRegistration()" class="btn btn-primary">Sign up</button>
 		 			</div>
+		 			<div class="pull-right" ng-if="vm.userState">
+						<button class="btn btn-primary" style="padding: 9px;"><i class="fa fa-cog"></i></button>
+					</div>
+		 			<div class="col-xs-1 pull-right" ng-if="vm.userState">
+						<button class="btn btn-primary">Logout</button>
+					</div>
 		 		</div>
 			</div>
 		</div>
