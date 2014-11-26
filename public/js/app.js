@@ -2,6 +2,7 @@ var appDependencies =
     ['templates-main',
     'appFiltersModule',
     'HeaderControllerModule',
+    'VideoControllerModule',
     'appDirectiveModule',
     'appFactoriesModule',
     'userFactoryModule',
@@ -22,7 +23,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('/', {
                 url: '/',
                 templateUrl: '../public/templates/trailer-listings.html',
-                controller: 'videoListingController'
+                controller: 'VideoListingController'
             });
     }
 ]);

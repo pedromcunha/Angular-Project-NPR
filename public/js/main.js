@@ -2,6 +2,7 @@ var appDependencies =
     ['templates-main',
     'appFiltersModule',
     'HeaderControllerModule',
+    'VideoControllerModule',
     'appDirectiveModule',
     'appFactoriesModule',
     'userFactoryModule',
@@ -22,7 +23,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('/', {
                 url: '/',
                 templateUrl: '../public/templates/trailer-listings.html',
-                controller: 'videoListingController'
+                controller: 'VideoListingController'
             });
     }
 ]);
@@ -196,13 +197,6 @@ app.constant('trailerParkeApi', {
     //controller declaration
     app.controller('headerController', headerController);
 
-    //needs to be moved into another file! Keep 1 component per file (e.g. ctrler, service etc)
-    app.controller('videoListingController', ['$scope', 'sharedVideos',
-        function($scope, sharedVideos) {
-            $scope.programs = sharedVideos;
-        }
-    ]);
-
 })();;(function() {
 
 var app = angular.module('HeaderControllerModule');
@@ -303,6 +297,21 @@ app.controller('LoginModalController', LoginModalController);
     RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$timeout'];
 
     app.controller('RegistrationModalController', RegistrationModalController);
+
+})();;(function() {
+    var app = angular.module('VideoControllerModule', ['ngCookies']);
+
+    function VideoListingController ($scope, sharedVideos) {
+    	var vm = this;
+
+    	vm.programs = sharedVideos;
+    }
+
+    //Inject dependencies into the controller
+    VideoListingController.$inject = ['$scope', 'sharedVideos'];
+
+    //register the controller
+    app.controller('VideoListingController', VideoListingController);
 
 })();;(function() {
     var app = angular.module('appDirectiveModule', []);

@@ -154,11 +154,4 @@
     //controller declaration
     app.controller('headerController', headerController);
 
-    //needs to be moved into another file! Keep 1 component per file (e.g. ctrler, service etc)
-    app.controller('videoListingController', ['$scope', 'sharedVideos',
-        function($scope, sharedVideos) {
-            $scope.programs = sharedVideos;
-        }
-    ]);
-
 })();
