@@ -1,14 +1,12 @@
 (function() {
     var app = angular.module('VideoControllerModule', ['ngCookies']);
 
-    function VideoListingController ($scope, sharedVideos) {
+    function VideoListingController ($scope) {
     	var vm = this;
-
-    	vm.programs = sharedVideos;
     }
 
     //Inject dependencies into the controller
-    VideoListingController.$inject = ['$scope', 'sharedVideos'];
+    VideoListingController.$inject = ['$scope'];
 
     //register the controller
     app.controller('VideoListingController', VideoListingController);

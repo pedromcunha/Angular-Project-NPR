@@ -30,8 +30,8 @@
 					<div class="col-xs-4 autocompletes">
 						<div class="form-group">
 							<div class="input-group">
-								<input class="form-control" ng-keyup="autocompleteSearch(vm.searchText)" ng-enter="submitSearch()" ng-model="searchText" type="text" placeholder="Enter Trailer Name">
-								<div class="input-group-addon cur-pointer" ng-click="submitSearch()">
+								<input class="form-control" ng-keyup="autocompleteSearch(vm.searchText)" ng-enter="vm.searchYoutube(vm.searchText)" ng-model="vm.searchText" type="text" placeholder="Enter Trailer Name">
+								<div class="input-group-addon cur-pointer" ng-click="vm.searchYoutube(vm.searchText)">
 									<i class="fa fa-search text-primary"></i>
 								</div>
 							</div>

@@ -4,7 +4,8 @@ module.exports = {
             'public/js/controllers/*.js',
             'public/js/directives/*.js',
             'public/js/factories/*.js',
-            'public/js/filters/*.js'
+            'public/js/filters/*.js',
+            'public/js/services/*.js'
         ],
         tasks: ['concat', 'uglify']
     },

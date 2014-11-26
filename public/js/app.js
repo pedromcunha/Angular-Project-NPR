@@ -1,8 +1,10 @@
+angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule']);
+
 var appDependencies = 
     ['templates-main',
     'appFiltersModule',
     'HeaderControllerModule',
-    'VideoControllerModule',
+    'VideoListingModules',
     'appDirectiveModule',
     'appFactoriesModule',
     'userFactoryModule',

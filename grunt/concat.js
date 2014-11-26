@@ -6,6 +6,7 @@ module.exports = {
         src: [
             ['public/js/app.js',
                 'public/js/controllers/headerController.js',
+                'public/js/services/*.js',
                 'public/js/controllers/*.js',
                 'public/js/directives/*.js',
                 'public/js/factories/*.js',
