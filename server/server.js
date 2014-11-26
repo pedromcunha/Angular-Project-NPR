@@ -12,10 +12,10 @@ var express = require('express'),
     FacebookStrategy = require('passport-facebook');
 
 var app = express();
-
-mongoose.connect('mongodb://localhost/trailerParke', function(err) {
+// mongodb://localhost/trailerParke
+mongoose.connect('mongodb://pedrocunha:trailerparke@ds053380.mongolab.com:53380/trailerparke', function(err) {
     if (err) {
-        console.log('error connecting to database.')
+        console.log('error connecting to database.');
     }
 });
 
