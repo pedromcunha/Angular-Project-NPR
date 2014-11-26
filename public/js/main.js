@@ -1,4 +1,4 @@
-angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule']);
+angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule', 'VideoStorageFactoryModule']);
 
 var appDependencies = 
     ['templates-main',
@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('/', {
                 url: '/',
                 templateUrl: '../public/templates/trailer-listings.html',
-                controller: 'VideoListingController'
+                controller: 'VideoListingController as vm'
             });
     }
 ]);
@@ -46,7 +46,7 @@ app.constant('trailerParkeApi', {
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
 
-    function headerController ($scope, $sce, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies, VideoListingService) {
+    function headerController ($scope, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies, VideoListingService, VideoStorage) {
         //set up the view model (vm)
         var vm = this;
 
@@ -102,6 +102,8 @@ app.constant('trailerParkeApi', {
 	        }
         ];
 
+        vm.videoStorage = VideoStorage;
+
         $scope.$watch(function() { return $cookies.user; }, function(newValue) {
            vm.userState = newValue;
         });
@@ -124,15 +126,17 @@ app.constant('trailerParkeApi', {
 
         vm.logOut = function() {
             $cookieStore.remove('user');
-        }
+        };
 
     	vm.searchYoutube = function(searchText) {
-    		VideoListingService.queryYoutube(searchText, 3);
+    		VideoListingService.queryYoutube(searchText, 3).then(function(response) {
+    			vm.videoStorage.videos = response;
+    		});
     	};
     }
     
     //controller injection
-    headerController.$inject = ['$scope', '$sce', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies', 'VideoListingService'];
+    headerController.$inject = ['$scope', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies', 'VideoListingService', 'VideoStorage'];
 
     //controller declaration
     app.controller('headerController', headerController);
@@ -140,17 +144,28 @@ app.constant('trailerParkeApi', {
 })();;(function() {
 	var app = angular.module('VideoServiceModule', ['youtubeFactoryModule']);
 
-	function VideoListingService (apiKeys, youtubeFactory) {
+	function VideoListingService (apiKeys, youtubeFactory, $sce) {
 		this.queryYoutube = function(searchText, maxResults) {
-			youtubeFactory.getTrailer(searchText, maxResults).then(function(response) {
-				console.log(response);
-			}, function(error) {
-				console.log(error);
-			});
+			return youtubeFactory.getTrailer(searchText, maxResults)
+				.then(function(response) {
+					if(response) {
+						var trailerCollection = response.data.items;
+						var convertedCollection = [];
+
+						_.each(trailerCollection, function(trailer) {
+							convertedCollection.push($sce.trustAsResourceUrl('https://www.youtube.com/embed/'+trailer.id.videoId));
+						});
+
+						return convertedCollection;
+					}
+				})
+				.catch(function(error) {
+					return error;
+				});
 		};
 	}
 
-	VideoListingService.$inject = ['apiKeys', 'youtubeFactory'];
+	VideoListingService.$inject = ['apiKeys', 'youtubeFactory', '$sce'];
 
 	app.service('VideoListingService', VideoListingService);
 
@@ -258,12 +273,15 @@ app.controller('LoginModalController', LoginModalController);
 })();;(function() {
     var app = angular.module('VideoControllerModule', ['ngCookies']);
 
-    function VideoListingController ($scope) {
+    function VideoListingController ($scope, VideoStorage) {
     	var vm = this;
+
+
+    	vm.trailers = VideoStorage;
     }
 
     //Inject dependencies into the controller
-    VideoListingController.$inject = ['$scope'];
+    VideoListingController.$inject = ['$scope', 'VideoStorage'];
 
     //register the controller
     app.controller('VideoListingController', VideoListingController);
@@ -341,12 +359,30 @@ app.controller('LoginModalController', LoginModalController);
     app.factory('userFactory', userFactory);
 
 })();;(function() {
+    var app = angular.module('VideoStorageFactoryModule', []);
+
+    function VideoStorage () {
+        var data = {};
+
+    	return data;
+    }
+
+    // VideoStorage.$inject = [];
+
+    app.factory('VideoStorage', VideoStorage);
+
+})();;(function() {
     var app = angular.module('youtubeFactoryModule', []);
 
     function youtubeFactory ($http, trailerParkeApi, apiKeys) {
     	var youtubeAPI = {
             getTrailer: function (searchText, maxResults) {
-                return $http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults='+maxResults+'&order=rating&q='+searchText+'official+trailer&type=video&videoDefinition=high&videoEmbeddable=true&key=' + apiKeys.youtubeAPI);
+                return $http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults='+
+                                    maxResults+
+                                    '&order=rating&q='+
+                                    searchText+
+                                    'official+trailer&type=video&videoDefinition=high&videoEmbeddable=true&key=' + 
+                                    apiKeys.youtubeAPI);
             }
     	};
 

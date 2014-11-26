@@ -1,4 +1,4 @@
-angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule']);
+angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule', 'VideoStorageFactoryModule']);
 
 var appDependencies = 
     ['templates-main',
@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('/', {
                 url: '/',
                 templateUrl: '../public/templates/trailer-listings.html',
-                controller: 'VideoListingController'
+                controller: 'VideoListingController as vm'
             });
     }
 ]);
