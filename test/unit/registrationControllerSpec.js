@@ -13,7 +13,7 @@ describe('Controller: RegistrationModalController', function() {
 	beforeEach( inject(function($controller, $rootScope, userFactory, $http, trailerParkeApi, $compile,  _$httpBackend_) {
 		scope = $rootScope.$new();
 		$httpBackend = _$httpBackend_;
-		// Create the mock modal with spies from the jasmine
+		// Create the mock modal with spies from jasmine
 		modalInstance = {
 	        close: jasmine.createSpy('modalInstance.close'),
 	        dismiss: jasmine.createSpy('modalInstance.dismiss'),
