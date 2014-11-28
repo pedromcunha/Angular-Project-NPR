@@ -40,8 +40,8 @@ Replace this with the real server
 Also replace the tests with the correct deployed api url */
 
 app.constant('trailerParkeApi', {
-    userRegistration: 'https://trailer-parke.herokuapp.com/api/register',
-    userLogin: 'https://trailer-parke.herokuapp.com/auth/login'
+    userRegistration: 'http://localhost:1337/api/register',
+    userLogin: 'http://localhost:1337/auth/login'
 });
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
