@@ -4,10 +4,13 @@ module.exports = function (grunt) {
 		init: true,
 		loadGruntTasks: {
             config: require('./package.json'),
-            scope: 'devDependencies'
+            scope: 'dependencies'
         }
 	});
 
 	// Composite tasks
-	grunt.registerTask('dist', ['concat', 'uglify', 'cssmin', 'compass']);
+	grunt.registerTask('dist', ['concat', 'replace:dist', 'uglify', 'cssmin', 'compass']);
+
+	grunt.registerTask('dev', ['concat', 'replace:dev', 'uglify', 'cssmin', 'compass']);
+
 };

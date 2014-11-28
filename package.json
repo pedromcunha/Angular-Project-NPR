@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/pedromcunha/Trailer-Parke",
   "dependencies": {
-    "express": "^4.10.2",
     "bcryptjs": "^0.7.12",
     "body-parser": "^1.9.2",
     "bower": "~1.3.9",
@@ -44,6 +43,7 @@
     "grunt-html2js": "^0.2.9",
     "grunt-karma": "^0.9.0",
     "grunt-protractor-runner": "^1.1.4",
+    "grunt-replace": "^0.8.0",
     "grunt-shell": "^1.1.1",
     "http-server": "^0.6.1",
     "karma": "~0.12.21",
@@ -63,6 +63,7 @@
     "q": "^1.0.1"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }

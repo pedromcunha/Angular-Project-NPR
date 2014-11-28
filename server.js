@@ -32,7 +32,7 @@ mongoose.connect(database, function(err) {
 // passport.use(new BasicStrategy(local.strategy));
 
 //===============LIBS===============
-var helpers = require('./lib/helpers.js');
+var helpers = require('./server/lib/helpers.js');
 
 //===============EXPRESS================
 //Express config
@@ -49,13 +49,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //===============ROUTES===============
-var userRoutes = require('./routes/user.js');
-var authRoutes = require('./routes/uauth.js');
+var userRoutes = require('./server/routes/user.js');
+var authRoutes = require('./server/routes/uauth.js');
 app.use('/api', userRoutes);
 app.use('/auth', authRoutes);
 
 //Main front end route
-app.use(express.static( path.resolve('../public')));
+app.use(express.static( path.resolve('public')));
 
 //===============PORT=================
 var port = process.env.PORT || 1337; //select your port or let it pull from your .env file
