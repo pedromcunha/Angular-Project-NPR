@@ -9,11 +9,18 @@ var express = require('express'),
     LocalStrategy = require('passport-local'),
     TwitterStrategy = require('passport-twitter'),
     GoolgeStrategy = require('passport-google'),
-    FacebookStrategy = require('passport-facebook');
+    FacebookStrategy = require('passport-facebook'),
+    database;
 
 var app = express();
-// mongodb://localhost/trailerParke
-mongoose.connect('mongodb://pedrocunha:trailerparke@ds053380.mongolab.com:53380/trailerparke', function(err) {
+
+if(process.env.PORT){
+    database = 'mongodb://pedrocunha:trailerparke@ds053380.mongolab.com:53380/trailerparke';
+}
+else {
+    database = 'mongodb://localhost/trailerParke';
+}
+mongoose.connect(database, function(err) {
     if (err) {
         console.log('error connecting to database.');
     }
