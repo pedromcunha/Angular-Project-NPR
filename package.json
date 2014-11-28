@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "http-server -a 0.0.0.0 -p 8000"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,12 @@
   ],
   "author": "Pedro M Cunha",
   "license": "MIT",
-  "devDependencies": {
+  "bugs": {
+    "url": "https://github.com/pedromcunha/Trailer-Parke/issues"
+  },
+  "homepage": "https://github.com/pedromcunha/Trailer-Parke",
+  "dependencies": {
+    "express": "^4.10.2",
     "bcryptjs": "^0.7.12",
     "body-parser": "^1.9.2",
     "bower": "~1.3.9",
@@ -56,16 +61,6 @@
     "passport-twitter": "^1.0.2",
     "protractor": "^1.4.0",
     "q": "^1.0.1"
-  },
-  "bugs": {
-    "url": "https://github.com/pedromcunha/Trailer-Parke/issues"
-  },
-  "homepage": "https://github.com/pedromcunha/Trailer-Parke",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "express": "^4.10.2"
   },
   "engines": {
     "node": "0.10.x"
