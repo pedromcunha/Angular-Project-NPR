@@ -11,6 +11,7 @@ module.exports = function(config){
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+      'bower_components/underscore/underscore.js',
       'js/main.js',
       'js/templates.js',
       '../test/unit/*.js'
