@@ -102,6 +102,8 @@ app.constant('trailerParkeApi', {
 	        }
         ];
 
+        vm.searchSubmitted = false;
+
         vm.videoStorage = VideoStorage;
 
         $scope.$watch(function() { return $cookies.user; }, function(newValue) {
@@ -129,9 +131,13 @@ app.constant('trailerParkeApi', {
         };
 
     	vm.searchYoutube = function(searchText) {
-    		VideoListingService.queryYoutube(searchText, 3).then(function(response) {
-    			vm.videoStorage.videos = response;
-    		});
+    		vm.searchSubmitted = true;
+    		if(searchText) {
+	    		VideoListingService.queryYoutube(searchText, 3).then(function(response) {
+	    			vm.videoStorage.videos = response;
+	    			vm.searchSubmitted = false;
+	    		});
+	    	}	
     	};
     }
     

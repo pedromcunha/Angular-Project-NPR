@@ -12,9 +12,13 @@
 	<script type="text/javascript" src="/js/templates.js"></script>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/styles/css/main.css">
+	<!-- favicon -->
+	<link rel="shortcut icon" href="/styles/assets/favicon.ico" type="image/icon"> 
+	<link rel="icon" href="/styles/assets/favicon.ico" type="image/icon">
+	<!-- meta properties -->
 	<meta property="og:image" content="http://spinsomewebs.com/wp-content/uploads/2014/07/trailer-parke.png"/>
 	<meta name="description" content="An app that can help you choose the next movie to watch!">
-	<meta name="keywords" content="HTML, CSS, Angular, AJAX, Git">
+	<meta name="keywords" content="HTML, CSS, Angular, AJAX, Git, Node">
 	<meta name="author" content="Pedro Miguel Cunha">
 </head>
 <body>
@@ -29,14 +33,16 @@
 						</ul>
 					</div>
 					<div class="col-xs-4 autocompletes">
-						<div class="form-group">
-							<div class="input-group">
-								<input class="form-control" ng-keyup="autocompleteSearch(vm.searchText)" ng-enter="vm.searchYoutube(vm.searchText)" ng-model="vm.searchText" type="text" placeholder="Enter Trailer Name">
-								<div class="input-group-addon cur-pointer" ng-click="vm.searchYoutube(vm.searchText)">
-									<i class="fa fa-search text-primary"></i>
+						<form name="vm.searchBar">
+							<div class="form-group" ng-class="{'has-error': vm.searchSubmitted === true && vm.searchBar.trailerSearch.$invalid === true}">
+								<div class="input-group">
+									<input class="form-control" ng-keyup="autocompleteSearch(vm.searchText)" ng-enter="vm.searchYoutube(vm.searchText)" ng-model="vm.searchText" type="text" name="trailerSearch" placeholder="Enter Trailer Name" required>
+									<div class="input-group-addon cur-pointer" ng-click="vm.searchYoutube(vm.searchText)">
+										<i class="fa fa-search text-primary"></i>
+									</div>
 								</div>
 							</div>
-						</div>
+						</form>
 						<ul id="auto-suggest-wrapper" class="list-group">
 				 			<li class="auto-suggest list-group-item cur-pointer" ng-show="searchText != ''" ng-repeat="AutoSuggest in AutoSuggestions" ng-click="submitSearch()">
 				 				{{AutoSuggest.title}}<span class="icon" ng-class="{'tomato' : AutoSuggest.rating > 60, 'rotten' : AutoSuggest.rating < 60}"></span>
@@ -61,7 +67,6 @@
 		<!-- ngview -->
 		<section ui-view></section>
 	</div>
-
 	
 	<footer>
 		<h4>Developed By Pedro M. Cunha @ <a href="www.spinsomewebs.com">SpinSomeWebs</a></h4>
