@@ -5,8 +5,8 @@
     	var vm = this;
 
     	//attach things to the view
-    	vm.closeModal = closeModal,
-    	vm.registerUser = registerUser,
+    	vm.closeModal = closeModal;
+    	vm.registerUser = registerUser;
     	vm.formSubmitted = false;
 
     	function closeModal () {
@@ -37,7 +37,7 @@
         function Message (resMessage, resIsRegistered) {
         	this.message =  resMessage;
 			this.registered = resIsRegistered;
-        };
+        }
 
         return new Message(message, isRegistered);
     };

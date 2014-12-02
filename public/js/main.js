@@ -40,8 +40,8 @@ Replace this with the real server
 Also replace the tests with the correct deployed api url */
 
 app.constant('trailerParkeApi', {
-    userRegistration: 'http://localhost:1337/api/register',
-    userLogin: 'http://localhost:1337/auth/login'
+    userRegistration: 'https://trailer-parke.herokuapp.com/api/register',
+    userLogin: 'https://trailer-parke.herokuapp.com/auth/login'
 });
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
@@ -237,8 +237,8 @@ app.controller('LoginModalController', LoginModalController);
     	var vm = this;
 
     	//attach things to the view
-    	vm.closeModal = closeModal,
-    	vm.registerUser = registerUser,
+    	vm.closeModal = closeModal;
+    	vm.registerUser = registerUser;
     	vm.formSubmitted = false;
 
     	function closeModal () {
@@ -269,7 +269,7 @@ app.controller('LoginModalController', LoginModalController);
         function Message (resMessage, resIsRegistered) {
         	this.message =  resMessage;
 			this.registered = resIsRegistered;
-        };
+        }
 
         return new Message(message, isRegistered);
     };
@@ -417,24 +417,24 @@ app.controller('LoginModalController', LoginModalController);
     app.factory('youtubeFactory', youtubeFactory);
 
 })();;(function() {
-	var app = angular.module('appFiltersModule', []);
-		app.filter('capitalize', function() {
-	  		return function(input) {
-	  			if(input instanceof Array) {
-					for (var i = 0, l = input.length, o = []; i < l; i++) {
-						o.push(input[i][0].toUpperCase() + input[i].slice(1));
-					};
-					return o;
-				}
-	  			else
-	  				return input[0].toUpperCase() + input.slice(1);
-	  	}
-	  	app.filter('trusted', function ($sce) {
-		    return function(url) {
-		    	if(url != undefined) {
-			        return $sce.getTrustedResourceUrl(url);
-		    	}
-		    };
-		});  
-	});
+    var app = angular.module('appFiltersModule', []);
+    app.filter('capitalize', function() {
+        return function(input) {
+            if (input instanceof Array) {
+                for (var i = 0, l = input.length, o = []; i < l; i++) {
+                    o.push(input[i][0].toUpperCase() + input[i].slice(1));
+                }
+                return o;
+            } else
+                return input[0].toUpperCase() + input.slice(1);
+        };
+    });
+
+    app.filter('trusted', function($sce) {
+        return function(url) {
+            if (url !== undefined) {
+                return $sce.getTrustedResourceUrl(url);
+            }
+        };
+    });
 })();
