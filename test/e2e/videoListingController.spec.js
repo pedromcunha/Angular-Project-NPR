@@ -14,8 +14,8 @@ describe('Registration Form Modal', function() {
 
       ptor.waitForAngular(); //waits for angular to bootstrap
 
-      searchBar = element(by.css('[ng-enter="vm.searchYoutube(vm.searchText)"]'));
-      searchIcon = element(by.css('[ng-click="vm.searchYoutube(vm.searchText)"]'));
+      searchBar = element(by.css('[ng-enter="vm.searchYoutube(vm.searchText, 3)"]'));
+      searchIcon = element(by.css('[ng-click="vm.searchYoutube(vm.searchText, 3)"]'));
 
       listings = element(by.css('[ng-repeat="video in vm.trailers.videos"]'));
       errorMessage = element(by.css('.no-vids-error'));

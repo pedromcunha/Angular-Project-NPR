@@ -7,49 +7,37 @@
 
         vm.genres = [
         	{
-            name: "horror",
-            id: 10
+           	    name: "horror",
 	        }, {
 	            name: "sci-fi",
-	            id: 13
 	        }, {
 	            name: "drama",
-	            id: 6
 	        }, {
 	            name: "comedy",
-	            id: 4
 	        }, {
 	            name: "thriller"
 	        }, {
 	            name: "documentary"
 	        }, {
 	            name: "animation",
-	            id: 2
 	        }, {
 	            name: "action",
-	            id: 1
 	        }, {
 	            name: "romance",
-	            id: 12
 	        }, {
 	            name: "crime",
-	            id: 5
 	        }, {
 	            name: "family",
-	            id: 8
 	        }, {
 	            name: "sports",
-	            id: 15
 	        }, {
 	            name: "adventure",
-	            id: 1
 	        }, {
 	            name: "fantasy"
 	        }, {
 	            name: "history"
 	        }, {
 	            name: "mystery",
-	            id: 11
 	        }, {
 	            name: "musical"
 	        }, {
@@ -58,6 +46,8 @@
         ];
 
         vm.searchSubmitted = false;
+
+        vm.genre = null;
 
         vm.videoStorage = VideoStorage;
 
@@ -85,14 +75,26 @@
             $cookieStore.remove('user');
         };
 
-    	vm.searchYoutube = function(searchText) {
+    	vm.searchYoutube = function(searchText, maxResults) {
     		vm.searchSubmitted = true;
+    		vm.genre = null;
     		if(searchText) {
-	    		VideoListingService.queryYoutube(searchText, 3).then(function(response) {
+	    		VideoListingService.queryYoutube(searchText, maxResults, 'getTrailer').then(function(response) {
 	    			vm.videoStorage.videos = response;
 	    			vm.searchSubmitted = false;
 	    		});
 	    	}	
+    	};
+
+    	vm.searchByGenre = function(genre) {
+    		vm.genre = genre;
+    		VideoListingService.queryYoutube(genre, 21, 'getTrailersByGenre').then(function(response) {
+    			vm.videoStorage.videos = response;
+    		});
+    	};
+
+    	vm.isActiveGenre = function(genre) {
+    		return vm.genre === genre.name;
     	};
     }
     

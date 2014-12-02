@@ -85,7 +85,7 @@ angular.module("../public/templates/trailer-listings.html", []).run(["$templateC
     "		<div class=\"col-xs-8 pull-right\">\n" +
     "			<ul class=\"programs-list scrollable\">\n" +
     "					<h2 class=\"no-vids-error\" ng-if=\"vm.trailers.videos.length == 0\">No videos found</h2>\n" +
-    "		 		<li ng-repeat=\"video in vm.trailers.videos\" ng-class=\"{'genre-videos' : programs.length > 5}\">\n" +
+    "		 		<li ng-repeat=\"video in vm.trailers.videos\" ng-class=\"{'genre-videos' : vm.trailers.videos.length > 3}\">\n" +
     "					<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video}}\" frameborder=\"0\" allowfullscreen>\n" +
     "					</iframe>\n" +
     "				</li>\n" +

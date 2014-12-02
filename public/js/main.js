@@ -52,49 +52,37 @@ app.constant('trailerParkeApi', {
 
         vm.genres = [
         	{
-            name: "horror",
-            id: 10
+           	    name: "horror",
 	        }, {
 	            name: "sci-fi",
-	            id: 13
 	        }, {
 	            name: "drama",
-	            id: 6
 	        }, {
 	            name: "comedy",
-	            id: 4
 	        }, {
 	            name: "thriller"
 	        }, {
 	            name: "documentary"
 	        }, {
 	            name: "animation",
-	            id: 2
 	        }, {
 	            name: "action",
-	            id: 1
 	        }, {
 	            name: "romance",
-	            id: 12
 	        }, {
 	            name: "crime",
-	            id: 5
 	        }, {
 	            name: "family",
-	            id: 8
 	        }, {
 	            name: "sports",
-	            id: 15
 	        }, {
 	            name: "adventure",
-	            id: 1
 	        }, {
 	            name: "fantasy"
 	        }, {
 	            name: "history"
 	        }, {
 	            name: "mystery",
-	            id: 11
 	        }, {
 	            name: "musical"
 	        }, {
@@ -103,6 +91,8 @@ app.constant('trailerParkeApi', {
         ];
 
         vm.searchSubmitted = false;
+
+        vm.genre = null;
 
         vm.videoStorage = VideoStorage;
 
@@ -130,14 +120,26 @@ app.constant('trailerParkeApi', {
             $cookieStore.remove('user');
         };
 
-    	vm.searchYoutube = function(searchText) {
+    	vm.searchYoutube = function(searchText, maxResults) {
     		vm.searchSubmitted = true;
+    		vm.genre = null;
     		if(searchText) {
-	    		VideoListingService.queryYoutube(searchText, 3).then(function(response) {
+	    		VideoListingService.queryYoutube(searchText, maxResults, 'getTrailer').then(function(response) {
 	    			vm.videoStorage.videos = response;
 	    			vm.searchSubmitted = false;
 	    		});
 	    	}	
+    	};
+
+    	vm.searchByGenre = function(genre) {
+    		vm.genre = genre;
+    		VideoListingService.queryYoutube(genre, 21, 'getTrailersByGenre').then(function(response) {
+    			vm.videoStorage.videos = response;
+    		});
+    	};
+
+    	vm.isActiveGenre = function(genre) {
+    		return vm.genre === genre.name;
     	};
     }
     
@@ -151,8 +153,8 @@ app.constant('trailerParkeApi', {
 	var app = angular.module('VideoServiceModule', ['youtubeFactoryModule']);
 
 	function VideoListingService (apiKeys, youtubeFactory, $sce) {
-		this.queryYoutube = function(searchText, maxResults) {
-			return youtubeFactory.getTrailer(searchText, maxResults)
+		this.queryYoutube = function(searchText, maxResults, factoryName) {
+			return youtubeFactory[factoryName](searchText, maxResults)
 				.then(function(response) {
 					if(response) {
 						var trailerCollection = response.data.items;
@@ -384,11 +386,25 @@ app.controller('LoginModalController', LoginModalController);
     	var youtubeAPI = {
             getTrailer: function (searchText, maxResults) {
                 return $http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults='+
-                                    maxResults+
-                                    '&order=rating&q='+
-                                    searchText+
-                                    'official+trailer&type=video&videoDefinition=high&videoEmbeddable=true&key=' + 
-                                    apiKeys.youtubeAPI);
+                            maxResults+
+                            '&order=rating&q='+
+                            searchText+
+                            '+official+trailer&type=video&videoDefinition=high&videoEmbeddable=true&key=' + 
+                            apiKeys.youtubeAPI);
+            },
+            getTrailersByGenre: function(genre, maxResults) {
+                var excluded = '+-game+-gameplay';
+                if(genre === 'fantasy') {
+                    excluded += '+-final';
+                }
+                return  $http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=' +
+                            maxResults +
+                            '&order=rating&q='+
+                            genre +
+                            '+official+movie+trailer'+
+                            excluded + 
+                            '&type=video&videoDefinition=high&key='+
+                            apiKeys.youtubeAPI);
             }
     	};
 

@@ -28,16 +28,16 @@
 				<div class="row">
 					<div class="col-xs-5 logo">		
 						<h1 class="pull-left">Trailer <span>Parke</span></h1>
-						<ul class="genre-list">
-							<li class="cur-pointer" ng-repeat="genre in vm.genres | orderBy: 'name'" ng-click="submitSearch(genre.name, genre.id); selectGenre(genre)" ng-class="genreClass(genre)" id="{{genre.id}}">{{genre.name | capitalize}}</li>
+						<ul class="side-nav">
+							<li class="cur-pointer" ng-repeat="genre in vm.genres | orderBy: 'name'" ng-click="vm.searchByGenre(genre.name)" ng-class="{active: vm.isActiveGenre(genre)}">{{genre.name | capitalize}}</li>
 						</ul>
 					</div>
 					<div class="col-xs-4 autocompletes">
 						<form name="vm.searchBar">
 							<div class="form-group" ng-class="{'has-error': vm.searchSubmitted === true && vm.searchBar.trailerSearch.$invalid === true}">
 								<div class="input-group">
-									<input class="form-control" ng-keyup="autocompleteSearch(vm.searchText)" ng-enter="vm.searchYoutube(vm.searchText)" ng-model="vm.searchText" type="text" name="trailerSearch" placeholder="Enter Trailer Name" required>
-									<div class="input-group-addon cur-pointer" ng-click="vm.searchYoutube(vm.searchText)">
+									<input class="form-control" ng-keyup="autocompleteSearch(vm.searchText)" ng-enter="vm.searchYoutube(vm.searchText, 3)" ng-model="vm.searchText" type="text" name="trailerSearch" placeholder="Enter Trailer Name" required>
+									<div class="input-group-addon cur-pointer" ng-click="vm.searchYoutube(vm.searchText, 3)">
 										<i class="fa fa-search text-primary"></i>
 									</div>
 								</div>
@@ -69,6 +69,20 @@
 	</div>
 	
 	<footer>
+		<ul class="nav navbar-nav">
+	  		<li class="disabled">
+	  			<a href="/about">About</a>
+	  		</li>
+	  		<li class="disabled">
+	  			<a href="/contact">Contact</a>
+	  		</li>
+	  		<li class="disabled">
+	  			<a href="/support">Support</a>
+	  		</li>
+	  		<li class="disabled">
+	  			<a href="/contribute">Contribute</a>
+	  		</li>
+		</ul>
 		<h4>Developed By Pedro M. Cunha @ <a href="www.spinsomewebs.com">SpinSomeWebs</a></h4>
 	</footer>
 </body>

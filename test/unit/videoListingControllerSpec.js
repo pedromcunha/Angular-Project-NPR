@@ -25,7 +25,7 @@ describe('Controller: VideoListingController', function() {
 
 	describe('Searching for a trailer', function(){
 		beforeEach( function() {
-			var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&order=rating&q=The Avengersofficial+trailer&type=video&videoDefinition=high&videoEmbeddable=true&key=AIzaSyDYhqH1guvlxxocuttrwxE2kkvYefu0cqo';
+			var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&order=rating&q=The Avengers+official+trailer&type=video&videoDefinition=high&videoEmbeddable=true&key=AIzaSyDYhqH1guvlxxocuttrwxE2kkvYefu0cqo';
 			$httpBackend.expectGET(url).respond(
 				{
                 "items": [
@@ -58,14 +58,14 @@ describe('Controller: VideoListingController', function() {
 		});
 		it('Should load up the youtube videos when a query is entered', function(){
 			expect(videoListingController.trailers).toEqual({}); //empty
-			headerController.searchYoutube('The Avengers');
+			headerController.searchYoutube('The Avengers', 3);
 			scope.$digest();
 			$httpBackend.flush();
 			expect(videoListingController.trailers.videos.length).toBe(3);//An array of 3 trailers
 		});
 		it('Should load up the youtube videos when a query is entered', function(){
 			expect(videoListingController.trailers).toEqual({}); //empty
-			headerController.searchYoutube('The Avengers');
+			headerController.searchYoutube('The Avengers', 3);
 			scope.$digest();
 			$httpBackend.flush();
 			expect(videoListingController.trailers.videos.length).toBe(3);//An array of 3 trailers

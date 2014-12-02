@@ -3,7 +3,7 @@
 		<div class="col-xs-8 pull-right">
 			<ul class="programs-list scrollable">
 					<h2 class="no-vids-error" ng-if="vm.trailers.videos.length == 0">No videos found</h2>
-		 		<li ng-repeat="video in vm.trailers.videos" ng-class="{'genre-videos' : programs.length > 5}">
+		 		<li ng-repeat="video in vm.trailers.videos" ng-class="{'genre-videos' : vm.trailers.videos.length > 3}">
 					<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video}}" frameborder="0" allowfullscreen>
 					</iframe>
 				</li>

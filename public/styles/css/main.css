@@ -314,26 +314,25 @@ h1 {
 }
 
 /* line 207, ../scss/main.scss */
-.genre-list {
+.side-nav {
   width: 200px;
   height: 830px;
   background-color: white;
   padding-top: 94px;
   margin-top: -70px;
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -ms-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   -webkit-box-shadow: 1px 2px 3px black;
   -moz-box-shadow: 1px 2px 3px black;
   box-shadow: 1px 2px 3px black;
   z-index: 1;
   color: #940700;
 }
-/* line 218, ../scss/main.scss */
-.genre-list li {
+/* line 217, ../scss/main.scss */
+.side-nav li {
   font-size: 19px;
   width: 100%;
   height: 40px;
@@ -346,18 +345,18 @@ h1 {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 228, ../scss/main.scss */
-.genre-list li.active {
+/* line 227, ../scss/main.scss */
+.side-nav li.active {
   color: white;
   background-color: #940700;
 }
-/* line 232, ../scss/main.scss */
-.genre-list li:hover {
+/* line 231, ../scss/main.scss */
+.side-nav li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 238, ../scss/main.scss */
+/* line 237, ../scss/main.scss */
 .has-error input {
   -webkit-animation: glow 800ms ease-out infinite alternate;
   -moz-animation: glow 800ms ease-out infinite alternate;
@@ -366,82 +365,103 @@ h1 {
   animation: glow 800ms ease-out infinite alternate;
 }
 
-/* line 246, ../scss/main.scss */
+/* line 245, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
   color: #3CF;
-  height: 28px;
-  width: 102%;
+  height: 130px;
+  width: 100%;
   float: right;
   position: relative;
   bottom: -60px;
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 257, ../scss/main.scss */
+/* line 256, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
+}
+/* line 260, ../scss/main.scss */
+footer .nav li a:hover, footer .nav li a:focus {
+  background-color: #333;
+  color: #940700;
+  text-shadow: none;
+}
+/* line 265, ../scss/main.scss */
+footer ul {
+  width: 100%;
+  display: block;
+}
+/* line 269, ../scss/main.scss */
+footer li {
+  width: 25%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+/* line 274, ../scss/main.scss */
+footer li:hover {
+  background-color: transparent;
 }
 
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 266, ../scss/main.scss */
+  /* line 282, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 270, ../scss/main.scss */
+  /* line 286, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 276, ../scss/main.scss */
+  /* line 292, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 280, ../scss/main.scss */
+  /* line 296, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 286, ../scss/main.scss */
+  /* line 302, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 291, ../scss/main.scss */
+  /* line 307, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 297, ../scss/main.scss */
+  /* line 313, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 302, ../scss/main.scss */
+  /* line 318, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 308, ../scss/main.scss */
+  /* line 324, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 312, ../scss/main.scss */
+  /* line 328, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }

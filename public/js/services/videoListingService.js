@@ -2,8 +2,8 @@
 	var app = angular.module('VideoServiceModule', ['youtubeFactoryModule']);
 
 	function VideoListingService (apiKeys, youtubeFactory, $sce) {
-		this.queryYoutube = function(searchText, maxResults) {
-			return youtubeFactory.getTrailer(searchText, maxResults)
+		this.queryYoutube = function(searchText, maxResults, factoryName) {
+			return youtubeFactory[factoryName](searchText, maxResults)
 				.then(function(response) {
 					if(response) {
 						var trailerCollection = response.data.items;
