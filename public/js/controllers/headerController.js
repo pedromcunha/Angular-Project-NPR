@@ -44,6 +44,7 @@
 	            name: "western"
 	        }
         ];
+        //Sould be placed in the DB in the future, ok for now.
 
         vm.searchSubmitted = false;
 

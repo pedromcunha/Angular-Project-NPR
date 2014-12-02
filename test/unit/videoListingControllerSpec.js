@@ -71,4 +71,51 @@ describe('Controller: VideoListingController', function() {
 			expect(videoListingController.trailers.videos.length).toBe(3);//An array of 3 trailers
 		});
 	});
+	describe('Search for trailers by genre', function() {
+		var items = [];
+
+		beforeEach(function() {
+
+			for (var i = 0; i < 21; i++) {
+				items[i] =  
+					{
+	                    "id": {
+	                        "kind": "youtube#video",
+	                        "videoId": "MfETYdF8UuQ"
+	                    }
+	                };
+			};
+		});
+
+		it('Should load up the genre trailers when a genre is searched', function(){
+			var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=21&order=rating&q=action+official+movie+trailer+-game+-gameplay&type=video&videoDefinition=high&key=AIzaSyDYhqH1guvlxxocuttrwxE2kkvYefu0cqo';
+
+			$httpBackend.expectGET(url).respond(
+				{
+                "items": items
+				}
+			);
+
+			expect(videoListingController.trailers).toEqual({}); //empty
+			headerController.searchByGenre('action');
+			scope.$digest();
+			$httpBackend.flush();
+			expect(videoListingController.trailers.videos.length).toBe(21);//An array of 3 trailers
+		});
+		it('Should restrict the url when searching for fantasy to omit final fantasy results', function(){
+			var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=21&order=rating&q=fantasy+official+movie+trailer+-game+-gameplay+-final&type=video&videoDefinition=high&key=AIzaSyDYhqH1guvlxxocuttrwxE2kkvYefu0cqo';
+
+			$httpBackend.expectGET(url).respond(
+				{
+                "items": items
+				}
+			);
+
+			expect(videoListingController.trailers).toEqual({}); //empty
+			headerController.searchByGenre('fantasy');
+			scope.$digest();
+			$httpBackend.flush();
+			expect(videoListingController.trailers.videos.length).toBe(21);//An array of 3 trailers
+		});
+	});
 });
