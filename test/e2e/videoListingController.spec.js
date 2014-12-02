@@ -6,6 +6,7 @@ describe('Video Listing Controller', function() {
   var searchIcon;
   var listings;
   var errorMessage;
+  var actionGenre;
 
   beforeEach(function(){
       browser.get('http://localhost:1337/#/'); //navigates to the root state
@@ -19,6 +20,8 @@ describe('Video Listing Controller', function() {
 
       listings = element(by.css('[ng-repeat="video in vm.trailers.videos"]'));
       errorMessage = element(by.css('.no-vids-error'));
+
+      actionGenre = element(by.repeater('genre in vm.genres').row(0));
 
       ptor.waitForAngular();
 
@@ -48,5 +51,16 @@ describe('Video Listing Controller', function() {
 
     expect(errorMessage.isPresent()).toBe(true);
 
+  });
+
+  it('Should search for the top 21 youtube trailers matching a genre query', function() {
+
+    expect(browser.getLocationAbsUrl()).toMatch('/');
+
+    expect(listings.isPresent()).toBe(false);
+
+    actionGenre.click();
+
+    expect(listings.isPresent()).toBe(true);
   });
 });
