@@ -257,10 +257,12 @@ h1 {
 			text-decoration: none;
 			color: $white;
 		}
+		.navbar-nav li a {
+			text-shadow: none;
+		}
 		.nav li a:hover, .nav li a:focus {
 			background-color: #333;
 			color: $darkRed;
-			text-shadow: none;
 		}
 		ul {
 			width: 100%;

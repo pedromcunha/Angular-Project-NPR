@@ -384,23 +384,26 @@ footer a {
   color: white;
 }
 /* line 260, ../scss/main.scss */
+footer .navbar-nav li a {
+  text-shadow: none;
+}
+/* line 263, ../scss/main.scss */
 footer .nav li a:hover, footer .nav li a:focus {
   background-color: #333;
   color: #940700;
-  text-shadow: none;
 }
-/* line 265, ../scss/main.scss */
+/* line 267, ../scss/main.scss */
 footer ul {
   width: 100%;
   display: block;
 }
-/* line 269, ../scss/main.scss */
+/* line 271, ../scss/main.scss */
 footer li {
   width: 25%;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-/* line 274, ../scss/main.scss */
+/* line 276, ../scss/main.scss */
 footer li:hover {
   background-color: transparent;
 }
@@ -408,60 +411,60 @@ footer li:hover {
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 282, ../scss/main.scss */
+  /* line 284, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 286, ../scss/main.scss */
+  /* line 288, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 292, ../scss/main.scss */
+  /* line 294, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 296, ../scss/main.scss */
+  /* line 298, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 302, ../scss/main.scss */
+  /* line 304, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 307, ../scss/main.scss */
+  /* line 309, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 313, ../scss/main.scss */
+  /* line 315, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 318, ../scss/main.scss */
+  /* line 320, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 324, ../scss/main.scss */
+  /* line 326, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 328, ../scss/main.scss */
+  /* line 330, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }

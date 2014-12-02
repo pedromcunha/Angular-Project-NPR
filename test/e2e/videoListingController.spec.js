@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Registration Form Modal', function() {
+describe('Video Listing Controller', function() {
   var ptor;
   var searchBar;
   var searchIcon;
