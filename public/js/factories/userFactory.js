@@ -14,6 +14,11 @@
                     username: username,
                     password: password
                 });
+            },
+            getUser: function(userId) {
+                return $http.get(trailerParkeApi.userById, {
+                    id: userId
+                });
             }
     	};
 

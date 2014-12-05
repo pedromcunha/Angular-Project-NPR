@@ -38,5 +38,6 @@ app.constant('apiKeys', {
 //node api urls
 app.constant('trailerParkeApi', {
     userRegistration: 'http://localhost:1337/api/register',
-    userLogin: 'http://localhost:1337/auth/login'
+    userLogin: 'http://localhost:1337/auth/login',
+    userById: 'http://localhost:1337/api/user'
 });

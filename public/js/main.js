@@ -38,7 +38,8 @@ app.constant('apiKeys', {
 //node api urls
 app.constant('trailerParkeApi', {
     userRegistration: 'http://localhost:1337/api/register',
-    userLogin: 'http://localhost:1337/auth/login'
+    userLogin: 'http://localhost:1337/auth/login',
+    userById: 'http://localhost:1337/api/user'
 });
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
@@ -353,6 +354,11 @@ app.controller('LoginModalController', LoginModalController);
                 return $http.post(trailerParkeApi.userLogin, {
                     username: username,
                     password: password
+                });
+            },
+            getUser: function(userId) {
+                return $http.get(trailerParkeApi.userById, {
+                    id: userId
                 });
             }
     	};
