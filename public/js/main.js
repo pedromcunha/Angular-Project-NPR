@@ -35,13 +35,10 @@ app.constant('apiKeys', {
     rottenTomatoesAPI: '4cwjthjq2hyxz7amh6jj5p4p'
 });
 
-/* TODO 
-Replace this with the real server
-Also replace the tests with the correct deployed api url */
-
+//node api urls
 app.constant('trailerParkeApi', {
-    userRegistration: 'https://trailer-parke.herokuapp.com/api/register',
-    userLogin: 'https://trailer-parke.herokuapp.com/auth/login'
+    userRegistration: 'http://localhost:1337/api/register',
+    userLogin: 'http://localhost:1337/auth/login'
 });
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
@@ -98,7 +95,7 @@ app.constant('trailerParkeApi', {
         vm.videoStorage = VideoStorage;
 
         $scope.$watch(function() { return $cookies.user; }, function(newValue) {
-           vm.userState = newValue;
+           	vm.userState = newValue;
         });
 
         vm.openRegistration = function() {

@@ -53,7 +53,7 @@
         vm.videoStorage = VideoStorage;
 
         $scope.$watch(function() { return $cookies.user; }, function(newValue) {
-           vm.userState = newValue;
+           	vm.userState = newValue;
         });
 
         vm.openRegistration = function() {

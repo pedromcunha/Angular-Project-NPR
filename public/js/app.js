@@ -35,10 +35,7 @@ app.constant('apiKeys', {
     rottenTomatoesAPI: '4cwjthjq2hyxz7amh6jj5p4p'
 });
 
-/* TODO 
-Replace this with the real server
-Also replace the tests with the correct deployed api url */
-
+//node api urls
 app.constant('trailerParkeApi', {
     userRegistration: 'http://localhost:1337/api/register',
     userLogin: 'http://localhost:1337/auth/login'

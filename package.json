@@ -67,6 +67,7 @@
     "npm": "1.2.x"
   },
   "devDependencies": {
-    "chromedriver": "^2.12.0"
+    "chromedriver": "^2.12.0",
+    "mongodb": "^1.4.23"
   }
 }
