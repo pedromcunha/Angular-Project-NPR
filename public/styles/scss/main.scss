@@ -126,10 +126,6 @@ h1 {
 		text-align: right;
 		padding-top: 20px;
 
-		.logo {
-			z-index: 1000;
-		}
-
 		h1 {
 			margin-left: 20px;
 			margin-top: 0px;
@@ -202,6 +198,12 @@ h1 {
 				width: 200px;
 				height: 200px;
 			}
+		}
+		.ratingQueryLarge {
+			display: block;
+			color: $white;
+			margin-top: 5px;
+			margin-bottom: 5px;
 		}
 	}
 	.side-nav {

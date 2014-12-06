@@ -1,4 +1,5 @@
 angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule', 'VideoStorageFactoryModule']);
+angular.module('UserModules', ['UserStorageFactoryModule', 'UserFactoryModule']);
 
 var appDependencies = 
     ['templates-main',
@@ -6,8 +7,8 @@ var appDependencies =
     'HeaderControllerModule',
     'VideoListingModules',
     'appDirectiveModule',
+    'UserModules',
     'appFactoriesModule',
-    'userFactoryModule',
     'ui.router',
     'ngCookies',
     // 'ngAnimate',
@@ -42,9 +43,9 @@ app.constant('trailerParkeApi', {
     userById: 'http://localhost:1337/api/user'
 });
 ;(function() {
-    var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
+    var app = angular.module('HeaderControllerModule', ['UserFactoryModule', 'ngCookies']);
 
-    function headerController ($scope, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies, VideoListingService, VideoStorage) {
+    function headerController ($scope, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies, VideoListingService, VideoStorage, UserStorage) {
         //set up the view model (vm)
         var vm = this;
 
@@ -97,6 +98,12 @@ app.constant('trailerParkeApi', {
 
         $scope.$watch(function() { return $cookies.user; }, function(newValue) {
            	vm.userState = newValue;
+           	if(newValue === null || newValue === undefined) {
+           		UserStorage.user = null;
+           	}
+           	else {
+	           	UserStorage.storeUser(newValue);
+            }
         });
 
         vm.openRegistration = function() {
@@ -136,14 +143,11 @@ app.constant('trailerParkeApi', {
     			vm.videoStorage.videos = response;
     		});
     	};
-
-    	vm.isActiveGenre = function(genre) {
-    		return vm.genre === genre.name;
-    	};
     }
+
     
     //controller injection
-    headerController.$inject = ['$scope', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies', 'VideoListingService', 'VideoStorage'];
+    headerController.$inject = ['$scope', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies', 'VideoListingService', 'VideoStorage', 'UserStorage'];
 
     //controller declaration
     app.controller('headerController', headerController);
@@ -280,15 +284,15 @@ app.controller('LoginModalController', LoginModalController);
 })();;(function() {
     var app = angular.module('VideoControllerModule', ['ngCookies']);
 
-    function VideoListingController ($scope, VideoStorage) {
+    function VideoListingController ($scope, VideoStorage, UserStorage) {
     	var vm = this;
 
-
     	vm.trailers = VideoStorage;
+    	vm.userState = UserStorage;
     }
 
     //Inject dependencies into the controller
-    VideoListingController.$inject = ['$scope', 'VideoStorage'];
+    VideoListingController.$inject = ['$scope', 'VideoStorage', 'UserStorage'];
 
     //register the controller
     app.controller('VideoListingController', VideoListingController);
@@ -340,7 +344,7 @@ app.controller('LoginModalController', LoginModalController);
 
 })();
 ;(function() {
-    var app = angular.module('userFactoryModule', []);
+    var app = angular.module('UserFactoryModule', []);
 
     function userFactory ($http, trailerParkeApi) {
     	var userApi = {
@@ -358,7 +362,9 @@ app.controller('LoginModalController', LoginModalController);
             },
             getUser: function(userId) {
                 return $http.get(trailerParkeApi.userById, {
-                    id: userId
+                    params: {
+                        id: userId
+                    }
                 });
             }
     	};
@@ -369,6 +375,30 @@ app.controller('LoginModalController', LoginModalController);
     userFactory.$inject = ['$http', 'trailerParkeApi'];
 
     app.factory('userFactory', userFactory);
+
+})();;(function() {
+    var app = angular.module('UserStorageFactoryModule', []);
+
+    function UserStorage (userFactory) {
+        var data = {};
+
+        data.storeUser = function(userId) {
+        	userFactory.getUser(userId).then(function(response) {
+					if(response) {
+						data.user = response.data.user;
+					}
+				})
+				.catch(function(error) {
+					return error;
+				});
+        }
+
+    	return data;
+    }
+
+    UserStorage.$inject = ['userFactory'];
+
+    app.factory('UserStorage', UserStorage);
 
 })();;(function() {
     var app = angular.module('VideoStorageFactoryModule', []);

@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 
 router.get('/users', userCtrl.getUsers);
 
-router.get('/user/id=:id', userCtrl.getUser);
+router.get('/user', userCtrl.getUser);
 
 router.post('/register', userCtrl.create);
 

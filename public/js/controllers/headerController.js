@@ -1,7 +1,7 @@
 (function() {
-    var app = angular.module('HeaderControllerModule', ['userFactoryModule', 'ngCookies']);
+    var app = angular.module('HeaderControllerModule', ['UserFactoryModule', 'ngCookies']);
 
-    function headerController ($scope, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies, VideoListingService, VideoStorage) {
+    function headerController ($scope, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies, VideoListingService, VideoStorage, UserStorage) {
         //set up the view model (vm)
         var vm = this;
 
@@ -54,6 +54,12 @@
 
         $scope.$watch(function() { return $cookies.user; }, function(newValue) {
            	vm.userState = newValue;
+           	if(newValue === null || newValue === undefined) {
+           		UserStorage.user = null;
+           	}
+           	else {
+	           	UserStorage.storeUser(newValue);
+            }
         });
 
         vm.openRegistration = function() {
@@ -93,14 +99,11 @@
     			vm.videoStorage.videos = response;
     		});
     	};
-
-    	vm.isActiveGenre = function(genre) {
-    		return vm.genre === genre.name;
-    	};
     }
+
     
     //controller injection
-    headerController.$inject = ['$scope', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies', 'VideoListingService', 'VideoStorage'];
+    headerController.$inject = ['$scope', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies', 'VideoListingService', 'VideoStorage', 'UserStorage'];
 
     //controller declaration
     app.controller('headerController', headerController);

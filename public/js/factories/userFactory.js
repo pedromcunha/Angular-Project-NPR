@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('userFactoryModule', []);
+    var app = angular.module('UserFactoryModule', []);
 
     function userFactory ($http, trailerParkeApi) {
     	var userApi = {
@@ -17,7 +17,9 @@
             },
             getUser: function(userId) {
                 return $http.get(trailerParkeApi.userById, {
-                    id: userId
+                    params: {
+                        id: userId
+                    }
                 });
             }
     	};

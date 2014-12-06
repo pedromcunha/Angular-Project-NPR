@@ -1,4 +1,5 @@
 angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule', 'VideoStorageFactoryModule']);
+angular.module('UserModules', ['UserStorageFactoryModule', 'UserFactoryModule']);
 
 var appDependencies = 
     ['templates-main',
@@ -6,8 +7,8 @@ var appDependencies =
     'HeaderControllerModule',
     'VideoListingModules',
     'appDirectiveModule',
+    'UserModules',
     'appFactoriesModule',
-    'userFactoryModule',
     'ui.router',
     'ngCookies',
     // 'ngAnimate',

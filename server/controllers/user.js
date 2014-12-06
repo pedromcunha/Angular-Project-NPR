@@ -41,7 +41,7 @@ exports.getUsers = function(req, res) {
 };
 
 exports.getUser = function(req, res) {
-    var objectId = BSON.ObjectID.createFromHexString(req.param('id'));
+    var objectId = BSON.ObjectID.createFromHexString(req.query.id);
     User.model.findOne({_id: objectId}, function(err, user) {
         if(err) {
             res.send({
