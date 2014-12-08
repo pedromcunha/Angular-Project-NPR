@@ -62,5 +62,31 @@ describe('Video Listing Controller', function() {
     actionGenre.click();
 
     expect(listings.isPresent()).toBe(true);
+
+  });
+
+  it('Should only have the ratings selection if the user is logged in', function() {
+    expect(browser.getLocationAbsUrl()).toMatch('/');
+
+    searchBar.sendKeys('Thor', protractor.Key.ENTER);
+
+    var ratingIcons = element(by.css('.ratingQueryLarge'));
+
+    expect(ratingIcons.isPresent()).toBe(false);
+
+    var openLoginModalButton = element(by.css('[ng-click="vm.openLogin()"]'));
+
+    openLoginModalButton.click();
+
+    var usernameField = element(by.model('modal.username'));
+    var passwordField = element(by.model('modal.password'));
+    var loginButton = element(by.css('[ng-click="modal.login()"]'));
+
+    usernameField.sendKeys('someusername');
+    passwordField.sendKeys('somepassword');
+
+    loginButton.click();
+
+    expect(ratingIcons.isPresent()).toBe(true);
   });
 });
