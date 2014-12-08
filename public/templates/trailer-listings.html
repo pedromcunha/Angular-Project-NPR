@@ -4,8 +4,8 @@
 			<ul class="programs-list scrollable">
 					<h2 class="no-vids-error" ng-if="vm.trailers.videos.length == 0">No videos found</h2>
 		 		<li ng-repeat="video in vm.trailers.videos" ng-class="{'genre-videos' : vm.trailers.videos.length > 3}">
-					<span ng-if="vm.userState.user !== null"><h4 class="pull-left">Rating: </h4><rating class="ratingQueryLarge" ng-model="vm.rating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </span>
-					<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video}}" frameborder="0" allowfullscreen>
+					<span ng-if="vm.userState.user !== null"><h4 class="pull-left">Rating: </h4><rating ng-click="vm.saveRating(video.url, video.userRating)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </span>
+					<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video.url}}" frameborder="0" allowfullscreen>
 					</iframe>
 				</li>
 			</ul>

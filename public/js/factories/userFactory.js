@@ -21,6 +21,16 @@
                         id: userId
                     }
                 });
+            },
+            updateUserTrailers: function(userId, trailer) {
+                return $http.put(trailerParkeApi.updateUserTrailers, {
+                    userId: userId,
+                    trailer: {
+                        url: trailer.url,
+                        userRating: trailer.userRating,
+                        isSaved: trailer.isSaved
+                    }
+                });
             }
     	};
 

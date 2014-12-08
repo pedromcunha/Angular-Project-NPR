@@ -13,6 +13,9 @@
 				.catch(function(error) {
 					return error;
 				});
+        },
+        data.cacheUser = function(user) {
+            data.user = user;
         }
 
     	return data;

@@ -40,7 +40,8 @@ app.constant('apiKeys', {
 app.constant('trailerParkeApi', {
     userRegistration: 'http://localhost:1337/api/register',
     userLogin: 'http://localhost:1337/auth/login',
-    userById: 'http://localhost:1337/api/user'
+    userById: 'http://localhost:1337/api/user',
+    updateUserTrailers: 'http://localhost:1337/api/user/updateTrailers'
 });
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['UserFactoryModule', 'ngCookies']);
@@ -155,18 +156,32 @@ app.constant('trailerParkeApi', {
 })();;(function() {
 	var app = angular.module('VideoServiceModule', ['youtubeFactoryModule']);
 
-	function VideoListingService (apiKeys, youtubeFactory, $sce) {
+	function VideoListingService (apiKeys, youtubeFactory, $sce, UserStorage) {
 		this.queryYoutube = function(searchText, maxResults, factoryName) {
 			return youtubeFactory[factoryName](searchText, maxResults)
 				.then(function(response) {
 					if(response) {
-						var trailerCollection = response.data.items;
-						var convertedCollection = [];
+						var trailerCollection = response.data.items,
+							convertedCollection = [],
+							userTrailers = UserStorage.user.trailers;
+
 
 						_.each(trailerCollection, function(trailer) {
-							convertedCollection.push($sce.trustAsResourceUrl('https://www.youtube.com/embed/'+trailer.id.videoId));
+							var trailerUrl = 'https://www.youtube.com/embed/'+trailer.id.videoId,
+								isSaved = _.findWhere(userTrailers, {url: trailerUrl}),
+								trailerObj;
+								
+							if(!!isSaved) {
+								isSaved.url = $sce.trustAsResourceUrl(isSaved.url);
+								convertedCollection.push(isSaved);
+							}
+							else {
+								trailerObj = {
+									url: $sce.trustAsResourceUrl(trailerUrl)
+								};
+								convertedCollection.push(trailerObj);
+							}
 						});
-
 						return convertedCollection;
 					}
 				})
@@ -176,7 +191,7 @@ app.constant('trailerParkeApi', {
 		};
 	}
 
-	VideoListingService.$inject = ['apiKeys', 'youtubeFactory', '$sce'];
+	VideoListingService.$inject = ['apiKeys', 'youtubeFactory', '$sce', 'UserStorage'];
 
 	app.service('VideoListingService', VideoListingService);
 
@@ -284,15 +299,34 @@ app.controller('LoginModalController', LoginModalController);
 })();;(function() {
     var app = angular.module('VideoControllerModule', ['ngCookies']);
 
-    function VideoListingController ($scope, VideoStorage, UserStorage) {
+    function VideoListingController ($scope, VideoStorage, UserStorage, userFactory) {
     	var vm = this;
 
     	vm.trailers = VideoStorage;
     	vm.userState = UserStorage;
+        vm.saveRating = function(trailerUrl, rating) {
+            var trailer = {
+                url: trailerUrl.$$unwrapTrustedValue(),
+                userRating: rating,
+                isSaved: false
+            };
+            vm.saveTrailer(trailer, vm.userState.user._id, userFactory, UserStorage);
+        }
     }
 
+    VideoListingController.prototype.saveTrailer = function(trailer, userId, userFactory, UserStorage) {
+        userFactory.updateUserTrailers(userId, trailer)
+            .then(function(response) {
+                UserStorage.cacheUser(response.data.user);
+            })
+            .catch(function(error) {
+                console.log('error');
+            });
+    };
+
+
     //Inject dependencies into the controller
-    VideoListingController.$inject = ['$scope', 'VideoStorage', 'UserStorage'];
+    VideoListingController.$inject = ['$scope', 'VideoStorage', 'UserStorage', 'userFactory'];
 
     //register the controller
     app.controller('VideoListingController', VideoListingController);
@@ -366,6 +400,16 @@ app.controller('LoginModalController', LoginModalController);
                         id: userId
                     }
                 });
+            },
+            updateUserTrailers: function(userId, trailer) {
+                return $http.put(trailerParkeApi.updateUserTrailers, {
+                    userId: userId,
+                    trailer: {
+                        url: trailer.url,
+                        userRating: trailer.userRating,
+                        isSaved: trailer.isSaved
+                    }
+                });
             }
     	};
 
@@ -391,6 +435,9 @@ app.controller('LoginModalController', LoginModalController);
 				.catch(function(error) {
 					return error;
 				});
+        },
+        data.cacheUser = function(user) {
+            data.user = user;
         }
 
     	return data;

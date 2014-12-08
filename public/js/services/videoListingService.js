@@ -1,18 +1,32 @@
 (function() {
 	var app = angular.module('VideoServiceModule', ['youtubeFactoryModule']);
 
-	function VideoListingService (apiKeys, youtubeFactory, $sce) {
+	function VideoListingService (apiKeys, youtubeFactory, $sce, UserStorage) {
 		this.queryYoutube = function(searchText, maxResults, factoryName) {
 			return youtubeFactory[factoryName](searchText, maxResults)
 				.then(function(response) {
 					if(response) {
-						var trailerCollection = response.data.items;
-						var convertedCollection = [];
+						var trailerCollection = response.data.items,
+							convertedCollection = [],
+							userTrailers = UserStorage.user.trailers;
+
 
 						_.each(trailerCollection, function(trailer) {
-							convertedCollection.push($sce.trustAsResourceUrl('https://www.youtube.com/embed/'+trailer.id.videoId));
+							var trailerUrl = 'https://www.youtube.com/embed/'+trailer.id.videoId,
+								isSaved = _.findWhere(userTrailers, {url: trailerUrl}),
+								trailerObj;
+								
+							if(!!isSaved) {
+								isSaved.url = $sce.trustAsResourceUrl(isSaved.url);
+								convertedCollection.push(isSaved);
+							}
+							else {
+								trailerObj = {
+									url: $sce.trustAsResourceUrl(trailerUrl)
+								};
+								convertedCollection.push(trailerObj);
+							}
 						});
-
 						return convertedCollection;
 					}
 				})
@@ -22,7 +36,7 @@
 		};
 	}
 
-	VideoListingService.$inject = ['apiKeys', 'youtubeFactory', '$sce'];
+	VideoListingService.$inject = ['apiKeys', 'youtubeFactory', '$sce', 'UserStorage'];
 
 	app.service('VideoListingService', VideoListingService);
 
