@@ -7,10 +7,12 @@
 				.then(function(response) {
 					if(response) {
 						var trailerCollection = response.data.items,
-							convertedCollection = [],
-							userTrailers = UserStorage.user.trailers;
-
-
+							convertedCollection = [];
+						//check if a user is logged in
+						if(UserStorage.user) {
+							var userTrailers = UserStorage.user.trailers;
+						}
+						//format the trailers properly
 						_.each(trailerCollection, function(trailer) {
 							var trailerUrl = 'https://www.youtube.com/embed/'+trailer.id.videoId,
 								isSaved = _.findWhere(userTrailers, {url: trailerUrl}),
