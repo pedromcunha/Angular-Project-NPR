@@ -14,6 +14,8 @@ router.get('/user', userCtrl.getUser);
 
 router.post('/register', userCtrl.create);
 
+router.put('/user/updateTrailers', userCtrl.updateTrailers);
+
 router.delete('/user/delete', userCtrl.deleteUser);
 
 module.exports = router;

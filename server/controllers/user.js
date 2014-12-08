@@ -87,3 +87,59 @@ exports.deleteUser = function(req, res) {
         res.send('Missing User Id');
     }
 };
+
+// trailers: [
+//     {
+//         url: String,
+//         userRating: Number,
+//         isSaved: Boolean
+//     }
+// ]
+
+exports.updateTrailers = function(req, res) {
+    var trailer = req.body.trailer;
+    var userId = BSON.ObjectID.createFromHexString(req.body.userId);
+
+    if(trailer && userId) {
+        User.model.findOne({_id: userId}, function(err, user) {
+            var trailerLength = user.trailers.length;
+            var message;
+            if(trailerLength > 0) {
+                var i = 0;
+                for(i; i < trailerLength; i++) {
+                    if(trailer.url === user.trailers[i].url) {
+                        //update the trailer object
+                        user.trailers[i].userRating = trailer.userRating;
+                        user.trailers[i].isSaved = trailer.isSaved;
+                        message = 'Trailer successfully updated';
+                    }
+                }
+            }
+            //create a brand new trailer object if there is no message
+            if(!message) {
+                message = 'Trailer successfully created';
+                var newTrailer = {
+                    url: trailer.url,
+                    userRating: trailer.userRating,
+                    isSaved: trailer.isSaved
+                };
+                user.trailers.push(newTrailer);
+            }
+            //updates the trailer array for the user obj
+            user.update({trailers: user.trailers}, function(err, numAffected) {
+                if(err) {
+                    res.send({
+                        message: err,
+                        user: null
+                    });
+                }
+                else {
+                    res.send({
+                        message: message,
+                        user: user
+                    });
+                }
+            });
+        });
+    }
+};

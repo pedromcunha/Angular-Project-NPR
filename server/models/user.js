@@ -15,7 +15,8 @@ var UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    trailers: { type : Array , "default" : [] }
 });
 
 //Validation to check if user has already been created

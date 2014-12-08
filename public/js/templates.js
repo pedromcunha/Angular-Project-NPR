@@ -86,7 +86,7 @@ angular.module("../public/templates/trailer-listings.html", []).run(["$templateC
     "			<ul class=\"programs-list scrollable\">\n" +
     "					<h2 class=\"no-vids-error\" ng-if=\"vm.trailers.videos.length == 0\">No videos found</h2>\n" +
     "		 		<li ng-repeat=\"video in vm.trailers.videos\" ng-class=\"{'genre-videos' : vm.trailers.videos.length > 3}\">\n" +
-    "					<rating class=\"ratingQueryLarge\" ng-if=\"vm.userState.user !== null\" ng-model=\"vm.rating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating>\n" +
+    "					<span ng-if=\"vm.userState.user !== null\"><h4 class=\"pull-left\">Rating: </h4><rating class=\"ratingQueryLarge\" ng-model=\"vm.rating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </span>\n" +
     "					<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video}}\" frameborder=\"0\" allowfullscreen>\n" +
     "					</iframe>\n" +
     "				</li>\n" +
