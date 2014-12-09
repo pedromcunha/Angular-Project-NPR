@@ -324,7 +324,13 @@ a:hover, a:focus {
   border-bottom: none !important;
 }
 
-/* line 216, ../scss/main.scss */
+/* line 217, ../scss/main.scss */
+.programs-list >
+li {
+  margin-top: 15px;
+}
+
+/* line 220, ../scss/main.scss */
 .programs-list {
   max-height: 788px;
   overflow: auto;
@@ -332,26 +338,52 @@ a:hover, a:focus {
   background-color: #940700;
   margin-top: 50px;
 }
-/* line 222, ../scss/main.scss */
+/* line 226, ../scss/main.scss */
 .programs-list .genre-videos {
   height: 200px;
   float: left;
-  margin: 0 20px 10px 0;
+  margin: 40px 20px 10px 0;
 }
-/* line 226, ../scss/main.scss */
+/* line 231, ../scss/main.scss */
+.programs-list .genre-videos .rating-container {
+  width: 201px;
+  clear: both;
+}
+/* line 236, ../scss/main.scss */
 .programs-list .genre-videos iframe {
   width: 200px;
   height: 200px;
+  clear: both;
+  float: left;
 }
-/* line 231, ../scss/main.scss */
+/* line 243, ../scss/main.scss */
+.programs-list .rating-container {
+  width: 640px;
+  background-color: white;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  -ms-border-radius: 5px 5px 0px 0px;
+  -o-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+  -webkit-box-shadow: 0px 0px 4px 1px black inset;
+  -moz-box-shadow: 0px 0px 4px 1px black inset;
+  box-shadow: 0px 0px 4px 1px black inset;
+}
+/* line 249, ../scss/main.scss */
+.programs-list .rating-container h4 {
+  color: #940700;
+  padding: 5px 15px;
+}
+/* line 254, ../scss/main.scss */
 .programs-list .ratingQueryLarge {
-  display: block;
-  color: white;
+  display: inline;
+  color: #940700;
   margin-top: 5px;
   margin-bottom: 5px;
+  outline: none;
 }
 
-/* line 238, ../scss/main.scss */
+/* line 262, ../scss/main.scss */
 .side-nav {
   width: 200px;
   height: 830px;
@@ -369,7 +401,7 @@ a:hover, a:focus {
   z-index: 1;
   color: #940700;
 }
-/* line 248, ../scss/main.scss */
+/* line 272, ../scss/main.scss */
 .side-nav li {
   font-size: 19px;
   width: 100%;
@@ -383,18 +415,18 @@ a:hover, a:focus {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 258, ../scss/main.scss */
+/* line 282, ../scss/main.scss */
 .side-nav li.active {
   color: white;
   background-color: #940700;
 }
-/* line 262, ../scss/main.scss */
+/* line 286, ../scss/main.scss */
 .side-nav li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 268, ../scss/main.scss */
+/* line 292, ../scss/main.scss */
 .has-error input {
   -webkit-animation: glow 800ms ease-out infinite alternate;
   -moz-animation: glow 800ms ease-out infinite alternate;
@@ -403,7 +435,7 @@ a:hover, a:focus {
   animation: glow 800ms ease-out infinite alternate;
 }
 
-/* line 276, ../scss/main.scss */
+/* line 300, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
@@ -416,32 +448,32 @@ footer {
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 287, ../scss/main.scss */
+/* line 311, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
 }
-/* line 291, ../scss/main.scss */
+/* line 315, ../scss/main.scss */
 footer .navbar-nav li a {
   text-shadow: none;
 }
-/* line 294, ../scss/main.scss */
+/* line 318, ../scss/main.scss */
 footer .nav li a:hover, footer .nav li a:focus {
   background-color: #333;
   color: #940700;
 }
-/* line 298, ../scss/main.scss */
+/* line 322, ../scss/main.scss */
 footer ul {
   width: 100%;
   display: block;
 }
-/* line 302, ../scss/main.scss */
+/* line 326, ../scss/main.scss */
 footer li {
   width: 25%;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-/* line 307, ../scss/main.scss */
+/* line 331, ../scss/main.scss */
 footer li:hover {
   background-color: transparent;
 }
@@ -449,60 +481,60 @@ footer li:hover {
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 315, ../scss/main.scss */
+  /* line 339, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 319, ../scss/main.scss */
+  /* line 343, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 325, ../scss/main.scss */
+  /* line 349, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 329, ../scss/main.scss */
+  /* line 353, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 335, ../scss/main.scss */
+  /* line 359, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 340, ../scss/main.scss */
+  /* line 364, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 346, ../scss/main.scss */
+  /* line 370, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 351, ../scss/main.scss */
+  /* line 375, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 357, ../scss/main.scss */
+  /* line 381, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 361, ../scss/main.scss */
+  /* line 385, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }

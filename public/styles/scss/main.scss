@@ -212,7 +212,11 @@ h1 {
 				border-bottom: none !important;
 			}
 		}
-	}//header 
+	}//header
+	.programs-list > 
+		li {
+			margin-top: 15px;
+		}  
 	.programs-list {
 		max-height: 788px;
 		overflow: auto;
@@ -222,17 +226,37 @@ h1 {
 		.genre-videos {
 			height: 200px;
 			float: left;
-			margin: 0 20px 10px 0;
+			margin: 40px 20px 10px 0;
+
+			.rating-container {
+				width: 201px;
+				clear: both;
+			}
+
 			iframe {
 				width: 200px;
 				height: 200px;
+				clear: both;
+				float: left;
+			}
+		}
+		.rating-container {
+			width: 640px;
+			background-color: $white;
+			@include border-radius(5px 5px 0px 0px);
+			@include box-shadow(0px 0px 4px 1px $black inset);
+
+			h4 {
+				color: $darkRed;
+				padding: 5px 15px;
 			}
 		}
 		.ratingQueryLarge {
-			display: block;
-			color: $white;
+			display: inline;
+			color: $darkRed;
 			margin-top: 5px;
 			margin-bottom: 5px;
+			outline: none;
 		}
 	}
 	.side-nav {
