@@ -5,6 +5,10 @@
         //set up the view model (vm)
         var vm = this;
 
+        vm.dropdown = {
+		    isopen: false
+		};
+
         vm.genres = [
         	{
            	    name: "horror",

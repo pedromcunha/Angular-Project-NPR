@@ -55,9 +55,15 @@
 					<div class="col-xs-1 pull-right" ng-if="!vm.userState">
 						<button ng-click="vm.openRegistration()" class="btn btn-primary">Sign up</button>
 		 			</div>
-		 			<div class="pull-right" ng-if="vm.userState">
-						<button class="btn btn-primary" style="padding: 9px;"><i class="fa fa-cog"></i></button>
-					</div>
+					<div class="btn-group pull-right" dropdown is-open="vm.dropdown.isopen" ng-if="vm.userState">
+				      <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-click="vm.dropdown.isopen = !vm.dropdown.isopen;" ng-disabled="disabled">
+				          <i class="fa fa-cog"></i>
+				      </button>
+				      <ul class="dropdown-menu" role="menu">
+				        <li><a href>Rated Trailers <i class="glyphicon glyphicon-star"></i></a></li>
+				        <li><a href>Saved Trailers <i class="fa fa-video-camera"></i></a></li>
+				      </ul>
+				    </div>
 		 			<div class="col-xs-1 pull-right" ng-if="vm.userState">
 						<button class="btn btn-primary" ng-click="vm.logOut()">Logout</button>
 					</div>

@@ -88,8 +88,36 @@ h1 {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-	background: $darkRed;
+	background-color: $darkRed;
 }
+
+.open
+	> .dropdown-toggle.btn-primary {
+	background-color: $darkRed;
+}
+
+.dropdown-toggle {
+	height: 32px;
+}
+.dropdown-menu {
+	min-width: 125px;
+}
+
+.dropdown-menu >
+	li > 
+		a {
+			color: $darkRed;
+			font-family: 'FiraSansBook';
+			padding: 5px 10px;
+		}
+
+.dropdown-menu >
+	li >
+		a:hover, a:focus {
+			color: $white;
+			background-image: none;
+			background-color: $darkRed;
+	}
 //bootstrap ui overrides
 .modal {
 	color: $darkRed;
