@@ -201,9 +201,10 @@ a {
   color: #940700;
   font-family: 'FiraSansBook';
   padding: 5px 10px;
+  text-align: right;
 }
 
-/* line 116, ../scss/main.scss */
+/* line 117, ../scss/main.scss */
 .dropdown-menu >
 li >
 a:hover, a:focus {
@@ -212,21 +213,21 @@ a:hover, a:focus {
   background-color: #940700;
 }
 
-/* line 122, ../scss/main.scss */
+/* line 123, ../scss/main.scss */
 .modal {
   color: #940700;
 }
-/* line 125, ../scss/main.scss */
+/* line 126, ../scss/main.scss */
 .modal .modal-title {
   color: #940700;
   font-size: 24px;
 }
-/* line 130, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 .modal label {
   vertical-align: middle;
   line-height: 34px;
 }
-/* line 134, ../scss/main.scss */
+/* line 135, ../scss/main.scss */
 .modal .fa-close {
   float: right;
   position: relative;
@@ -235,7 +236,7 @@ a:hover, a:focus {
   color: #940700;
 }
 
-/* line 145, ../scss/main.scss */
+/* line 146, ../scss/main.scss */
 .no-vids-error {
   margin: 150px 0px 0px 0px;
   font-size: 25px;
@@ -244,30 +245,30 @@ a:hover, a:focus {
   color: white;
 }
 
-/* line 152, ../scss/main.scss */
+/* line 153, ../scss/main.scss */
 #header {
   height: 60px;
   text-align: right;
   padding-top: 20px;
 }
-/* line 157, ../scss/main.scss */
+/* line 158, ../scss/main.scss */
 #header h1 {
   margin-left: 20px;
   margin-top: 0px;
   color: #940700;
   background-color: white;
 }
-/* line 162, ../scss/main.scss */
+/* line 163, ../scss/main.scss */
 #header h1 span {
   margin-left: 12px;
   color: white;
   background-color: #940700;
 }
-/* line 169, ../scss/main.scss */
+/* line 170, ../scss/main.scss */
 #header .autocompletes {
   z-index: 1000;
 }
-/* line 172, ../scss/main.scss */
+/* line 173, ../scss/main.scss */
 #header #auto-suggest-wrapper {
   text-align: left;
   float: right;
@@ -286,7 +287,7 @@ a:hover, a:focus {
   margin-top: -10px;
   width: 100%;
 }
-/* line 183, ../scss/main.scss */
+/* line 184, ../scss/main.scss */
 #header #auto-suggest-wrapper .tomato, #header #auto-suggest-wrapper .rotten {
   background-image: url("../assets/images/tp-spritesheet.png");
   width: 22px;
@@ -298,11 +299,11 @@ a:hover, a:focus {
   top: -2px;
   right: 24px;
 }
-/* line 194, ../scss/main.scss */
+/* line 195, ../scss/main.scss */
 #header #auto-suggest-wrapper .rotten {
   background-position: -21px 0px;
 }
-/* line 197, ../scss/main.scss */
+/* line 198, ../scss/main.scss */
 #header #auto-suggest-wrapper .auto-suggest {
   width: 100%;
   float: right;
@@ -310,20 +311,20 @@ a:hover, a:focus {
   border-left: none;
   padding-left: 30px;
 }
-/* line 204, ../scss/main.scss */
+/* line 205, ../scss/main.scss */
 #header #auto-suggest-wrapper .auto-suggest:hover {
   color: #ff0d00;
 }
-/* line 207, ../scss/main.scss */
+/* line 208, ../scss/main.scss */
 #header #auto-suggest-wrapper span:first-child {
   border-top: none !important;
 }
-/* line 210, ../scss/main.scss */
+/* line 211, ../scss/main.scss */
 #header #auto-suggest-wrapper span:last-child {
   border-bottom: none !important;
 }
 
-/* line 215, ../scss/main.scss */
+/* line 216, ../scss/main.scss */
 .programs-list {
   max-height: 788px;
   overflow: auto;
@@ -331,18 +332,18 @@ a:hover, a:focus {
   background-color: #940700;
   margin-top: 50px;
 }
-/* line 221, ../scss/main.scss */
+/* line 222, ../scss/main.scss */
 .programs-list .genre-videos {
   height: 200px;
   float: left;
   margin: 0 20px 10px 0;
 }
-/* line 225, ../scss/main.scss */
+/* line 226, ../scss/main.scss */
 .programs-list .genre-videos iframe {
   width: 200px;
   height: 200px;
 }
-/* line 230, ../scss/main.scss */
+/* line 231, ../scss/main.scss */
 .programs-list .ratingQueryLarge {
   display: block;
   color: white;
@@ -350,7 +351,7 @@ a:hover, a:focus {
   margin-bottom: 5px;
 }
 
-/* line 237, ../scss/main.scss */
+/* line 238, ../scss/main.scss */
 .side-nav {
   width: 200px;
   height: 830px;
@@ -368,7 +369,7 @@ a:hover, a:focus {
   z-index: 1;
   color: #940700;
 }
-/* line 247, ../scss/main.scss */
+/* line 248, ../scss/main.scss */
 .side-nav li {
   font-size: 19px;
   width: 100%;
@@ -382,18 +383,18 @@ a:hover, a:focus {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 257, ../scss/main.scss */
+/* line 258, ../scss/main.scss */
 .side-nav li.active {
   color: white;
   background-color: #940700;
 }
-/* line 261, ../scss/main.scss */
+/* line 262, ../scss/main.scss */
 .side-nav li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 267, ../scss/main.scss */
+/* line 268, ../scss/main.scss */
 .has-error input {
   -webkit-animation: glow 800ms ease-out infinite alternate;
   -moz-animation: glow 800ms ease-out infinite alternate;
@@ -402,7 +403,7 @@ a:hover, a:focus {
   animation: glow 800ms ease-out infinite alternate;
 }
 
-/* line 275, ../scss/main.scss */
+/* line 276, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
@@ -415,32 +416,32 @@ footer {
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 286, ../scss/main.scss */
+/* line 287, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
 }
-/* line 290, ../scss/main.scss */
+/* line 291, ../scss/main.scss */
 footer .navbar-nav li a {
   text-shadow: none;
 }
-/* line 293, ../scss/main.scss */
+/* line 294, ../scss/main.scss */
 footer .nav li a:hover, footer .nav li a:focus {
   background-color: #333;
   color: #940700;
 }
-/* line 297, ../scss/main.scss */
+/* line 298, ../scss/main.scss */
 footer ul {
   width: 100%;
   display: block;
 }
-/* line 301, ../scss/main.scss */
+/* line 302, ../scss/main.scss */
 footer li {
   width: 25%;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-/* line 306, ../scss/main.scss */
+/* line 307, ../scss/main.scss */
 footer li:hover {
   background-color: transparent;
 }
@@ -448,60 +449,60 @@ footer li:hover {
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 314, ../scss/main.scss */
+  /* line 315, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 318, ../scss/main.scss */
+  /* line 319, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 324, ../scss/main.scss */
+  /* line 325, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 328, ../scss/main.scss */
+  /* line 329, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 334, ../scss/main.scss */
+  /* line 335, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 339, ../scss/main.scss */
+  /* line 340, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 345, ../scss/main.scss */
+  /* line 346, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 350, ../scss/main.scss */
+  /* line 351, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 356, ../scss/main.scss */
+  /* line 357, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 360, ../scss/main.scss */
+  /* line 361, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
