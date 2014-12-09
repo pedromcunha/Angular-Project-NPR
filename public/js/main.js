@@ -306,6 +306,7 @@ app.controller('LoginModalController', LoginModalController);
 
     	vm.trailers = VideoStorage;
     	vm.userState = UserStorage;
+
         vm.saveRating = function(trailerUrl, rating) {
             var trailer = {
                 url: trailerUrl.$$unwrapTrustedValue(),

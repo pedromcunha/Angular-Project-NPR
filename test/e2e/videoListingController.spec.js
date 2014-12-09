@@ -65,28 +65,48 @@ describe('Video Listing Controller', function() {
 
   });
 
-  it('Should only have the ratings selection if the user is logged in', function() {
-    expect(browser.getLocationAbsUrl()).toMatch('/');
+  describe('Ratings', function() {
+    var ratingIcons;
 
-    searchBar.sendKeys('Thor', protractor.Key.ENTER);
+    beforeEach(function() {
+      ratingIcons = element(by.css('.ratingQueryLarge'));
+    });
 
-    var ratingIcons = element(by.css('.ratingQueryLarge'));
+    it('Should only have the ratings selection if the user is logged in', function() {
+      expect(browser.getLocationAbsUrl()).toMatch('/');
 
-    expect(ratingIcons.isPresent()).toBe(false);
+      searchBar.sendKeys('Thor', protractor.Key.ENTER);
 
-    var openLoginModalButton = element(by.css('[ng-click="vm.openLogin()"]'));
+      expect(ratingIcons.isPresent()).toBe(false);
 
-    openLoginModalButton.click();
+      var openLoginModalButton = element(by.css('[ng-click="vm.openLogin()"]'));
 
-    var usernameField = element(by.model('modal.username'));
-    var passwordField = element(by.model('modal.password'));
-    var loginButton = element(by.css('[ng-click="modal.login()"]'));
+      openLoginModalButton.click();
 
-    usernameField.sendKeys('someusername');
-    passwordField.sendKeys('somepassword');
+      var usernameField = element(by.model('modal.username'));
+      var passwordField = element(by.model('modal.password'));
+      var loginButton = element(by.css('[ng-click="modal.login()"]'));
 
-    loginButton.click();
+      usernameField.sendKeys('someusername');
+      passwordField.sendKeys('somepassword');
 
-    expect(ratingIcons.isPresent()).toBe(true);
+      loginButton.click();
+
+      expect(ratingIcons.isPresent()).toBe(true);
+    });
+
+    it('Should save the rating is the user is logged in', function() {
+      expect(browser.getLocationAbsUrl()).toMatch('/');
+
+      var randomRating = Math.floor(Math.random() * 6);
+
+      searchBar.sendKeys('Thor', protractor.Key.ENTER);
+
+      var rating = element(by.repeater('r in range track by $index').row(randomRating));
+
+      rating.click();
+
+      expect(rating.getAttribute('class')).toMatch('glyphicon-star');
+    });
   });
 });
