@@ -223,6 +223,15 @@ h1 {
 		overflow-x: hidden !important; 
 		background-color: $darkRed;
 		margin-top:50px;
+
+		li:first-child {
+			margin-top: 0px;
+		}
+		
+		.genre-videos:nth-child(-n+3) {
+			margin-top: 0px;
+		}
+		
 		.genre-videos {
 			height: 200px;
 			float: left;

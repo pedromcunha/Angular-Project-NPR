@@ -27,6 +27,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 url: '/',
                 templateUrl: '../public/templates/trailer-listings.html',
                 controller: 'VideoListingController as vm'
+            })
+            .state('/rated-trailers', {
+                url: '/rated-trailers',
+                templateUrl: '../public/templates/rated-trailers.html'
+                // controller: 'VideoListingController as vm'
             });
     }
 ]);

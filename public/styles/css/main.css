@@ -338,25 +338,33 @@ li {
   background-color: #940700;
   margin-top: 50px;
 }
-/* line 226, ../scss/main.scss */
+/* line 227, ../scss/main.scss */
+.programs-list li:first-child {
+  margin-top: 0px;
+}
+/* line 231, ../scss/main.scss */
+.programs-list .genre-videos:nth-child(-n+3) {
+  margin-top: 0px;
+}
+/* line 235, ../scss/main.scss */
 .programs-list .genre-videos {
   height: 200px;
   float: left;
   margin: 40px 20px 10px 0;
 }
-/* line 231, ../scss/main.scss */
+/* line 240, ../scss/main.scss */
 .programs-list .genre-videos .rating-container {
   width: 201px;
   clear: both;
 }
-/* line 236, ../scss/main.scss */
+/* line 245, ../scss/main.scss */
 .programs-list .genre-videos iframe {
   width: 200px;
   height: 200px;
   clear: both;
   float: left;
 }
-/* line 243, ../scss/main.scss */
+/* line 252, ../scss/main.scss */
 .programs-list .rating-container {
   width: 640px;
   background-color: white;
@@ -369,12 +377,12 @@ li {
   -moz-box-shadow: 0px 0px 4px 1px black inset;
   box-shadow: 0px 0px 4px 1px black inset;
 }
-/* line 249, ../scss/main.scss */
+/* line 258, ../scss/main.scss */
 .programs-list .rating-container h4 {
   color: #940700;
   padding: 5px 15px;
 }
-/* line 254, ../scss/main.scss */
+/* line 263, ../scss/main.scss */
 .programs-list .ratingQueryLarge {
   display: inline;
   color: #940700;
@@ -383,7 +391,7 @@ li {
   outline: none;
 }
 
-/* line 262, ../scss/main.scss */
+/* line 271, ../scss/main.scss */
 .side-nav {
   width: 200px;
   height: 830px;
@@ -401,7 +409,7 @@ li {
   z-index: 1;
   color: #940700;
 }
-/* line 272, ../scss/main.scss */
+/* line 281, ../scss/main.scss */
 .side-nav li {
   font-size: 19px;
   width: 100%;
@@ -415,18 +423,18 @@ li {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 282, ../scss/main.scss */
+/* line 291, ../scss/main.scss */
 .side-nav li.active {
   color: white;
   background-color: #940700;
 }
-/* line 286, ../scss/main.scss */
+/* line 295, ../scss/main.scss */
 .side-nav li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 292, ../scss/main.scss */
+/* line 301, ../scss/main.scss */
 .has-error input {
   -webkit-animation: glow 800ms ease-out infinite alternate;
   -moz-animation: glow 800ms ease-out infinite alternate;
@@ -435,7 +443,7 @@ li {
   animation: glow 800ms ease-out infinite alternate;
 }
 
-/* line 300, ../scss/main.scss */
+/* line 309, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
@@ -448,32 +456,32 @@ footer {
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 311, ../scss/main.scss */
+/* line 320, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
 }
-/* line 315, ../scss/main.scss */
+/* line 324, ../scss/main.scss */
 footer .navbar-nav li a {
   text-shadow: none;
 }
-/* line 318, ../scss/main.scss */
+/* line 327, ../scss/main.scss */
 footer .nav li a:hover, footer .nav li a:focus {
   background-color: #333;
   color: #940700;
 }
-/* line 322, ../scss/main.scss */
+/* line 331, ../scss/main.scss */
 footer ul {
   width: 100%;
   display: block;
 }
-/* line 326, ../scss/main.scss */
+/* line 335, ../scss/main.scss */
 footer li {
   width: 25%;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-/* line 331, ../scss/main.scss */
+/* line 340, ../scss/main.scss */
 footer li:hover {
   background-color: transparent;
 }
@@ -481,60 +489,60 @@ footer li:hover {
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 339, ../scss/main.scss */
+  /* line 348, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 343, ../scss/main.scss */
+  /* line 352, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 349, ../scss/main.scss */
+  /* line 358, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 353, ../scss/main.scss */
+  /* line 362, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 359, ../scss/main.scss */
+  /* line 368, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 364, ../scss/main.scss */
+  /* line 373, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 370, ../scss/main.scss */
+  /* line 379, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 375, ../scss/main.scss */
+  /* line 384, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 381, ../scss/main.scss */
+  /* line 390, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 385, ../scss/main.scss */
+  /* line 394, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }

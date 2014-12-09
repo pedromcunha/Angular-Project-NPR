@@ -1,4 +1,4 @@
-angular.module('templates-main', ['../public/templates/login-modal.html', '../public/templates/register-modal.html', '../public/templates/trailer-listings.html']);
+angular.module('templates-main', ['../public/templates/login-modal.html', '../public/templates/rated-trailers.html', '../public/templates/register-modal.html', '../public/templates/trailer-listings.html']);
 
 angular.module("../public/templates/login-modal.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../public/templates/login-modal.html",
@@ -37,6 +37,11 @@ angular.module("../public/templates/login-modal.html", []).run(["$templateCache"
     "    <button class=\"btn btn-default\" ng-click=\"modal.login()\">Login</button>\n" +
     "    <button class=\"btn btn-warning\" ng-click=\"modal.closeModal()\">Cancel</button>\n" +
     "</div>");
+}]);
+
+angular.module("../public/templates/rated-trailers.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../public/templates/rated-trailers.html",
+    "");
 }]);
 
 angular.module("../public/templates/register-modal.html", []).run(["$templateCache", function($templateCache) {
