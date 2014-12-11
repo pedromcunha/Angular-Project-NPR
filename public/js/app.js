@@ -15,8 +15,6 @@ var appDependencies =
     'ui.bootstrap'];
 
 var app = angular.module('trailerParke', appDependencies); //main module
-var searchInput; //records a user input
-
 
 app.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {

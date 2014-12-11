@@ -15,8 +15,6 @@ var appDependencies =
     'ui.bootstrap'];
 
 var app = angular.module('trailerParke', appDependencies); //main module
-var searchInput; //records a user input
-
 
 app.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
@@ -51,7 +49,7 @@ app.constant('trailerParkeApi', {
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['UserFactoryModule', 'ngCookies']);
 
-    function headerController ($scope, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies, VideoListingService, VideoStorage, UserStorage) {
+    function headerController ($scope, $modal, apiKeys, rottenTomatoesService, youtubeApiService, sharedVideos, $cookieStore, $cookies, VideoListingService, VideoStorage, UserStorage, $state) {
         //set up the view model (vm)
         var vm = this;
 
@@ -116,6 +114,12 @@ app.constant('trailerParkeApi', {
             }
         });
 
+        $scope.$on('$stateChangeSuccess', function() {
+        	if($state.current.name === '/rated-trailers') {
+        		vm.isNotVideoListing = true;
+        	}
+        });
+
         vm.openRegistration = function() {
 		    var modalInstance = $modal.open({
 	            templateUrl: '../public/templates/register-modal.html',
@@ -157,7 +161,7 @@ app.constant('trailerParkeApi', {
 
     
     //controller injection
-    headerController.$inject = ['$scope', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies', 'VideoListingService', 'VideoStorage', 'UserStorage'];
+    headerController.$inject = ['$scope', '$modal', 'apiKeys', 'rottenTomatoesService', 'youtubeApiService', 'sharedVideos', '$cookieStore', '$cookies', 'VideoListingService', 'VideoStorage', 'UserStorage', '$state'];
 
     //controller declaration
     app.controller('headerController', headerController);

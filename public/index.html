@@ -28,7 +28,7 @@
 				<div class="row">
 					<div class="col-xs-5 logo">		
 						<h1 class="pull-left">Trailer <span>Parke</span></h1>
-						<ul class="side-nav">
+						<ul class="side-nav" ng-class="{'side-nav-sm': vm.isNotVideoListing === true}">
 							<li class="cur-pointer" ng-repeat="genre in vm.genres | orderBy: 'name'" ng-click="vm.searchByGenre(genre.name)" ng-class="{active: vm.isActiveGenre(genre)}">{{genre.name | capitalize}}</li>
 						</ul>
 					</div>

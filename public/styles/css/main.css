@@ -391,7 +391,12 @@ li {
   outline: none;
 }
 
-/* line 271, ../scss/main.scss */
+/* line 272, ../scss/main.scss */
+.logo .side-nav-sm {
+  height: 115px;
+}
+
+/* line 276, ../scss/main.scss */
 .side-nav {
   width: 200px;
   height: 830px;
@@ -409,7 +414,7 @@ li {
   z-index: 1;
   color: #940700;
 }
-/* line 281, ../scss/main.scss */
+/* line 286, ../scss/main.scss */
 .side-nav li {
   font-size: 19px;
   width: 100%;
@@ -423,18 +428,18 @@ li {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 291, ../scss/main.scss */
+/* line 296, ../scss/main.scss */
 .side-nav li.active {
   color: white;
   background-color: #940700;
 }
-/* line 295, ../scss/main.scss */
+/* line 300, ../scss/main.scss */
 .side-nav li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 301, ../scss/main.scss */
+/* line 306, ../scss/main.scss */
 .has-error input {
   -webkit-animation: glow 800ms ease-out infinite alternate;
   -moz-animation: glow 800ms ease-out infinite alternate;
@@ -443,7 +448,7 @@ li {
   animation: glow 800ms ease-out infinite alternate;
 }
 
-/* line 309, ../scss/main.scss */
+/* line 314, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
@@ -456,32 +461,32 @@ footer {
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 320, ../scss/main.scss */
+/* line 325, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
 }
-/* line 324, ../scss/main.scss */
+/* line 329, ../scss/main.scss */
 footer .navbar-nav li a {
   text-shadow: none;
 }
-/* line 327, ../scss/main.scss */
+/* line 332, ../scss/main.scss */
 footer .nav li a:hover, footer .nav li a:focus {
   background-color: #333;
   color: #940700;
 }
-/* line 331, ../scss/main.scss */
+/* line 336, ../scss/main.scss */
 footer ul {
   width: 100%;
   display: block;
 }
-/* line 335, ../scss/main.scss */
+/* line 340, ../scss/main.scss */
 footer li {
   width: 25%;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-/* line 340, ../scss/main.scss */
+/* line 345, ../scss/main.scss */
 footer li:hover {
   background-color: transparent;
 }
@@ -489,60 +494,60 @@ footer li:hover {
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 348, ../scss/main.scss */
+  /* line 353, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 352, ../scss/main.scss */
+  /* line 357, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 358, ../scss/main.scss */
+  /* line 363, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 362, ../scss/main.scss */
+  /* line 367, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 368, ../scss/main.scss */
+  /* line 373, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 373, ../scss/main.scss */
+  /* line 378, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 379, ../scss/main.scss */
+  /* line 384, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 384, ../scss/main.scss */
+  /* line 389, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 390, ../scss/main.scss */
+  /* line 395, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 394, ../scss/main.scss */
+  /* line 399, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
