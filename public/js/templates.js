@@ -41,7 +41,67 @@ angular.module("../public/templates/login-modal.html", []).run(["$templateCache"
 
 angular.module("../public/templates/rated-trailers.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../public/templates/rated-trailers.html",
-    "");
+    "<div class=\"content\">\n" +
+    "	<div class=\"row\">\n" +
+    "		<div class=\"col-md-12\">\n" +
+    "			<div class=\"rated-trailers-wrapper\">\n" +
+    "				<h3>Rated Trailers</h3>\n" +
+    "				<div class=\"row\">\n" +
+    "					<div class=\"col-md-12\">\n" +
+    "						<div class=\"star-block\">\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>					\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "						</div>\n" +
+    "						<ul class=\"programs-list\" ng-repeat=\"video in vm.videos\">\n" +
+    "					 		<li>\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"https://www.youtube.com/embed/yWUhmR8-2WA\" frameborder=\"0\" allowfullscreen>\n" +
+    "								</iframe>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "				<div class=\"row\">\n" +
+    "					<div class=\"col-md-12\">\n" +
+    "						<div class=\"star-block\">\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>										\n" +
+    "						</div>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "				<div class=\"row\">\n" +
+    "					<div class=\"col-md-12\">\n" +
+    "						<div class=\"star-block\">\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "						</div>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "				<div class=\"row\">\n" +
+    "					<div class=\"col-md-12\">\n" +
+    "						<div class=\"star-block\">\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "						</div>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "				<div class=\"row\">\n" +
+    "					<div class=\"col-md-12\">\n" +
+    "						<div class=\"star-block\">\n" +
+    "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
+    "						</div>\n" +
+    "					</div>\n" +
+    "				</div>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "	</div>\n" +
+    "</div>");
 }]);
 
 angular.module("../public/templates/register-modal.html", []).run(["$templateCache", function($templateCache) {

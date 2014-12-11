@@ -143,6 +143,10 @@ h1 {
 
 
 //Begin Page Specific Styles
+	.content {
+		margin-top: 25px;
+	}
+
 	.no-vids-error {
 		margin: 150px 0px 0px 0px;
 		font-size: 25px;
@@ -222,7 +226,6 @@ h1 {
 		overflow: auto;
 		overflow-x: hidden !important; 
 		background-color: $darkRed;
-		margin-top:50px;
 
 		li:first-child {
 			margin-top: 0px;
@@ -350,6 +353,75 @@ h1 {
 			background-color: transparent;
 		}
 	}
+/*==================== Rated Trailers Styles ==============================
+=========================================================================*/
+.rated-trailers-wrapper {
+	h3 {
+		font-size: 20px;
+	}
+	.programs-list {
+		width: 900px;
+		overflow-x: scroll !important;
+		white-space: nowrap;
+		padding-left: 10px;
+		height: 255px;
+
+		li:first-child {
+			margin-top: 15px;
+		}
+
+		li {
+			display: inline-block;
+
+			/* if you need ie7 support */
+		    *display: inline;
+			margin-right: 15px;
+		}
+
+		.rating-container {
+			width: 300px;
+		}
+
+		iframe {
+			height: 200px;
+			width: auto;
+			float: left;
+			clear: both;
+		}
+	}
+
+	.star-block {
+		height: 241px;
+		line-height: 241px;
+		float: left;
+
+		.glyphicon-star {
+			font-size: 40px;
+		}
+	}
+	.row:nth-child(2) {
+		.glyphicon-star {
+			color: #FFD700;
+		}
+	}
+	.row:nth-child(3) {
+		.glyphicon-star {
+			color: #c0c0c0;
+		}
+	}
+
+	.row:nth-child(4) {
+		.glyphicon-star {
+			color: #A08E8E;
+		}
+	}
+
+	.row:nth-child(5) {
+		.glyphicon-star {
+			color: #C87533;
+		}
+	}
+}
 
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/

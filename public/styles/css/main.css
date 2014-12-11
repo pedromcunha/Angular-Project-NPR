@@ -237,6 +237,11 @@ a:hover, a:focus {
 }
 
 /* line 146, ../scss/main.scss */
+.content {
+  margin-top: 25px;
+}
+
+/* line 150, ../scss/main.scss */
 .no-vids-error {
   margin: 150px 0px 0px 0px;
   font-size: 25px;
@@ -245,30 +250,30 @@ a:hover, a:focus {
   color: white;
 }
 
-/* line 153, ../scss/main.scss */
+/* line 157, ../scss/main.scss */
 #header {
   height: 60px;
   text-align: right;
   padding-top: 20px;
 }
-/* line 158, ../scss/main.scss */
+/* line 162, ../scss/main.scss */
 #header h1 {
   margin-left: 20px;
   margin-top: 0px;
   color: #940700;
   background-color: white;
 }
-/* line 163, ../scss/main.scss */
+/* line 167, ../scss/main.scss */
 #header h1 span {
   margin-left: 12px;
   color: white;
   background-color: #940700;
 }
-/* line 170, ../scss/main.scss */
+/* line 174, ../scss/main.scss */
 #header .autocompletes {
   z-index: 1000;
 }
-/* line 173, ../scss/main.scss */
+/* line 177, ../scss/main.scss */
 #header #auto-suggest-wrapper {
   text-align: left;
   float: right;
@@ -287,7 +292,7 @@ a:hover, a:focus {
   margin-top: -10px;
   width: 100%;
 }
-/* line 184, ../scss/main.scss */
+/* line 188, ../scss/main.scss */
 #header #auto-suggest-wrapper .tomato, #header #auto-suggest-wrapper .rotten {
   background-image: url("../assets/images/tp-spritesheet.png");
   width: 22px;
@@ -299,11 +304,11 @@ a:hover, a:focus {
   top: -2px;
   right: 24px;
 }
-/* line 195, ../scss/main.scss */
+/* line 199, ../scss/main.scss */
 #header #auto-suggest-wrapper .rotten {
   background-position: -21px 0px;
 }
-/* line 198, ../scss/main.scss */
+/* line 202, ../scss/main.scss */
 #header #auto-suggest-wrapper .auto-suggest {
   width: 100%;
   float: right;
@@ -311,60 +316,59 @@ a:hover, a:focus {
   border-left: none;
   padding-left: 30px;
 }
-/* line 205, ../scss/main.scss */
+/* line 209, ../scss/main.scss */
 #header #auto-suggest-wrapper .auto-suggest:hover {
   color: #ff0d00;
 }
-/* line 208, ../scss/main.scss */
+/* line 212, ../scss/main.scss */
 #header #auto-suggest-wrapper span:first-child {
   border-top: none !important;
 }
-/* line 211, ../scss/main.scss */
+/* line 215, ../scss/main.scss */
 #header #auto-suggest-wrapper span:last-child {
   border-bottom: none !important;
 }
 
-/* line 217, ../scss/main.scss */
+/* line 221, ../scss/main.scss */
 .programs-list >
 li {
   margin-top: 15px;
 }
 
-/* line 220, ../scss/main.scss */
+/* line 224, ../scss/main.scss */
 .programs-list {
   max-height: 788px;
   overflow: auto;
   overflow-x: hidden !important;
   background-color: #940700;
-  margin-top: 50px;
 }
-/* line 227, ../scss/main.scss */
+/* line 230, ../scss/main.scss */
 .programs-list li:first-child {
   margin-top: 0px;
 }
-/* line 231, ../scss/main.scss */
+/* line 234, ../scss/main.scss */
 .programs-list .genre-videos:nth-child(-n+3) {
   margin-top: 0px;
 }
-/* line 235, ../scss/main.scss */
+/* line 238, ../scss/main.scss */
 .programs-list .genre-videos {
   height: 200px;
   float: left;
   margin: 40px 20px 10px 0;
 }
-/* line 240, ../scss/main.scss */
+/* line 243, ../scss/main.scss */
 .programs-list .genre-videos .rating-container {
   width: 201px;
   clear: both;
 }
-/* line 245, ../scss/main.scss */
+/* line 248, ../scss/main.scss */
 .programs-list .genre-videos iframe {
   width: 200px;
   height: 200px;
   clear: both;
   float: left;
 }
-/* line 252, ../scss/main.scss */
+/* line 255, ../scss/main.scss */
 .programs-list .rating-container {
   width: 640px;
   background-color: white;
@@ -377,12 +381,12 @@ li {
   -moz-box-shadow: 0px 0px 4px 1px black inset;
   box-shadow: 0px 0px 4px 1px black inset;
 }
-/* line 258, ../scss/main.scss */
+/* line 261, ../scss/main.scss */
 .programs-list .rating-container h4 {
   color: #940700;
   padding: 5px 15px;
 }
-/* line 263, ../scss/main.scss */
+/* line 266, ../scss/main.scss */
 .programs-list .ratingQueryLarge {
   display: inline;
   color: #940700;
@@ -391,16 +395,16 @@ li {
   outline: none;
 }
 
-/* line 272, ../scss/main.scss */
+/* line 275, ../scss/main.scss */
 .logo .side-nav-sm {
   height: 115px;
 }
-/* line 275, ../scss/main.scss */
+/* line 278, ../scss/main.scss */
 .logo .side-nav-sm li {
   display: none;
 }
 
-/* line 280, ../scss/main.scss */
+/* line 283, ../scss/main.scss */
 .side-nav {
   width: 200px;
   height: 830px;
@@ -418,7 +422,7 @@ li {
   z-index: 1;
   color: #940700;
 }
-/* line 290, ../scss/main.scss */
+/* line 293, ../scss/main.scss */
 .side-nav li {
   font-size: 19px;
   width: 100%;
@@ -432,18 +436,18 @@ li {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 300, ../scss/main.scss */
+/* line 303, ../scss/main.scss */
 .side-nav li.active {
   color: white;
   background-color: #940700;
 }
-/* line 304, ../scss/main.scss */
+/* line 307, ../scss/main.scss */
 .side-nav li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 310, ../scss/main.scss */
+/* line 313, ../scss/main.scss */
 .has-error input {
   -webkit-animation: glow 800ms ease-out infinite alternate;
   -moz-animation: glow 800ms ease-out infinite alternate;
@@ -452,7 +456,7 @@ li {
   animation: glow 800ms ease-out infinite alternate;
 }
 
-/* line 318, ../scss/main.scss */
+/* line 321, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
@@ -465,93 +469,156 @@ footer {
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 329, ../scss/main.scss */
+/* line 332, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
 }
-/* line 333, ../scss/main.scss */
+/* line 336, ../scss/main.scss */
 footer .navbar-nav li a {
   text-shadow: none;
 }
-/* line 336, ../scss/main.scss */
+/* line 339, ../scss/main.scss */
 footer .nav li a:hover, footer .nav li a:focus {
   background-color: #333;
   color: #940700;
 }
-/* line 340, ../scss/main.scss */
+/* line 343, ../scss/main.scss */
 footer ul {
   width: 100%;
   display: block;
 }
-/* line 344, ../scss/main.scss */
+/* line 347, ../scss/main.scss */
 footer li {
   width: 25%;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-/* line 349, ../scss/main.scss */
+/* line 352, ../scss/main.scss */
 footer li:hover {
   background-color: transparent;
+}
+
+/*==================== Rated Trailers Styles ==============================
+=========================================================================*/
+/* line 359, ../scss/main.scss */
+.rated-trailers-wrapper h3 {
+  font-size: 20px;
+}
+/* line 362, ../scss/main.scss */
+.rated-trailers-wrapper .programs-list {
+  width: 900px;
+  overflow-x: scroll !important;
+  white-space: nowrap;
+  padding-left: 10px;
+  height: 255px;
+}
+/* line 369, ../scss/main.scss */
+.rated-trailers-wrapper .programs-list li:first-child {
+  margin-top: 15px;
+}
+/* line 373, ../scss/main.scss */
+.rated-trailers-wrapper .programs-list li {
+  display: inline-block;
+  /* if you need ie7 support */
+  *display: inline;
+  margin-right: 15px;
+}
+/* line 381, ../scss/main.scss */
+.rated-trailers-wrapper .programs-list .rating-container {
+  width: 300px;
+}
+/* line 385, ../scss/main.scss */
+.rated-trailers-wrapper .programs-list iframe {
+  height: 200px;
+  width: auto;
+  float: left;
+  clear: both;
+}
+/* line 393, ../scss/main.scss */
+.rated-trailers-wrapper .star-block {
+  height: 241px;
+  line-height: 241px;
+  float: left;
+}
+/* line 398, ../scss/main.scss */
+.rated-trailers-wrapper .star-block .glyphicon-star {
+  font-size: 40px;
+}
+/* line 403, ../scss/main.scss */
+.rated-trailers-wrapper .row:nth-child(2) .glyphicon-star {
+  color: #FFD700;
+}
+/* line 408, ../scss/main.scss */
+.rated-trailers-wrapper .row:nth-child(3) .glyphicon-star {
+  color: #c0c0c0;
+}
+/* line 414, ../scss/main.scss */
+.rated-trailers-wrapper .row:nth-child(4) .glyphicon-star {
+  color: #A08E8E;
+}
+/* line 420, ../scss/main.scss */
+.rated-trailers-wrapper .row:nth-child(5) .glyphicon-star {
+  color: #C87533;
 }
 
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 357, ../scss/main.scss */
+  /* line 429, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 361, ../scss/main.scss */
+  /* line 433, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 367, ../scss/main.scss */
+  /* line 439, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 371, ../scss/main.scss */
+  /* line 443, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 377, ../scss/main.scss */
+  /* line 449, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 382, ../scss/main.scss */
+  /* line 454, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 388, ../scss/main.scss */
+  /* line 460, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 393, ../scss/main.scss */
+  /* line 465, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 399, ../scss/main.scss */
+  /* line 471, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 403, ../scss/main.scss */
+  /* line 475, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
