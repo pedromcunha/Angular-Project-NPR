@@ -68,6 +68,7 @@
   },
   "devDependencies": {
     "chromedriver": "^2.12.0",
-    "mongodb": "^1.4.23"
+    "mongodb": "^1.4.23",
+    "protractor-linkuisref-locator": "^1.1.2"
   }
 }

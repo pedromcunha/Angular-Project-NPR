@@ -5,22 +5,25 @@ describe('Controller: headerController', function() {
 	var $cookies;
 	var $cookieStore;
 	var headerController;
+	var $state;
 
 	beforeEach(function(){
 	    module('trailerParke');
 	});
 
-	beforeEach( inject(function($controller, $rootScope, _$modal_, _$cookieStore_, _$cookies_) {
+	beforeEach( inject(function($controller, $rootScope, _$modal_, _$cookieStore_, _$cookies_, _$state_) {
 		scope = $rootScope.$new();
 		$modal = _$modal_;
 		$cookies = _$cookies_;
 		$cookieStore = _$cookieStore_;
+		$state = _$state_;
 
 		headerController = $controller('headerController', {
 	        $scope: scope,
 	        $cookies: $cookies,
 	        $modal: $modal,
-	        $cookieStore: $cookieStore
+	        $cookieStore: $cookieStore,
+	        $state: $state
 	    });
 
 	}));

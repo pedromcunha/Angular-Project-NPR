@@ -271,6 +271,10 @@ h1 {
 	.logo {
 		.side-nav-sm {
 			height: 115px;
+
+			li {
+				display: none;
+			}
 		}
 	}
 	.side-nav {
