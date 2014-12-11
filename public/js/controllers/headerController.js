@@ -67,9 +67,7 @@
         });
 
         $scope.$on('$stateChangeSuccess', function() {
-        	if($state.current.name === '/rated-trailers') {
-        		vm.isNotVideoListing = true;
-        	}
+        	vm.isNotVideoListing = vm.isNotVideoListingState($state);
         });
 
         vm.openRegistration = function() {
@@ -93,6 +91,12 @@
         };
 
     	vm.searchYoutube = function(searchText, maxResults) {
+    		vm.isNotVideoListing = vm.isNotVideoListingState($state);
+    		
+    		if(vm.isNotVideoListing === true) {
+    			$state.go('/');
+    		}
+    		
     		vm.searchSubmitted = true;
     		vm.genre = null;
     		if(searchText) {
@@ -110,6 +114,11 @@
     		});
     	};
     }
+
+    headerController.prototype.isNotVideoListingState = function($state) {
+        var returnedVar = $state.current.name === '/rated-trailers' ? true : false;
+        return returnedVar;
+    };
 
     
     //controller injection
