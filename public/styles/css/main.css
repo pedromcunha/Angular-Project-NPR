@@ -394,17 +394,21 @@ li {
   margin-bottom: 5px;
   outline: none;
 }
+/* line 273, ../scss/main.scss */
+.programs-list .ratingQueryLarge i {
+  cursor: pointer;
+}
 
-/* line 275, ../scss/main.scss */
+/* line 279, ../scss/main.scss */
 .logo .side-nav-sm {
   height: 115px;
 }
-/* line 278, ../scss/main.scss */
+/* line 282, ../scss/main.scss */
 .logo .side-nav-sm li {
   display: none;
 }
 
-/* line 283, ../scss/main.scss */
+/* line 287, ../scss/main.scss */
 .side-nav {
   width: 200px;
   height: 830px;
@@ -422,7 +426,7 @@ li {
   z-index: 1;
   color: #940700;
 }
-/* line 293, ../scss/main.scss */
+/* line 297, ../scss/main.scss */
 .side-nav li {
   font-size: 19px;
   width: 100%;
@@ -436,18 +440,18 @@ li {
   -o-transition: background-color 1s;
   transition: background-color 1s;
 }
-/* line 303, ../scss/main.scss */
+/* line 307, ../scss/main.scss */
 .side-nav li.active {
   color: white;
   background-color: #940700;
 }
-/* line 307, ../scss/main.scss */
+/* line 311, ../scss/main.scss */
 .side-nav li:hover {
   background-color: #940700;
   color: white;
 }
 
-/* line 313, ../scss/main.scss */
+/* line 317, ../scss/main.scss */
 .has-error input {
   -webkit-animation: glow 800ms ease-out infinite alternate;
   -moz-animation: glow 800ms ease-out infinite alternate;
@@ -456,7 +460,7 @@ li {
   animation: glow 800ms ease-out infinite alternate;
 }
 
-/* line 321, ../scss/main.scss */
+/* line 325, ../scss/main.scss */
 footer {
   text-align: center;
   background-color: #333;
@@ -469,43 +473,43 @@ footer {
   line-height: 28px;
   font-family: 'RobotoSlab';
 }
-/* line 332, ../scss/main.scss */
+/* line 336, ../scss/main.scss */
 footer a {
   text-decoration: none;
   color: white;
 }
-/* line 336, ../scss/main.scss */
+/* line 340, ../scss/main.scss */
 footer .navbar-nav li a {
   text-shadow: none;
 }
-/* line 339, ../scss/main.scss */
+/* line 343, ../scss/main.scss */
 footer .nav li a:hover, footer .nav li a:focus {
   background-color: #333;
   color: #940700;
 }
-/* line 343, ../scss/main.scss */
+/* line 347, ../scss/main.scss */
 footer ul {
   width: 100%;
   display: block;
 }
-/* line 347, ../scss/main.scss */
+/* line 351, ../scss/main.scss */
 footer li {
   width: 25%;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-/* line 352, ../scss/main.scss */
+/* line 356, ../scss/main.scss */
 footer li:hover {
   background-color: transparent;
 }
 
 /*==================== Rated Trailers Styles ==============================
 =========================================================================*/
-/* line 359, ../scss/main.scss */
+/* line 363, ../scss/main.scss */
 .rated-trailers-wrapper h3 {
   font-size: 20px;
 }
-/* line 362, ../scss/main.scss */
+/* line 366, ../scss/main.scss */
 .rated-trailers-wrapper .programs-list {
   width: 900px;
   overflow-x: scroll !important;
@@ -513,52 +517,52 @@ footer li:hover {
   padding-left: 10px;
   height: 255px;
 }
-/* line 369, ../scss/main.scss */
+/* line 373, ../scss/main.scss */
 .rated-trailers-wrapper .programs-list li:first-child {
   margin-top: 15px;
 }
-/* line 373, ../scss/main.scss */
+/* line 377, ../scss/main.scss */
 .rated-trailers-wrapper .programs-list li {
   display: inline-block;
   /* if you need ie7 support */
   *display: inline;
   margin-right: 15px;
 }
-/* line 381, ../scss/main.scss */
+/* line 385, ../scss/main.scss */
 .rated-trailers-wrapper .programs-list .rating-container {
   width: 300px;
 }
-/* line 385, ../scss/main.scss */
+/* line 389, ../scss/main.scss */
 .rated-trailers-wrapper .programs-list iframe {
   height: 200px;
   width: auto;
   float: left;
   clear: both;
 }
-/* line 393, ../scss/main.scss */
+/* line 397, ../scss/main.scss */
 .rated-trailers-wrapper .star-block {
   height: 241px;
   width: 230px;
   line-height: 241px;
   float: left;
 }
-/* line 399, ../scss/main.scss */
+/* line 403, ../scss/main.scss */
 .rated-trailers-wrapper .star-block .glyphicon-star {
   font-size: 40px;
 }
-/* line 404, ../scss/main.scss */
+/* line 408, ../scss/main.scss */
 .rated-trailers-wrapper .row:nth-child(2) .glyphicon-star {
   color: #FFD700;
 }
-/* line 409, ../scss/main.scss */
+/* line 413, ../scss/main.scss */
 .rated-trailers-wrapper .row:nth-child(3) .glyphicon-star {
   color: #c0c0c0;
 }
-/* line 415, ../scss/main.scss */
+/* line 419, ../scss/main.scss */
 .rated-trailers-wrapper .row:nth-child(4) .glyphicon-star {
   color: #A08E8E;
 }
-/* line 421, ../scss/main.scss */
+/* line 425, ../scss/main.scss */
 .rated-trailers-wrapper .row:nth-child(5) .glyphicon-star {
   color: #C87533;
 }
@@ -566,60 +570,60 @@ footer li:hover {
 /*==================== Transitions & Keyframes ==============================
 =========== Should probably move this out and import it sometime ==========*/
 @-webkit-keyframes glow {
-  /* line 430, ../scss/main.scss */
+  /* line 434, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 434, ../scss/main.scss */
+  /* line 438, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-moz-keyframes glow {
-  /* line 440, ../scss/main.scss */
+  /* line 444, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 444, ../scss/main.scss */
+  /* line 448, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-o-keyframes glow {
-  /* line 450, ../scss/main.scss */
+  /* line 454, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 455, ../scss/main.scss */
+  /* line 459, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @-ms-keyframes glow {
-  /* line 461, ../scss/main.scss */
+  /* line 465, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 466, ../scss/main.scss */
+  /* line 470, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }
 }
 
 @keyframes glow {
-  /* line 472, ../scss/main.scss */
+  /* line 476, ../scss/main.scss */
   0% {
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
 
-  /* line 476, ../scss/main.scss */
+  /* line 480, ../scss/main.scss */
   100% {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   }

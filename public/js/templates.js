@@ -57,7 +57,7 @@ angular.module("../public/templates/rated-trailers.html", []).run(["$templateCac
     "						</div>\n" +
     "						<ul class=\"programs-list\">\n" +
     "					 		<li ng-repeat=\"video in vm.ratedTrailers[5]\">\n" +
-    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 5)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
     "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
     "								</iframe>\n" +
     "							</li>\n" +
@@ -74,7 +74,7 @@ angular.module("../public/templates/rated-trailers.html", []).run(["$templateCac
     "						</div>\n" +
     "						<ul class=\"programs-list\">\n" +
     "					 		<li ng-repeat=\"video in vm.ratedTrailers[4]\">\n" +
-    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 4)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
     "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
     "								</iframe>\n" +
     "							</li>\n" +
@@ -90,7 +90,7 @@ angular.module("../public/templates/rated-trailers.html", []).run(["$templateCac
     "						</div>\n" +
     "						<ul class=\"programs-list\">\n" +
     "					 		<li ng-repeat=\"video in vm.ratedTrailers[3]\">\n" +
-    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 3)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
     "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
     "								</iframe>\n" +
     "							</li>\n" +
@@ -103,14 +103,14 @@ angular.module("../public/templates/rated-trailers.html", []).run(["$templateCac
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "						</div>\n" +
+    "						<ul class=\"programs-list\">\n" +
+    "					 		<li ng-repeat=\"video in vm.ratedTrailers[2]\">\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 2)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
+    "								</iframe>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
     "					</div>\n" +
-    "					<ul class=\"programs-list\">\n" +
-    "				 		<li ng-repeat=\"video in vm.ratedTrailers[2]\">\n" +
-    "							<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
-    "							<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
-    "							</iframe>\n" +
-    "						</li>\n" +
-    "					</ul>\n" +
     "				</div>\n" +
     "				<div class=\"row\" ng-if=\"vm.ratedTrailers[1]\">\n" +
     "					<div class=\"col-md-12\">\n" +
@@ -119,7 +119,7 @@ angular.module("../public/templates/rated-trailers.html", []).run(["$templateCac
     "						</div>\n" +
     "						<ul class=\"programs-list\">\n" +
     "					 		<li ng-repeat=\"video in vm.ratedTrailers[1]\">\n" +
-    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 1)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
     "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
     "								</iframe>\n" +
     "							</li>\n" +

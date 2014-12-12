@@ -14,7 +14,7 @@
 						</div>
 						<ul class="programs-list">
 					 		<li ng-repeat="video in vm.ratedTrailers[5]">
-								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
+								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 5)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
 								<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video.url | trusted}}" frameborder="0" allowfullscreen>
 								</iframe>
 							</li>
@@ -31,7 +31,7 @@
 						</div>
 						<ul class="programs-list">
 					 		<li ng-repeat="video in vm.ratedTrailers[4]">
-								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
+								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 4)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
 								<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video.url | trusted}}" frameborder="0" allowfullscreen>
 								</iframe>
 							</li>
@@ -47,7 +47,7 @@
 						</div>
 						<ul class="programs-list">
 					 		<li ng-repeat="video in vm.ratedTrailers[3]">
-								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
+								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 3)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
 								<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video.url | trusted}}" frameborder="0" allowfullscreen>
 								</iframe>
 							</li>
@@ -60,14 +60,14 @@
 							<i class="glyphicon glyphicon-star"></i>
 							<i class="glyphicon glyphicon-star"></i>
 						</div>
+						<ul class="programs-list">
+					 		<li ng-repeat="video in vm.ratedTrailers[2]">
+								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 2)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
+								<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video.url | trusted}}" frameborder="0" allowfullscreen>
+								</iframe>
+							</li>
+						</ul>
 					</div>
-					<ul class="programs-list">
-				 		<li ng-repeat="video in vm.ratedTrailers[2]">
-							<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
-							<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video.url | trusted}}" frameborder="0" allowfullscreen>
-							</iframe>
-						</li>
-					</ul>
 				</div>
 				<div class="row" ng-if="vm.ratedTrailers[1]">
 					<div class="col-md-12">
@@ -76,7 +76,7 @@
 						</div>
 						<ul class="programs-list">
 					 		<li ng-repeat="video in vm.ratedTrailers[1]">
-								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
+								<span class="rating-container pull-left" ng-if="vm.userState.user !== null"><h4>Rating: <rating ng-click="vm.saveRating(video.url, video.userRating); vm.regroupVideos(video, 1)" class="ratingQueryLarge" ng-model="video.userRating" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating> </h4></span>
 								<iframe class="youtube-player" type="text/html" width="640" height="385" ng-src="{{video.url | trusted}}" frameborder="0" allowfullscreen>
 								</iframe>
 							</li>
