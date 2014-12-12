@@ -12,11 +12,12 @@
         };
     });
 
-    app.filter('trusted', function($sce) {
+    app.filter('trusted', ['$sce', function($sce) {
         return function(url) {
             if (url !== undefined) {
-                return $sce.getTrustedResourceUrl(url);
+                return $sce.trustAsResourceUrl(url);
             }
         };
-    });
+    }]);
+
 })();

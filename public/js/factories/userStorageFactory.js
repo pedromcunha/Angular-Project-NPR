@@ -5,7 +5,8 @@
         var data = {};
 
         data.storeUser = function(userId) {
-        	userFactory.getUser(userId).then(function(response) {
+        	return userFactory.getUser(userId)
+                .then(function(response) {
 					if(response) {
 						data.user = response.data.user;
 					}

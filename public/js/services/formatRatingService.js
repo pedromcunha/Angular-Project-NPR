@@ -3,7 +3,7 @@
 
 	function FormatingRatingService () {
 		this.formatRatings = function(videos) {
-			var groupedVideos = _.groupBy(videos, userRating);
+			var groupedVideos = _.groupBy(videos, 'userRating');
 			return groupedVideos;
 		};
 	}

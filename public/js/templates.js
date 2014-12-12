@@ -46,7 +46,7 @@ angular.module("../public/templates/rated-trailers.html", []).run(["$templateCac
     "		<div class=\"col-md-12\">\n" +
     "			<div class=\"rated-trailers-wrapper\">\n" +
     "				<h3>Rated Trailers</h3>\n" +
-    "				<div class=\"row\">\n" +
+    "				<div class=\"row\" ng-if=\"vm.ratedTrailers[5]\">\n" +
     "					<div class=\"col-md-12\">\n" +
     "						<div class=\"star-block\">\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
@@ -55,16 +55,16 @@ angular.module("../public/templates/rated-trailers.html", []).run(["$templateCac
     "							<i class=\"glyphicon glyphicon-star\"></i>					\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "						</div>\n" +
-    "						<ul class=\"programs-list\" ng-repeat=\"video in vm.videos\">\n" +
-    "					 		<li>\n" +
+    "						<ul class=\"programs-list\">\n" +
+    "					 		<li ng-repeat=\"video in vm.ratedTrailers[5]\">\n" +
     "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
-    "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"https://www.youtube.com/embed/yWUhmR8-2WA\" frameborder=\"0\" allowfullscreen>\n" +
+    "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
     "								</iframe>\n" +
     "							</li>\n" +
     "						</ul>\n" +
     "					</div>\n" +
     "				</div>\n" +
-    "				<div class=\"row\">\n" +
+    "				<div class=\"row\" ng-if=\"vm.ratedTrailers[4]\">\n" +
     "					<div class=\"col-md-12\">\n" +
     "						<div class=\"star-block\">\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
@@ -72,30 +72,58 @@ angular.module("../public/templates/rated-trailers.html", []).run(["$templateCac
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>										\n" +
     "						</div>\n" +
+    "						<ul class=\"programs-list\">\n" +
+    "					 		<li ng-repeat=\"video in vm.ratedTrailers[4]\">\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
+    "								</iframe>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
     "					</div>\n" +
     "				</div>\n" +
-    "				<div class=\"row\">\n" +
+    "				<div class=\"row\" ng-if=\"vm.ratedTrailers[3]\"> \n" +
     "					<div class=\"col-md-12\">\n" +
     "						<div class=\"star-block\">\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "						</div>\n" +
+    "						<ul class=\"programs-list\">\n" +
+    "					 		<li ng-repeat=\"video in vm.ratedTrailers[3]\">\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
+    "								</iframe>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
     "					</div>\n" +
     "				</div>\n" +
-    "				<div class=\"row\">\n" +
+    "				<div class=\"row\" ng-if=\"vm.ratedTrailers[2]\">\n" +
     "					<div class=\"col-md-12\">\n" +
     "						<div class=\"star-block\">\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "						</div>\n" +
     "					</div>\n" +
+    "					<ul class=\"programs-list\">\n" +
+    "				 		<li ng-repeat=\"video in vm.ratedTrailers[2]\">\n" +
+    "							<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "							<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
+    "							</iframe>\n" +
+    "						</li>\n" +
+    "					</ul>\n" +
     "				</div>\n" +
-    "				<div class=\"row\">\n" +
+    "				<div class=\"row\" ng-if=\"vm.ratedTrailers[1]\">\n" +
     "					<div class=\"col-md-12\">\n" +
     "						<div class=\"star-block\">\n" +
     "							<i class=\"glyphicon glyphicon-star\"></i>\n" +
     "						</div>\n" +
+    "						<ul class=\"programs-list\">\n" +
+    "					 		<li ng-repeat=\"video in vm.ratedTrailers[1]\">\n" +
+    "								<span class=\"rating-container pull-left\" ng-if=\"vm.userState.user !== null\"><h4>Rating: <rating ng-click=\"vm.saveRating(video.url, video.userRating)\" class=\"ratingQueryLarge\" ng-model=\"video.userRating\" max=\"5\" on-hover=\"hoveringOver(value)\" on-leave=\"overStar = null\"></rating> </h4></span>\n" +
+    "								<iframe class=\"youtube-player\" type=\"text/html\" width=\"640\" height=\"385\" ng-src=\"{{video.url | trusted}}\" frameborder=\"0\" allowfullscreen>\n" +
+    "								</iframe>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
     "					</div>\n" +
     "				</div>\n" +
     "			</div>\n" +

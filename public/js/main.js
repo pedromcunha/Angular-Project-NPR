@@ -182,7 +182,7 @@ app.constant('trailerParkeApi', {
 
 	function FormatingRatingService () {
 		this.formatRatings = function(videos) {
-			var groupedVideos = _.groupBy(videos, userRating);
+			var groupedVideos = _.groupBy(videos, 'userRating');
 			return groupedVideos;
 		};
 	}
@@ -340,16 +340,19 @@ app.controller('LoginModalController', LoginModalController);
 
 var app = angular.module('RatedVideosControllerModule', []);
 
-function RatedVideosController ($scope, UserStorage, FormatingRatingService) {
+function RatedVideosController ($scope, UserStorage, FormatingRatingService, $cookies) {
     var vm = this;
 
-    console.log(FormatingRatingService);
-    
+    vm.userState = UserStorage;
+
+    vm.userState.storeUser($cookies.user).then(function(response) {
+        vm.ratedTrailers = FormatingRatingService.formatRatings(vm.userState.user.trailers);
+    });
 }
 
 
 //injection phase
-RatedVideosController.$inject = ['$scope', 'UserStorage', 'FormatingRatingService'];
+RatedVideosController.$inject = ['$scope', 'UserStorage', 'FormatingRatingService', '$cookies'];
 
 app.controller('RatedVideosController', RatedVideosController);
 
@@ -485,7 +488,8 @@ app.controller('RatedVideosController', RatedVideosController);
         var data = {};
 
         data.storeUser = function(userId) {
-        	userFactory.getUser(userId).then(function(response) {
+        	return userFactory.getUser(userId)
+                .then(function(response) {
 					if(response) {
 						data.user = response.data.user;
 					}
@@ -568,11 +572,12 @@ app.controller('RatedVideosController', RatedVideosController);
         };
     });
 
-    app.filter('trusted', function($sce) {
+    app.filter('trusted', ['$sce', function($sce) {
         return function(url) {
             if (url !== undefined) {
-                return $sce.getTrustedResourceUrl(url);
+                return $sce.trustAsResourceUrl(url);
             }
         };
-    });
+    }]);
+
 })();
