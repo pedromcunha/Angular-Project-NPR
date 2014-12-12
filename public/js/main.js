@@ -1,5 +1,6 @@
 angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule', 'VideoStorageFactoryModule']);
 angular.module('UserModules', ['UserStorageFactoryModule', 'UserFactoryModule']);
+angular.module('RatingModules', ['FormatingRatingServiceModule', 'RatedVideosControllerModule']);
 
 var appDependencies = 
     ['templates-main',
@@ -8,6 +9,7 @@ var appDependencies =
     'VideoListingModules',
     'appDirectiveModule',
     'UserModules',
+    'RatingModules',
     'appFactoriesModule',
     'ui.router',
     'ngCookies',
@@ -28,8 +30,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
             })
             .state('/rated-trailers', {
                 url: '/rated-trailers',
-                templateUrl: '../public/templates/rated-trailers.html'
-                // controller: 'VideoListingController as vm'
+                templateUrl: '../public/templates/rated-trailers.html',
+                controller: 'RatedVideosController as vm'
             });
     }
 ]);
@@ -176,6 +178,20 @@ app.constant('trailerParkeApi', {
     app.controller('headerController', headerController);
 
 })();;(function() {
+	var app = angular.module('FormatingRatingServiceModule', []);
+
+	function FormatingRatingService () {
+		this.formatRatings = function(videos) {
+			var groupedVideos = _.groupBy(videos, userRating);
+			return groupedVideos;
+		};
+	}
+
+	// VideoListingService.$inject = [];
+
+	app.service('FormatingRatingService', FormatingRatingService);
+
+})();;(function() {
 	var app = angular.module('VideoServiceModule', ['youtubeFactoryModule']);
 
 	function VideoListingService (apiKeys, youtubeFactory, $sce, UserStorage) {
@@ -319,6 +335,23 @@ app.controller('LoginModalController', LoginModalController);
     RegistrationModalController.$inject = ['$scope', '$modalInstance', 'userFactory', '$timeout'];
 
     app.controller('RegistrationModalController', RegistrationModalController);
+
+})();;(function() {
+
+var app = angular.module('RatedVideosControllerModule', []);
+
+function RatedVideosController ($scope, UserStorage, FormatingRatingService) {
+    var vm = this;
+
+    console.log(FormatingRatingService);
+    
+}
+
+
+//injection phase
+RatedVideosController.$inject = ['$scope', 'UserStorage', 'FormatingRatingService'];
+
+app.controller('RatedVideosController', RatedVideosController);
 
 })();;(function() {
     var app = angular.module('VideoControllerModule', ['ngCookies']);

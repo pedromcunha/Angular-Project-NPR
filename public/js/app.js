@@ -1,5 +1,6 @@
 angular.module('VideoListingModules', ['VideoControllerModule', 'VideoServiceModule', 'VideoStorageFactoryModule']);
 angular.module('UserModules', ['UserStorageFactoryModule', 'UserFactoryModule']);
+angular.module('RatingModules', ['FormatingRatingServiceModule', 'RatedVideosControllerModule']);
 
 var appDependencies = 
     ['templates-main',
@@ -8,6 +9,7 @@ var appDependencies =
     'VideoListingModules',
     'appDirectiveModule',
     'UserModules',
+    'RatingModules',
     'appFactoriesModule',
     'ui.router',
     'ngCookies',
@@ -28,8 +30,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
             })
             .state('/rated-trailers', {
                 url: '/rated-trailers',
-                templateUrl: '../public/templates/rated-trailers.html'
-                // controller: 'VideoListingController as vm'
+                templateUrl: '../public/templates/rated-trailers.html',
+                controller: 'RatedVideosController as vm'
             });
     }
 ]);
