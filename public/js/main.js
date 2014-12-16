@@ -43,10 +43,10 @@ app.constant('apiKeys', {
 
 //node api urls
 app.constant('trailerParkeApi', {
-    userRegistration: 'http://localhost:1337/api/register',
-    userLogin: 'http://localhost:1337/auth/login',
-    userById: 'http://localhost:1337/api/user',
-    updateUserTrailers: 'http://localhost:1337/api/user/updateTrailers'
+    userRegistration: 'https://trailer-parke.herokuapp.com/api/register',
+    userLogin: 'https://trailer-parke.herokuapp.com/auth/login',
+    userById: 'https://trailer-parke.herokuapp.com/api/user',
+    updateUserTrailers: 'https://trailer-parke.herokuapp.com/api/user/updateTrailers'
 });
 ;(function() {
     var app = angular.module('HeaderControllerModule', ['UserFactoryModule', 'ngCookies']);
